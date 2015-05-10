@@ -6,6 +6,7 @@
         {{ stylesheet_link('vendors/animate-css/animate.min.css') }}
         {{ stylesheet_link('vendors/sweet-alert/sweet-alert.min.css') }}
         {{ stylesheet_link('css/app.min.css') }}
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 	</head>
 	    <body>
         <header id="header">
