@@ -6,6 +6,7 @@
         <?php echo $this->tag->stylesheetLink('vendors/animate-css/animate.min.css'); ?>
         <?php echo $this->tag->stylesheetLink('vendors/sweet-alert/sweet-alert.min.css'); ?>
         <?php echo $this->tag->stylesheetLink('css/app.min.css'); ?>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 	</head>
 	    <body>
         <header id="header">

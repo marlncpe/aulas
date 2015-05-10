@@ -79,3 +79,39 @@ $di->set('session', function () {
 
     return $session;
 });
+
+
+
+/**
+* Register the flash service with custom CSS classes
+*/
+$di->set('flash', function()
+{
+    return new Phalcon\Flash\Direct(array(
+        'error' => 'alert alert-error',
+        'success' => 'alert alert-success',
+        'notice' => 'alert alert-info'
+        )
+    );
+});
+
+/**
+* Registramos el gestor de eventos
+*/
+$di->set('dispatcher', function() use ($di) 
+{
+
+    $eventsManager = $di->getShared('eventsManager');
+
+    $roles = new Roles($di);
+
+    /**
+    * Escuchamos eventos en el componente dispatcher usando el plugin Roles
+    */
+    $eventsManager->attach('dispatch', $roles);
+
+    $dispatcher = new Phalcon\Mvc\Dispatcher();
+    $dispatcher->setEventsManager($eventsManager);
+
+    return $dispatcher;
+});
