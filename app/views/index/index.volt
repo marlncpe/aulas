@@ -4,7 +4,7 @@
             <div class="input-group m-b-20">
                 <span class="input-group-addon"><i class="md md-person"></i></span>
                 <div class="fg-line">
-                    <input type="text" class="form-control" placeholder="Usuario">
+                    <input type="text" class="form-control" placeholder="Usuario" autofocus>
                 </div>
             </div>
             
@@ -82,13 +82,24 @@
             <div class="input-group m-b-20">
                 <span class="input-group-addon"><i class="md md-format-list-bulleted"></i></span>
                 <div class="fg-line">
-                    <select class="form-control">
+                    <?php 
+                        echo $this->tag->select(
+                        array(
+                            "vpds",
+                            Vpds::find(),
+                            "using" => array("id", "nombre"),
+                            "class" => "form-control",
+                            )
+                        );
+                        ?>
+                        
+                    <!--<select class="form-control">
                         <option>Seleccione Vicerrectorado</option>
                         <option>Planificación y Desarrollo Regional (Apure)</option>
                         <option>Planificación y Desarrollo Social (Barinas)</option>
                         <option>Infraestructura y Procesos Industriales (San Carlos)</option>
                         <option>Produccion Agricola (Guanare)</option>
-                    </select>
+                    </select>-->
                 </div>
             </div>
             
