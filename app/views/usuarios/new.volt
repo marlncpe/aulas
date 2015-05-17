@@ -47,14 +47,14 @@
             {{ text_field("id_vpds", "type" : "numeric") }}
         </td>
     </tr>
-    <tr>
+    <!--<tr>
         <td align="right">
             <label for="id_permiso">Id Of Permiso</label>
         </td>
         <td align="left">
             {{ text_field("id_permiso", "type" : "numeric") }}
         </td>
-    </tr>
+    </tr>-->
     <tr>
         <td align="right">
             <label for="nomb_usuario">Nomb Of Usuario</label>
@@ -87,7 +87,7 @@
             {{ text_field("telefono", "size" : 30) }}
         </td>
     </tr>
-    <tr>
+    <!--<tr>
         <td align="right">
             <label for="fecha_creacion">Fecha Of Creacion</label>
         </td>
@@ -110,7 +110,7 @@
         <td align="left">
             {{ text_field("id_estado", "type" : "numeric") }}
         </td>
-    </tr>
+    </tr>-->
 
     <tr>
         <td></td>

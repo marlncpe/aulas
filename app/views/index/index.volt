@@ -35,74 +35,68 @@
         
         <!-- Register -->
         <div class="lc-block" id="l-register">
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-person"></i></span>
-                <div class="fg-line">
-                    <input type="text" class="form-control" placeholder="Nombres">
+            {{ form("usuarios/create", "method":"post") }}
+                <div class="input-group m-b-20">
+                    <span class="input-group-addon"><i class="md md-person"></i></span>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="Nombres" name="nombres">
+                    </div>
                 </div>
-            </div>
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-person"></i></span>
-                <div class="fg-line">
-                    <input type="text" class="form-control" placeholder="Apellidos">
+                <div class="input-group m-b-20">
+                    <span class="input-group-addon"><i class="md md-person"></i></span>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="Apellidos" name="apellidos">
+                    </div>
                 </div>
-            </div>
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-person"></i></span>
-                <div class="fg-line">
-                    <input type="text" class="form-control" placeholder="Cedula">
+                <div class="input-group m-b-20">
+                    <span class="input-group-addon"><i class="md md-person"></i></span>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="Cedula" name="cedula">
+                    </div>
                 </div>
-            </div>
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-person"></i></span>
-                <div class="fg-line">
-                    <input type="text" class="form-control" placeholder="Nombre de Usuario">
+                <div class="input-group m-b-20">
+                    <span class="input-group-addon"><i class="md md-person"></i></span>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="Nombre de Usuario" name="nomb_usuario">
+                    </div>
                 </div>
-            </div>
-            
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-mail"></i></span>
-                <div class="fg-line">
-                    <input type="text" class="form-control" placeholder="Correo Electronico">
+                
+                <div class="input-group m-b-20">
+                    <span class="input-group-addon"><i class="md md-mail"></i></span>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="Correo Electronico" name="correo">
+                    </div>
                 </div>
-            </div>
-            
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-lock"></i></span>
-                <div class="fg-line">
-                    <input type="password" class="form-control" placeholder="Contraseña">
+                
+                <div class="input-group m-b-20">
+                    <span class="input-group-addon"><i class="md md-lock"></i></span>
+                    <div class="fg-line">
+                        <input type="password" class="form-control" placeholder="Contraseña" name="contraseña">
+                    </div>
                 </div>
-            </div>
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-phone"></i></span>
-                <div class="fg-line">
-                    <input type="text" class="form-control" placeholder="Telefono">
+                <div class="input-group m-b-20">
+                    <span class="input-group-addon"><i class="md md-phone"></i></span>
+                    <div class="fg-line">
+                        <input type="text" class="form-control" placeholder="Telefono" name="telefono">
+                    </div>
                 </div>
-            </div>
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-format-list-bulleted"></i></span>
-                <div class="fg-line">
-                    <?php 
-                        echo $this->tag->select(
-                        array(
-                            "vpds",
-                            Vpds::find(),
-                            "using" => array("id", "nombre"),
-                            "class" => "form-control",
-                            )
-                        );
-                        ?>
-                        
-                    <!--<select class="form-control">
-                        <option>Seleccione Vicerrectorado</option>
-                        <option>Planificación y Desarrollo Regional (Apure)</option>
-                        <option>Planificación y Desarrollo Social (Barinas)</option>
-                        <option>Infraestructura y Procesos Industriales (San Carlos)</option>
-                        <option>Produccion Agricola (Guanare)</option>
-                    </select>-->
+                <div class="input-group m-b-20">
+                    <span class="input-group-addon"><i class="md md-format-list-bulleted"></i></span>
+                    <div class="fg-line">
+                        <?php 
+                            echo $this->tag->select(
+                            array(
+                                "id_vpds",
+                                Vpds::find(),
+                                "using" => array("id", "nombre"),
+                                "class" => "form-control",
+                                )
+                            );
+                            ?>
+                    </div>
                 </div>
-            </div>
-            
+                {{ submit_button("Registrar", 'class': 'btn btn-primary btn-large') }}
+            </form>
             <div class="clearfix"></div>
             
             <!--<div class="checkbox">
@@ -113,7 +107,7 @@
                 </label>
             </div>-->
             
-            <a href="" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>
+            <!--<a href="" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>-->
             
             <ul class="login-navigation">
                 <li data-block="#l-login" class="bgm-green">Iniciar Sesión</li>

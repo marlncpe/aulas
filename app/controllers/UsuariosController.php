@@ -119,14 +119,14 @@ class UsuariosController extends ControllerBase
         $usuario->nombres = $this->request->getPost("nombres");
         $usuario->apellidos = $this->request->getPost("apellidos");
         $usuario->id_vpds = $this->request->getPost("id_vpds");
-        $usuario->id_permiso = $this->request->getPost("id_permiso");
+        $usuario->id_permiso = "4";
         $usuario->nomb_usuario = $this->request->getPost("nomb_usuario");
         $usuario->contraseña = $this->request->getPost("contraseña");
         $usuario->correo = $this->request->getPost("correo");
         $usuario->telefono = $this->request->getPost("telefono");
-        $usuario->fecha_creacion = $this->request->getPost("fecha_creacion");
-        $usuario->fecha_modificacion = $this->request->getPost("fecha_modificacion");
-        $usuario->id_estado = $this->request->getPost("id_estado");
+        $usuario->fecha_creacion = date("d-m-Y");
+        $usuario->fecha_modificacion = " ";
+        $usuario->id_estado = "1";
         
 
         if (!$usuario->save()) {
@@ -135,12 +135,12 @@ class UsuariosController extends ControllerBase
             }
 
             return $this->dispatcher->forward(array(
-                "controller" => "usuarios",
-                "action" => "new"
+                "controller" => "index",
+                "action" => "index"
             ));
         }
 
-        $this->flash->success("usuario was created successfully");
+        $this->flash->success("usuario Fue creado Satifactoriamente");
 
         return $this->dispatcher->forward(array(
             "controller" => "usuarios",
