@@ -1,6 +1,6 @@
    <body class="login-content">
         <!-- Login -->
-        <div class="lc-block toggled" id="l-login">
+        <div class="lc-block toggled" id="">
             <div class="input-group m-b-20">
                 <span class="input-group-addon"><i class="md md-person"></i></span>
                 <div class="fg-line">
@@ -31,6 +31,7 @@
                 <li data-block="#l-register" class="bgm-red">Registrate</li>
                 <li data-block="#l-forget-password" class="bgm-orange">Olvido su Contraseña?</li>
             </ul>
+            {{ content() }}
         </div>
         
         <!-- Register -->

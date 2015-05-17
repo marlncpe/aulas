@@ -85,12 +85,12 @@ class Usuarios extends \Phalcon\Mvc\Model
      * Initialize method for model.
      */
     public function initialize()
-    {/*
+    {
         $this->hasMany('id', 'Aulas', 'id_usuario', array('alias' => 'Aulas'));
         $this->hasMany('id', 'Bitacora', 'id_usuario', array('alias' => 'Bitacora'));
         $this->belongsTo('id_vpds', 'Vpds', 'id', array('alias' => 'Vpds'));
         $this->belongsTo('id_permiso', 'Permisos', 'id', array('alias' => 'Permisos'));
-        $this->belongsTo('id_estado', 'Estado', 'id', array('alias' => 'Estado'));*/
+        $this->belongsTo('id_estado', 'Estado', 'id', array('alias' => 'Estado'));
     }
 
     /**

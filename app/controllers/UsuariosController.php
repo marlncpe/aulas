@@ -108,7 +108,7 @@ class UsuariosController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "usuarios",
+                "controller" => "index",
                 "action" => "index"
             ));
         }
@@ -134,19 +134,18 @@ class UsuariosController extends ControllerBase
                 $this->flash->error($message);
             }
 
-            return $this->dispatcher->forward(array(
+        /*    return $this->dispatcher->forward(array(
                 "controller" => "index",
                 "action" => "index"
-            ));
+            ));*/
         }
-
-        $this->flash->success("usuario Fue creado Satifactoriamente");
-
+        
+        echo "<script>alert('Usuario creado con exito!')</script>";
+        
         return $this->dispatcher->forward(array(
-            "controller" => "usuarios",
+            "controller" => "index",
             "action" => "index"
         ));
-
     }
 
     /**
