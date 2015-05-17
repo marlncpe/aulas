@@ -50,8 +50,7 @@ class Roles extends Plugin
 			//zonas protegidas sólo para usuarios registrados de la aplicación
 			$registeredAreas = array(
 				'dashboard' => array('index'),
-				'profile' => array('index', 'edit'),
-				'aulas'	=> array('create' ,'edit','' )
+				'profile' => array('index', 'edit')
 			);
 			
 			//añadimos las zonas para usuarios registrados a los recursos de la aplicación
@@ -63,7 +62,12 @@ class Roles extends Plugin
 			//zonas públicas de la aplicación
 			$publicAreas = array(
 				'index' => array('index', 'register', 'login', 'end'),
-				'aulas' => array('index','search' )
+				'aulas'	=> array('create' ,'edit','search' ),
+				'usuarios'	=> array('create' ,'search' ),
+				'vpds'	=> array('create' ,'search' ),
+				'materia' => array('create','search'),
+				'estado' => array('create','search'),
+				'periodo' => array('create','search')
 			);
 
 			//añadimos las zonas públicas a los recursos de la aplicación

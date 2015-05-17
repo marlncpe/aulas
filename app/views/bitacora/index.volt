@@ -5,10 +5,10 @@
     {{ link_to("bitacora/new", "Create bitacora") }}
 </div>
 
-{{ form("bitacora/search", "method":"post", "autocomplete" : "off") }}
+{{ form("bitacora/search", "method":"post", "autocomplete" : "def") }}
 
 <div align="center">
-    <h1>Search bitacora</h1>
+    <h1>buscar bitacora</h1>
 </div>
 
 <table>
@@ -22,7 +22,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="id_usuario">Id Of Usuario</label>
+            <label for="id_usuario">Id de Usuario</label>
         </td>
         <td align="left">
             {{ text_field("id_usuario", "type" : "numeric") }}
@@ -47,7 +47,7 @@
 
     <tr>
         <td></td>
-        <td>{{ submit_button("Search") }}</td>
+        <td>{{ submit_button("buscar") }}</td>
     </tr>
 </table>
 

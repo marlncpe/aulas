@@ -3,19 +3,19 @@
 
 <table width="100%">
     <tr>
-        <td align="left">{{ link_to("bitacora", "Go Back") }}</td>
-        <td align="right">{{ submit_button("Save") }}</td>
+        <td align="left">{{ link_to("bitacora", "Atras") }}</td>
+        <td align="right">{{ submit_button("Guardar") }}</td>
     </tr>
 </table>
 
 <div align="center">
-    <h1>Edit bitacora</h1>
+    <h1>Editar bitacora</h1>
 </div>
 
 <table>
     <tr>
         <td align="right">
-            <label for="id_usuario">Id Of Usuario</label>
+            <label for="id_usuario">Id de Usuario</label>
         </td>
         <td align="left">
             {{ text_field("id_usuario", "type" : "numeric") }}
@@ -40,7 +40,7 @@
 
     <tr>
         <td>{{ hidden_field("id") }}</td>
-        <td>{{ submit_button("Save") }}</td>
+        <td>{{ submit_button("guardar") }}</td>
     </tr>
 </table>
 

@@ -5,7 +5,7 @@ bower_components/
 build/
 dist/
 app/config/config.php
-app/cache
+app/cache/*.*
 
 public/css/bootstrap/bootstrap-responsive.min.css
 public/css/bootstrap/bootstrap.min.css
