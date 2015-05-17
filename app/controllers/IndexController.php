@@ -10,9 +10,10 @@ class IndexController extends ControllerBase
     public function adminAction()
     {
     	//creamos la sesión para el administrador
-    	$this->session->set("admin",true);
+    	echo $this->session->set("admin",true);
     	//creamos una sesión flash
     	$this->flash->success("La sesión de usuario administrador se ha creado correctamente");
+       
     	return $this->dispatcher->forward(array(
             "action" => "index"
         ));
@@ -31,7 +32,25 @@ class IndexController extends ControllerBase
 
     public function loginAction()
     {
-    	echo "index loginAction";
+        if ($this->request->isPost()) {
+
+            $email = $this->request->getPost('email');
+            $password = $this->request->getPost('password');
+
+            $user = Users::findFirst(array(
+                "(email = :email: OR username = :email:) AND password = :password: AND active = 'Y'",
+                'bind' => array('email' => $email, 'password' => sha1($password))
+            ));
+            if ($user != false) {
+                $this->_registerSession($user);
+                $this->flash->success('Welcome ' . $user->name);
+                return $this->forward('invoices/index');
+            }
+
+            $this->flash->error('Wrong email/password');
+        }
+
+        return $this->forward('session/index');
     }
 
     public function registerAction()

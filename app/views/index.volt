@@ -6,10 +6,10 @@
         {{ stylesheet_link('vendors/animate-css/animate.min.css') }}
         {{ stylesheet_link('vendors/sweet-alert/sweet-alert.min.css') }}
         {{ stylesheet_link('css/app.min.css') }}
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
 	</head>
 	    <body>
-        <header id="header">
+  <!--      <header id="header">
             <ul class="header-inner">
                 <li id="menu-trigger" data-trigger="#sidebar">
                     <div class="line-wrap">
@@ -38,13 +38,12 @@
                 </ul>
 
             
-            <!-- Top Search Content -->
             <div id="top-search-wrap">
                 <input type="text">
                 <i id="top-search-close">&times;</i>
             </div>
         </header>
-        
+    
         
         <section id="main">
             <aside id="sidebar">
@@ -111,7 +110,8 @@
                 </div>
             </aside>
         </section>
-		{{ content() }}
+		-->
+        {{ content() }}
 		{{ javascript_include('js/jquery-2.1.1.min.js') }}
         {{ javascript_include('js/bootstrap.min.js') }}
         {{ javascript_include('vendors/flot/jquery.flot.min.js') }}
