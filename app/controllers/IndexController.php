@@ -5,12 +5,11 @@ class IndexController extends ControllerBase
 
     public function indexAction()
     {
-
     }
     public function adminAction()
     {
     	//creamos la sesión para el administrador
-    	echo $this->session->set("admin",true);
+    	$this->session->set("admin",true);
     	//creamos una sesión flash
     	$this->flash->success("La sesión de usuario administrador se ha creado correctamente");
        
@@ -32,6 +31,8 @@ class IndexController extends ControllerBase
 
     public function loginAction()
     {
+
+        /*
         if ($this->request->isPost()) {
 
             $email = $this->request->getPost('email');
@@ -50,7 +51,7 @@ class IndexController extends ControllerBase
             $this->flash->error('Wrong email/password');
         }
 
-        return $this->forward('session/index');
+        return $this->forward('session/index');*/
     }
 
     public function registerAction()
