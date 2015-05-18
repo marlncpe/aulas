@@ -36,7 +36,7 @@ class AulasController extends ControllerBase
 
         $aulas = Aulas::find($parameters);
         if (count($aulas) == 0) {
-            $this->flash->notice("The search did not find any aulas");
+            $this->flash->notice("La busqueda no devolvio resultados satifactorios");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",

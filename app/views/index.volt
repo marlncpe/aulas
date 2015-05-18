@@ -41,11 +41,14 @@
                           
                         </ul>
 
-                    
-                    <div id="top-search-wrap">
-                        <input type="text">
-                        <i id="top-search-close">&times;</i>
-                    </div>
+                        
+                        {{ form("aulas/search", "method":"post", "autocomplete" : "def") }}
+                            <div id="top-search-wrap">
+                                <input type="text">
+                                <i id="top-search-close">&times;</i>
+                                {{ submit_button("Buscar", 'class':'btn btn-info') }}
+                            </div>
+                        </form>
                 </header>
             
                 <section id="main">
