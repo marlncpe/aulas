@@ -2,18 +2,22 @@
  
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
+use Aulas\Models\Materias;
 
 class AulasController extends ControllerBase
 {
-
     /**
      * Index action
      */
     public function indexAction()
     {
-        $this->persistent->parameters = null;
+        $this->persistent->parameters = null;       
+        $aulasActivas = Aulas::find("id_estado=1");
+        $aulasSinAsignar = Aulas::find("id_estado=5");
+        $this->view->aulasActivas = $aulasActivas; 
+        $this->view->aulasSinAsignar = $aulasSinAsignar; 
     }
-
+    
     /**
      * Searches for aulas
      */
@@ -36,7 +40,7 @@ class AulasController extends ControllerBase
 
         $aulas = Aulas::find($parameters);
         if (count($aulas) == 0) {
-            $this->flash->notice("The search did not find any aulas");
+            $this->flash->notice("La busqueda no devolvio resultados satifactorios");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -118,35 +122,33 @@ class AulasController extends ControllerBase
         $aula->setIdPeriodo($this->request->getPost("id_periodo"));
         $aula->setIdMateria($this->request->getPost("id_materia"));
         $aula->setIdUsuario($this->request->getPost("id_usuario"));
-        $aula->setIdEstado($this->request->getPost("id_estado"));
+        $aula->setIdEstado("6");
         $aula->setCatnAlumnos($this->request->getPost("catn_alumnos"));
         $aula->setUrlAcademica($this->request->getPost("url_academica"));
         $aula->setUrlProgramatico($this->request->getPost("url_programatico"));
         $aula->setUrlActividades($this->request->getPost("url_actividades"));
-        $aula->setFechaInicio($this->request->getPost("fecha_inicio"));
-        $aula->setFechaFin($this->request->getPost("fecha_fin"));
-        $aula->setFechaCreacion($this->request->getPost("fecha_creacion"));
-        $aula->setFechaModificacion($this->request->getPost("fecha_modificacion"));
+        $aula->setFechaInicio(" ");
+        $aula->setFechaFin(" ");
+        $aula->setFechaCreacion(date("d-m-Y"));
+        $aula->setFechaModificacion(" ");
         
+
 
         if (!$aula->save()) {
             foreach ($aula->getMessages() as $message) {
                 $this->flash->error($message);
             }
 
+            $this->flash->success("El Aula no ha sido creado satifactoriamente");
+        }else{
+
+            $this->flash->success("El Aula ha sido creado satifactoriamente");
+
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
-                "action" => "new"
+                "action" => "index"
             ));
         }
-
-        $this->flash->success("aula was created successfully");
-
-        return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "index"
-        ));
-
     }
 
     /**
