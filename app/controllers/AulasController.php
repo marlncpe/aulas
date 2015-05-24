@@ -2,18 +2,22 @@
  
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
+use Aulas\Models\Materias;
 
 class AulasController extends ControllerBase
 {
-
     /**
      * Index action
      */
     public function indexAction()
     {
-        $this->persistent->parameters = null;
+        $this->persistent->parameters = null;       
+        $aulasActivas = Aulas::find("id_estado=1");
+        $aulasSinAsignar = Aulas::find("id_estado=5");
+        $this->view->aulasActivas = $aulasActivas; 
+        $this->view->aulasSinAsignar = $aulasSinAsignar; 
     }
-
+    
     /**
      * Searches for aulas
      */

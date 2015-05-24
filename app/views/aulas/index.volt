@@ -1,11 +1,11 @@
 
-{{ content() }}
-<!--
-<div align="right">
-    {{ link_to("aulas/new", "Crear aulas") }}
-</div>
--->
-
+                {{ content() }}
+                <!--
+                <div align="right">
+                    {{ link_to("aulas/new", "Crear aulas") }}
+                </div>
+                {{ dump(aulasActivas) }}
+                -->
                 <div class="container">
                    <br />                   
                     <div class="col-sm-12">
@@ -40,16 +40,20 @@
                                        
                                        
                                         <div class="row">
+                                            
+                                        {% for aulaSA in aulasSinAsignar %}
                                             <div class="col-sm-6 col-md-3">
-                                                <div class="mini-charts-item bgm-cyan">
-                                                    <div class="clearfix">    
+                                                <div class="mini-charts-item bgm-yellow">
+                                                    <div class="clearfix">
+                                                        <!--<div class="chart stats-bar"><canvas height="45" width="83" style="display: inline-block; width: 83px; height: 45px; vertical-align: top;"></canvas></div>-->
                                                         <div class="count">
-                                                            <small>Programa</small>
-                                                            <h2>Nombre_Aula</h2>
+                                                            <small>{{ aulaSA.usuarios.nombres }}</small>
+                                                            <h2>{{ aulaSA.materia.nombre }}</h2>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>    
+                                        {% endfor %}
                                             
                                         </div>
                     
@@ -59,18 +63,19 @@
                                     <div role="tabpanel" class="tab-pane animated fadeIn active" id="tab-2">
                                         
                                         <div class="row">
-                                            
+                                        {% for aula in aulasActivas %}
                                             <div class="col-sm-6 col-md-3">
-                                                <div class="mini-charts-item bgm-cyan">
+                                                <div class="mini-charts-item bgm-green">
                                                     <div class="clearfix">
-                                                        <div class="chart stats-bar"><canvas height="45" width="83" style="display: inline-block; width: 83px; height: 45px; vertical-align: top;"></canvas></div>
+                                                        <!--<div class="chart stats-bar"><canvas height="45" width="83" style="display: inline-block; width: 83px; height: 45px; vertical-align: top;"></canvas></div>-->
                                                         <div class="count">
-                                                            <small>Website Traffics</small>
-                                                            <h2>987,459</h2>
+                                                            <small>{{ aula.usuarios.nombres }}</small>
+                                                            <h2>{{ aula.materia.nombre }}</h2>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>    
+                                        {% endfor %}
                                         </div>
 
                                     </div>
