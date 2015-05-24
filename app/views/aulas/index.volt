@@ -81,88 +81,67 @@
                                     </div>
                                     
                                     <div role="tabpanel" class="tab-pane animated fadeIn" id="tab-3">
-                                        
-                                        <!-- Form -->   
-                                        <!--<form>
-                                            <div class="card-header ch-alt">
-                                                <h2>Sample Form <small>Pellentesque ac lectus sed elit dictum vehicula</small></h2>
-                                            </div>
+                                        <div class="card-header ch-alt">
+                                            <h2>Solicitud de Aula <small>Subtitulo lorem ipsu lorem ipsu lorem ipsu</small></h2>
+                                        </div>
                                             
-                                            <div class="card-body card-padding">
-                                                <div class="form-group fg-float">
-                                                    <div class="fg-line">
-                                                        <input class="form-control" type="email">
-                                                    </div>
-                                                    <label class="fg-label">Name</label>
-                                                </div>
+                                        {{ form("aulas/create", "method":"post") }}
 
-                                                <div class="form-group fg-float">
-                                                    <div class="fg-line">
-                                                        <input class="form-control" type="email">
-                                                    </div>
-                                                    <label class="fg-label">Email address</label>
-                                                </div>
-
-                                                <div class="form-group fg-float">
-                                                    <div class="fg-line">
-                                                        <input class="form-control" type="email">
-                                                    </div>
-                                                    <label class="fg-label">Contact Number</label>
-                                                </div>
-
-                                                <div class="form-group fg-float">
-                                                    <div class="fg-line">
-                                                        <textarea style="overflow: hidden; word-wrap: break-word; height: 50px;" class="form-control auto-size"></textarea>
-                                                    </div>
-                                                    <label class="fg-label">Message</label>
-                                                </div>
-                                                
-                                                <button class="btn btn-info waves-effect">Submit</button>
-                                                <button class="btn btn-link waves-effect">Cancel</button>
-                                            </div>
-                                        </form>-->
-
-                                            <div class="card-header ch-alt">
-                                                <h2>Solicitud de Aula <small>Subtitulo lorem ipsu lorem ipsu lorem ipsu</small></h2>
-                                            </div>
-                                            
-                                            {{ form("aulas/create", "method":"post") }}
-
-                                            {{ content() }}
+                                   
 
                                             <div class="card-body card-padding">
                                            
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
-                                                        {{ text_field("id_periodo", 'class':'form-control',"type" : "numeric") }}
+                                                        <?php 
+                                                            echo $this->tag->select(
+                                                            array(
+                                                                "id_periodo",
+                                                                Periodo::find(),
+                                                                "using" => array("id", "nombre"),
+                                                                "class" => "form-control",
+                                                                )
+                                                            );
+                                                        ?>
                                                     </div>
                                                     <label class="fg-label">Periodo</label>
                                                 </div>
 
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
-                                                        {{ text_field("id_materia", 'class':'form-control',"type" : "numeric") }}
+                                                        <?php 
+                                                            echo $this->tag->select(
+                                                            array(
+                                                                "id_materia",
+                                                                Materia::find(),
+                                                                "using" => array("id", "nombre"),
+                                                                "class" => "form-control",
+                                                                )
+                                                            );
+                                                        ?>
                                                     </div>
                                                     <label class="fg-label">Materia</label>
                                                 </div>
 
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
-                                                        {{ text_field("id_usuario", 'class':'form-control',"type" : "numeric") }}
+                                                        <?php 
+                                                            echo $this->tag->select(
+                                                            array(
+                                                                "id_usuario",
+                                                                Usuarios::find(),
+                                                                "using" => array("id", "nombres"),
+                                                                "class" => "form-control",
+                                                                )
+                                                            );
+                                                        ?>
                                                     </div>
                                                     <label class="fg-label">Usuario</label>
                                                 </div>
 
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
-                                                        {{ text_field("id_estado", 'class':'form-control',"type" : "numeric") }}
-                                                    </div>
-                                                    <label class="fg-label">Estado</label>
-                                                </div>
-
-                                                <div class="form-group fg-float">
-                                                    <div class="fg-line">
-                                                        {{ text_field("cant_alumnos", 'class':'form-control',"type" : "numeric") }}
+                                                        {{ text_field("catn_alumnos", 'class':'form-control',"type" : "numeric") }}
                                                     </div>
                                                     <label class="fg-label">Cantidad de Alumnos</label>
                                                 </div>
@@ -187,7 +166,7 @@
                                                     </div>
                                                     <label class="fg-label">URL Actividades</label>
                                                 </div>
-
+                                                <!--
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
                                                         {{ text_field("fecha_inicio", 'class':'form-control',"type" : "numeric") }}
@@ -201,7 +180,7 @@
                                                     </div>
                                                     <label class="fg-label">Fecha fin</label>
                                                 </div>
-
+                                                -->
 
                                             </div>
                                             {{ submit_button("Enviar Solicitud", 'class':'btn btn-info') }}
