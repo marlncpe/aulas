@@ -67,7 +67,8 @@ class Roles extends Plugin
 				'vpds'	=> array('create' ,'search' ),
 				'materia' => array('create','search'),
 				'estado' => array('create','search'),
-				'periodo' => array('create','search')
+				'periodo' => array('create','search'),
+				'session' => array('start')
 			);
 
 			//añadimos las zonas públicas a los recursos de la aplicación
