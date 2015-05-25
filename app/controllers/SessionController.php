@@ -25,6 +25,16 @@ class SessionController extends ControllerBase
             'name' => $user->nombres,
             'estado' => $user->estado->nombre
         ));
+
+        if($user->permisos->nombre == "superadmin"){
+            $this->session->set('superadmin',true);
+        }elseif($user->permisos->nombre == "admin"){
+            $pru= $this->session->set('admin',true); 
+        }elseif($user->permisos->nombre == "secretaria"){
+            $this->session->set('secretaria',true);
+        }elseif($user->permisos->nombre == "profesor") {
+            $this->session->set('profesor',true);
+        }
     }
 
     /**
@@ -38,6 +48,7 @@ class SessionController extends ControllerBase
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
 
+            print $this->session->get('secretaria');
             $user = Usuarios::findFirst(array(
            	"(correo = :email: OR nomb_usuario = :email:) AND clave = :password: AND id_estado = '1'",
            	'bind' => array('email' => $email, 'password' => $password)// => sha1($password))
@@ -65,7 +76,7 @@ class SessionController extends ControllerBase
      */
     public function endAction()
     {
-        $this->session->remove('auth');
+         $this->session->destroy();
         return $this->dispatcher->forward(array(
             "controller" => "index",
             "action" => "index"
