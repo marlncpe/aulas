@@ -1,37 +1,42 @@
+  
    <body class="login-content">
         <!-- Login -->
         <div class="lc-block toggled" id="">
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-person"></i></span>
-                <div class="fg-line">
-                    <input type="text" class="form-control" placeholder="Usuario" autofocus>
-                </div>
-            </div>
-            
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-lock"></i></span>
-                <div class="fg-line">
-                    <input type="password" class="form-control" placeholder="Contrseña">
-                </div>
-            </div>
-            
-            <div class="clearfix"></div>
-            
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" value="">
-                    <i class="input-helper"></i>
-                    Recordar mi Contraseña
-                </label>
-            </div>
-            
-            <a href="" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>
-            
-            <ul class="login-navigation">
-                <li data-block="#l-register" class="bgm-red">Registrate</li>
-                <li data-block="#l-forget-password" class="bgm-orange">Olvido su Contraseña?</li>
-            </ul>
+            {{ form('session/start', 'role': 'form', 'method':'post' ) }}
             {{ content() }}
+                <div class="input-group m-b-20">
+                    <span class="input-group-addon"><i class="md md-person"></i></span>
+                    <div class="fg-line">
+                        <input type="text" name="email" class="form-control" placeholder="Usuario" autofocus>
+                    </div>
+                </div>
+                
+                <div class="input-group m-b-20">
+                    <span class="input-group-addon"><i class="md md-lock"></i></span>
+                    <div class="fg-line">
+                        <input type="password" name="password" class="form-control" placeholder="Contrseña">
+                    </div>
+                </div>
+                
+                <div class="clearfix"></div>
+                
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="">
+                        <i class="input-helper"></i>
+                        Recordar mi Contraseña
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-login btn-danger btn-float">
+                    <i class="md md-arrow-forward"></i>
+                </button>
+
+                <ul class="login-navigation">
+                    <li data-block="#l-register" class="bgm-red">Registrate</li>
+                    <li data-block="#l-forget-password" class="bgm-orange">Olvido su Contraseña?</li>
+                </ul>
+            </form>
         </div>
         
         <!-- Register -->

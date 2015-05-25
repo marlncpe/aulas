@@ -38,7 +38,13 @@ class Roles extends Plugin
 
 			//zonas accesibles sólo para role admin
 			$adminAreas = array(
-				'admin' => array('index', 'save')
+				'dashboard' => array('index'),
+				'profile' => array('index', 'edit'),
+				'vpds'	=> array('create' ,'search' ),
+				'materia' => array('create','search'),
+				'estado' => array('create','search'),
+				'aulas' => array('create','search','index','edit','update'),
+				'periodo' => array('create','search')
 			);
 
 			//añadimos las zonas de administrador a los recursos de la aplicación
@@ -50,7 +56,12 @@ class Roles extends Plugin
 			//zonas protegidas sólo para usuarios registrados de la aplicación
 			$registeredAreas = array(
 				'dashboard' => array('index'),
-				'profile' => array('index', 'edit')
+				'profile' => array('index', 'edit'),
+				'vpds'	=> array('create' ,'search' ),
+				'materia' => array('create','search'),
+				'estado' => array('create','search'),
+				'aulas' => array('create','search'),
+				'periodo' => array('create','search')
 			);
 			
 			//añadimos las zonas para usuarios registrados a los recursos de la aplicación
@@ -61,13 +72,9 @@ class Roles extends Plugin
 
 			//zonas públicas de la aplicación
 			$publicAreas = array(
-				'index' => array('index', 'register', 'login', 'end'),
-				'aulas'	=> array('create' ,'edit','search' ),
+				'index' => array('index'),
 				'usuarios'	=> array('create' ,'search' ),
-				'vpds'	=> array('create' ,'search' ),
-				'materia' => array('create','search'),
-				'estado' => array('create','search'),
-				'periodo' => array('create','search')
+				'session' => array('start')
 			);
 
 			//añadimos las zonas públicas a los recursos de la aplicación

@@ -90,7 +90,7 @@ class UsuariosController extends ControllerBase
             $this->tag->setDefault("id_vpds", $usuario->id_vpds);
             $this->tag->setDefault("id_permiso", $usuario->id_permiso);
             $this->tag->setDefault("nomb_usuario", $usuario->nomb_usuario);
-            $this->tag->setDefault("contraseña", $usuario->contraseña);
+            $this->tag->setDefault("clave", $usuario->clave);
             $this->tag->setDefault("correo", $usuario->correo);
             $this->tag->setDefault("telefono", $usuario->telefono);
             $this->tag->setDefault("fecha_creacion", $usuario->fecha_creacion);
@@ -121,7 +121,7 @@ class UsuariosController extends ControllerBase
         $usuario->id_vpds = $this->request->getPost("id_vpds");
         $usuario->id_permiso = "4";
         $usuario->nomb_usuario = $this->request->getPost("nomb_usuario");
-        $usuario->contraseña = $this->request->getPost("contraseña");
+        $usuario->clave = $this->request->getPost("clave");
         $usuario->correo = $this->request->getPost("correo");
         $usuario->telefono = $this->request->getPost("telefono");
         $usuario->fecha_creacion = date("d-m-Y");
@@ -180,7 +180,7 @@ class UsuariosController extends ControllerBase
         $usuario->id_vpds = $this->request->getPost("id_vpds");
         $usuario->id_permiso = $this->request->getPost("id_permiso");
         $usuario->nomb_usuario = $this->request->getPost("nomb_usuario");
-        $usuario->contraseña = $this->request->getPost("contraseña");
+        $usuario->clave = $this->request->getPost("clave");
         $usuario->correo = $this->request->getPost("correo");
         $usuario->telefono = $this->request->getPost("telefono");
         $usuario->fecha_creacion = $this->request->getPost("fecha_creacion");

@@ -68,7 +68,7 @@
             <label for="contraseña">Contraseña</label>
         </td>
         <td align="left">
-            {{ text_field("contraseña", "size" : 30) }}
+            {{ text_field("clave", "size" : 30) }}
         </td>
     </tr>
     <tr>

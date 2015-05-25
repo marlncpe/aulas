@@ -49,7 +49,7 @@ class Usuarios extends \Phalcon\Mvc\Model
      *
      * @var string
      */
-    protected $contraseña;
+    protected $clave;
 
     /**
      *
@@ -173,14 +173,14 @@ class Usuarios extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field contraseña
+     * Method to set the value of field clave
      *
-     * @param string $contraseña
+     * @param string $clave
      * @return $this
      */
-    public function setContraseña($contraseña)
+    public function setclave($clave)
     {
-        $this->contraseña = $contraseña;
+        $this->clave = $clave;
 
         return $this;
     }
@@ -321,13 +321,13 @@ class Usuarios extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field contraseña
+     * Returns the value of field clave
      *
      * @return string
      */
-    public function getContraseña()
+    public function getclave()
     {
-        return $this->contraseña;
+        return $this->clave;
     }
 
     /**
