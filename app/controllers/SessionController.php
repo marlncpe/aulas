@@ -22,7 +22,8 @@ class SessionController extends ControllerBase
     {
         $this->session->set('auth', array(
             'id' => $user->id,
-            'name' => $user->nombres
+            'name' => $user->nombres,
+            'estado' => $user->estado->nombre
         ));
     }
 
@@ -44,7 +45,7 @@ class SessionController extends ControllerBase
 
             if ($user != false) {
                 $this->_registerSession($user);
-                $this->flash->success('Bienvenido: ' . $user->nombres);
+                $this->flash->success('Bienvenido: ' . $user->apellidos. ", ".$user->nombres);
                 return $this->dispatcher->forward(array(
                 	"controller" => "aulas",
                 	"action" => "index"
@@ -54,7 +55,7 @@ class SessionController extends ControllerBase
             $this->flash->error('Wrong email/password');
         }
 
-        return $this->forward('session/index');
+        return $this->forward('index/index');
     }
 
     /**
@@ -65,7 +66,9 @@ class SessionController extends ControllerBase
     public function endAction()
     {
         $this->session->remove('auth');
-        $this->flash->success('Adios!');
-        return $this->forward('index/index');
+        return $this->dispatcher->forward(array(
+            "controller" => "index",
+            "action" => "index"
+        ));
     }
 }
