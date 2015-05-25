@@ -16,18 +16,18 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Id Of Periodo</th>
-            <th>Id Of Materia</th>
-            <th>Id Of Usuario</th>
-            <th>Id Of Estado</th>
-            <th>Catn Of Alumnos</th>
-            <th>Url Of Academica</th>
-            <th>Url Of Programatico</th>
-            <th>Url Of Actividades</th>
-            <th>Fecha Of Inicio</th>
-            <th>Fecha Of Fin</th>
-            <th>Fecha Of Creacion</th>
-            <th>Fecha Of Modificacion</th>
+            <th>Id de Periodo</th>
+            <th>Id de Materia</th>
+            <th>Id de Usuario</th>
+            <th>Id de Estado</th>
+            <th>Catn de Alumnos</th>
+            <th>Url de Academica</th>
+            <th>Url de Programatico</th>
+            <th>Url de Actividades</th>
+            <th>Fecha de Inicio</th>
+            <th>Fecha de Fin</th>
+            <th>Fecha de Creacion</th>
+            <th>Fecha de Modificacion</th>
          </tr>
     </thead>
     <tbody>
@@ -47,8 +47,8 @@
             <td>{{ aula.getFechaFin() }}</td>
             <td>{{ aula.getFechaCreacion() }}</td>
             <td>{{ aula.getFechaModificacion() }}</td>
-            <td>{{ link_to("aulas/edit/"~aula.getId(), "Edit") }}</td>
-            <td>{{ link_to("aulas/delete/"~aula.getId(), "Delete") }}</td>
+            <td>{{ link_to("aulas/edit/"~aula.getId(), "Editar") }}</td>
+            <td>{{ link_to("aulas/delete/"~aula.getId(), "Borrar") }}</td>
         </tr>
     {% endfor %}
     {% endif %}
@@ -58,10 +58,10 @@
             <td colspan="2" align="right">
                 <table align="center">
                     <tr>
-                        <td>{{ link_to("aulas/search", "First") }}</td>
-                        <td>{{ link_to("aulas/search?page="~page.before, "Previous") }}</td>
-                        <td>{{ link_to("aulas/search?page="~page.next, "Next") }}</td>
-                        <td>{{ link_to("aulas/search?page="~page.last, "Last") }}</td>
+                        <td>{{ link_to("aulas/search", "Primero") }}</td>
+                        <td>{{ link_to("aulas/search?page="~page.before, "Antes") }}</td>
+                        <td>{{ link_to("aulas/search?page="~page.next, "Sigiente") }}</td>
+                        <td>{{ link_to("aulas/search?page="~page.last, "Anterior") }}</td>
                         <td>{{ page.current~"/"~page.total_pages }}</td>
                     </tr>
                 </table>

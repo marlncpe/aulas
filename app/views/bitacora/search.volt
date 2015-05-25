@@ -4,10 +4,10 @@
 <table width="100%">
     <tr>
         <td align="left">
-            {{ link_to("bitacora/index", "Go Back") }}
+            {{ link_to("bitacora/index", "atras") }}
         </td>
         <td align="right">
-            {{ link_to("bitacora/new", "Create ") }}
+            {{ link_to("bitacora/new", "Crear ") }}
         </td>
     </tr>
 </table>
@@ -16,7 +16,7 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Id Of Usuario</th>
+            <th>Id de Usuario</th>
             <th>Accion</th>
             <th>Fecha</th>
          </tr>

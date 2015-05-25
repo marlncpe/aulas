@@ -3,8 +3,8 @@
 
 <table width="100%">
     <tr>
-        <td align="left">{{ link_to("bitacora", "Go Back") }}</td>
-        <td align="right">{{ submit_button("Save") }}</td>
+        <td align="left">{{ link_to("bitacora", "Atras") }}</td>
+        <td align="right">{{ submit_button("Guardar") }}</td>
     </tr>
 </table>
 
@@ -17,7 +17,7 @@
 <table>
     <tr>
         <td align="right">
-            <label for="id_usuario">Id Of Usuario</label>
+            <label for="id_usuario">Id de Usuario</label>
         </td>
         <td align="left">
             {{ text_field("id_usuario", "type" : "numeric") }}
@@ -42,7 +42,7 @@
 
     <tr>
         <td></td>
-        <td>{{ submit_button("Save") }}</td>
+        <td>{{ submit_button("Guardar") }}</td>
     </tr>
 </table>
 
