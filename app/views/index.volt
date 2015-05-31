@@ -42,9 +42,9 @@
                         </ul>
 
                         
-                        {{ form("aulas/buscar", "method":"post", "autocomplete" : "def") }}
+                        {{ form("aulas/search", "method":"post", "autocomplete" : "def") }}
                             <div id="top-search-wrap">
-                                <input type="text">
+                                <input type="text" placeholder="Buscar Materias con Aulas"name="aulas_materia_nombre">
                                 <i id="top-search-close">&times;</i>
                                 {{ submit_button("Buscar", 'class':'btn btn-info') }}
                             </div>

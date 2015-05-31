@@ -21,9 +21,32 @@ class AulasController extends ControllerBase
     *Profile of Aulas
     */
     public function profileAction($id){
+        if($id == "" ){
+            $this->flash->error("Error de busqueda por ID"); 
+            return $this->dispatcher->forward(array(
+                "controller" => "aulas",
+                "action" => "index"
+            ));
+        }else{
+            $aulaprofile = Aulas::findFirst("id='".$id."'");
+            $this->view->aulaprofile = $aulaprofile;
+        }
 
-        $aulaprofile = Aulas::findFirst("id='".$id."'");
-        $this->view->aulaprofile = $aulaprofile; 
+    }
+    /**
+    * Avanced search for aulas
+    */
+    public function avancedsearchAction()
+    {
+
+        if ($this->request->isPost()) {
+            $this->profileAction($this->request->getPost("buscamateria"));
+        }else{
+            return $this->dispatcher->forward(array(
+                "controller" => "aulas",
+                "action" => "index"
+            ));
+        }
     }
     /**
      * Searches for aulas
