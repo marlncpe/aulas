@@ -17,7 +17,14 @@ class AulasController extends ControllerBase
         $this->view->aulasActivas = $aulasActivas; 
         $this->view->aulasSinAsignar = $aulasSinAsignar; 
     }
-    
+    /**
+    *Profile of Aulas
+    */
+    public function profileAction($id){
+
+        $aulaprofile = Aulas::findFirst("id='".$id."'");
+        $this->view->aulaprofile = $aulaprofile; 
+    }
     /**
      * Searches for aulas
      */

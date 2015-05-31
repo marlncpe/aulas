@@ -10,6 +10,7 @@
                    <br />                   
                     <div class="col-sm-12">
                         <!-- Tabs -->
+
                         <div class="card">
                             <div class="card-header">
                                 <h2>Aulas Virtuales</h2>
@@ -45,11 +46,14 @@
                                             <div class="col-sm-6 col-md-3">
                                                 <div class="mini-charts-item bgm-yellow">
                                                     <div class="clearfix">
-                                                        <!--<div class="chart stats-bar"><canvas height="45" width="83" style="display: inline-block; width: 83px; height: 45px; vertical-align: top;"></canvas></div>-->
-                                                        <div class="count">
-                                                            <small>{{ aulaSA.usuarios.nombres }}</small>
-                                                            <h2>{{ aulaSA.materia.nombre }}</h2>
-                                                        </div>
+                                                        <a href="../aulas/profile/{{ aulaSA.id }}">
+                                                            
+                                                            <!--<div class="chart stats-bar"><canvas height="45" width="83" style="display: inline-block; width: 83px; height: 45px; vertical-align: top;"></canvas></div>-->
+                                                            <div class="count">
+                                                                <small>{{ aulaSA.usuarios.nombres }}</small>
+                                                                <h2>{{ aulaSA.materia.nombre }}</h2>
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>    
@@ -63,15 +67,20 @@
                                     <div role="tabpanel" class="tab-pane animated fadeIn active" id="tab-2">
                                         
                                         <div class="row">
+
                                         {% for aula in aulasActivas %}
+                                            
                                             <div class="col-sm-6 col-md-3">
                                                 <div class="mini-charts-item bgm-green">
                                                     <div class="clearfix">
-                                                        <!--<div class="chart stats-bar"><canvas height="45" width="83" style="display: inline-block; width: 83px; height: 45px; vertical-align: top;"></canvas></div>-->
-                                                        <div class="count">
-                                                            <small>{{ aula.usuarios.nombres }}</small>
-                                                            <h2>{{ aula.materia.nombre }}</h2>
-                                                        </div>
+
+                                                        <a href="../aulas/profile/{{ aula.id }}">
+                                                            <!--<div class="chart stats-bar"><canvas height="45" width="83" style="display: inline-block; width: 83px; height: 45px; vertical-align: top;"></canvas></div>-->
+                                                            <div class="count">
+                                                                <small>{{ aula.usuarios.nombres }}</small>
+                                                                <h2>{{ aula.materia.nombre }}</h2>
+                                                            </div>
+                                                        </a>    
                                                     </div>
                                                 </div>
                                             </div>    
@@ -198,3 +207,4 @@
                     
                     
                 </div>
+                
