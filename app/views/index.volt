@@ -11,7 +11,7 @@
 	    <body>
             <?php 
 
-                if(  ($this->session->has("admin")) || ($this->session->has("registered")) || ($this->session->has("guest")) ) { 
+                if(  ($this->session->has("admin")) || ($this->session->has("registered")) ) { 
             ?>
                 <header id="header">
                     <ul class="header-inner">
@@ -42,7 +42,7 @@
                         </ul>
 
                         
-                        {{ form("aulas/search", "method":"post", "autocomplete" : "def") }}
+                        {{ form("aulas/buscar", "method":"post", "autocomplete" : "def") }}
                             <div id="top-search-wrap">
                                 <input type="text">
                                 <i id="top-search-close">&times;</i>
@@ -62,8 +62,8 @@
                                         </div>
                                         
                                         <div class="profile-info">
-                                            Malinda Hollaway
-                                            
+
+                                            {{ session.get('userlast') }}, {{ session.get('usernames') }}                                            
                                             <i class="md md-arrow-drop-down"></i>
                                         </div>
                                     </a>
@@ -76,41 +76,39 @@
                                 </div>
                                 
                                 <ul class="main-menu">
-                                    <li class="active"><a href="index.html"><i class="md md-home"></i> Inicio</a></li>
+                                    <li class="active"><a href="{{ url('aulas/index') }}"><i class="md md-home"></i> Inicio</a></li>
                                     <li>
-                                        <a href=""><i class="md md-add-circle-outline"></i>Nueva Solicitud</a>
+                                        <a href="{{ url('aulas/create/') }}"><i class="md md-add-circle-outline"></i>Solicitud</a>
                                     </li>
                                    <li>
-                                        <a href=""><i class="md md-subject"></i>Solicitud</a>
+                                        <a href="{{ url('messages/send/') }}"><i class="md md-quick-contacts-mail"></i>Contactenos</a>
                                     </li>
+                                    <?php if ($this->session->has("admin")){ ?> 
                                     <li>
-                                        <a href=""><i class="md md-quick-contacts-mail"></i>Contactenos</a>
-                                    </li>
-                                    <li>
-                                        <a href=""><i class="md md-add-circle-outline"></i>Nuevo Administrador</a>
-                                    </li>
-                                    <li class="sub-menu">
-                                        <a href=""><i class="md md-school"></i>Aulas Virtuales</a>
-                                        <ul>
-                                            <li><a href="flot-charts.html">Nueva aula</a></li>
-                                            <li><a href="other-charts.html">Ver aulas</a></li>
-                                        </ul>
+                                        <a href="{{ url('usuarios/cradmin/') }}"><i class="md md-add-circle-outline"></i>Nuevo Administrador</a>
                                     </li>
                                     <li class="sub-menu">
                                         <a href=""><i class="md md-trending-up"></i>Estadisticas</a>
                                         <ul>
-                                            <li><a href="flot-charts.html">Mensuales</a></li>
-                                            <li><a href="other-charts.html">Semestrales</a></li>
+                                            <li><a href="{{ url('estadisticas/mes/') }}">Mensuales</a></li>
+                                            <li><a href="{{ url('estadisticas/semestre/') }}">Semestrales</a></li>
                                         </ul>
                                     </li>
                                         <li class="sub-menu">
                                         <a href=""><i class="md md-subject"></i>Solicitudes</a>
                                         <ul>
-                                            <li><a href="flot-charts.html">Pendientes</a></li>
-                                            <li><a href="other-charts.html">Atendidas</a></li>
+                                            <li><a href="{{ url('solicitudes/pendientes/') }}">Pendientes</a></li>
+                                            <li><a href="{{ url('solicitudes/atendidas/') }}">Atendidas</a></li>
                                         </ul>
                                     </li>
-                                    
+                                    <?php } ?>
+                                    </li>
+                                    <li>   
+                                        <a href="{{ url('session/end/') }}">
+                                            <i class="md md-subject"></i>
+                                            Salir
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
