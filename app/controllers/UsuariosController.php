@@ -13,7 +13,21 @@ class UsuariosController extends ControllerBase
     {
         $this->persistent->parameters = null;
     }
-
+    /**
+    * Profile for usuarios
+    */
+    public function profileAction($id){
+        if($id == "" ){
+            $this->flash->error("Error de busqueda por ID"); 
+            return $this->dispatcher->forward(array(
+                "controller" => "aulas",
+                "action" => "index"
+            ));
+        }else{
+            $userprofile = Usuarios::findFirst("id='".$id."'");
+            $this->view->userprofile = $userprofile;
+        }
+    }
     /**
      * Searches for usuarios
      */
