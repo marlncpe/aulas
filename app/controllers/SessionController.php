@@ -29,7 +29,8 @@ class SessionController extends ControllerBase
         $this->session->set('userid',$user->id);
         $this->session->set('usernames',$user->nombres);
         $this->session->set('userlast',$user->apellidos);
-
+        $this->session->set('userpicture',$user->foto);
+        
         if($user->permisos->nombre == "superadmin"){
             $this->session->set('superadmin',true);
         }elseif($user->permisos->nombre == "admin"){
