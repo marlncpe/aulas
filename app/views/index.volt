@@ -58,7 +58,7 @@
                                 <div class="profile-menu">
                                     <a href="">
                                         <div class="profile-pic">
-                                            <img src="img/profile-pics/1.jpg" alt="">
+                                            {{ image(session.get('userpicture')) }}
                                         </div>
                                         
                                         <div class="profile-info">
