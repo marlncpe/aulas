@@ -5,12 +5,9 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h2>Aulas Virtuales</h2>
-                                <small>Existentes</small>
+                                <h1>Solicitud de Aula</h1>
+                                <!--<small>Existentes</small>-->
                             </div>
-                                        <div class="card-header ch-alt">
-                                            <h2>Solicitud de Aula <small>Subtitulo lorem ipsu lorem ipsu lorem ipsu</small></h2>
-                                        </div>
                                             
                                         {{ form("aulas/create", "method":"post") }}
 

@@ -44,7 +44,7 @@ class Roles extends Plugin
 				'vpds'	=> array('create' ,'search' ),
 				'materia' => array('create','search'),
 				'estado' => array('create','search'),
-				'aulas' => array('create','search','index','edit','update','profile'),
+				'aulas' => array('create','search','index','edit','update','profile','solicitud'),
 				'periodo' => array('create','search')
 			);
 
@@ -61,7 +61,7 @@ class Roles extends Plugin
 				'vpds'	=> array('create' ,'search' ),
 				'materia' => array('create','search'),
 				'estado' => array('create','search'),
-				'aulas' => array('create','search','index','edit','update','profile'),
+				'aulas' => array('create','search','index','edit','update','profile','solicitud'),
 				'periodo' => array('create','search')
 			);
 			
