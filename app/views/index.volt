@@ -79,7 +79,7 @@
                                 <ul class="main-menu">
                                     <li class="active"><a href="{{ url('aulas/index') }}"><i class="md md-home"></i> Inicio</a></li>
                                     <li>
-                                        <a href="{{ url('aulas/create/') }}"><i class="md md-add-circle-outline"></i>Solicitud</a>
+                                        <a href="{{ url('aulas/solicitud/') }}"><i class="md md-add-circle-outline"></i>Solicitud</a>
                                     </li>
                                    <li>
                                         <a href="{{ url('messages/send/') }}"><i class="md md-quick-contacts-mail"></i>Contactenos</a>

@@ -57,14 +57,22 @@ class SessionController extends ControllerBase
            	"(correo = :email: OR nomb_usuario = :email:) AND clave = :password: AND id_estado = '1'",
            	'bind' => array('email' => $email, 'password' => $password)// => sha1($password))
             ));
-
             if ($user != false) {
                 $this->_registerSession($user);
                 $this->flash->success('Bienvenido: ' . $user->apellidos. ", ".$user->nombres);
-                return $this->dispatcher->forward(array(
-                	"controller" => "aulas",
-                	"action" => "index"
-                ));
+                
+
+                if($this->session->get('admin')==true){
+                    return $this->dispatcher->forward(array(
+                        "controller" => "aulas",
+                        "action" => "solicitud"
+                    ));
+                }elseif(($this->session->get('registered')==true)||($this->session->get('secretaria')==true)){
+                    return $this->dispatcher->forward(array(
+                        "controller" => "aulas",
+                        "action" => "index"
+                    ));
+                } 
             }
 
             $this->flash->error('Usuario/Correo o clave incorrecta intente de nuevo');
