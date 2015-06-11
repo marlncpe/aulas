@@ -24,7 +24,8 @@
                         </li>
                     
                         <li class="logo hidden-xs">
-                            <a href="index.html">SISTEMA DE SOLICITUD DE AULAS VIRTUALES UNELLEZ</a>
+                            {{ image('img/unellez_logo.png') }}
+                            <!--<a href="index.html">SISTEMA DE SOLICITUD DE AULAS VIRTUALES UNELLEZ</a>-->
                         </li>
                         
                         <li class="pull-right">
@@ -70,7 +71,7 @@
                                     
                                     <ul class="main-menu">
                                         <li>
-                                            <a href=""><i class="md md-person"></i> Perfil</a>
+                                            <a href="{{ url('usuarios/profile/') }}{{ session.get('userid') }}"><i class="md md-person"></i> Perfil</a>
                                         </li>
                                     </ul>
                                 </div>
