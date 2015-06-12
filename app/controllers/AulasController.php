@@ -33,12 +33,7 @@ class AulasController extends ControllerBase
         }
 
     }
-    /**
-    * Solicitud Action
-    */
-    public function solicitudAction(){
-        
-    }
+    
     /**
     *Search of Solicitud Action
     */
@@ -156,13 +151,13 @@ class AulasController extends ControllerBase
      */
     public function createAction()
     {
-
+        /*
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
                 "action" => "index"
             ));
-        }
+        }*/
 
         $aula = new Aulas();
 

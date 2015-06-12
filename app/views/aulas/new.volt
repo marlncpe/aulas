@@ -1,121 +1,114 @@
+ <div class="container">
+                   <br />                   
+                    <div class="col-sm-12">
+                        <!-- Tabs -->
 
-{{ form("aulas/create", "method":"post") }}
+                        <div class="card">
+                            <div class="card-header">
+                                <h1>Solicitud de Aula</h1>
+                                <!--<small>Existentes</small>-->
+                            </div>
+                                            
+                                        {{ form("aulas/create", "method":"post") }}
 
-<table width="100%">
-    <tr>
-        <td align="left">{{ link_to("aulas", "Go Back") }}</td>
-        <td align="right">{{ submit_button("Save") }}</td>
-    </tr>
-</table>
+                                   
 
-{{ content() }}
+                                            <div class="card-body card-padding">
+                                           
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        <?php 
+                                                            echo $this->tag->select(
+                                                            array(
+                                                                "id_periodo",
+                                                                Periodo::find(),
+                                                                "using" => array("id", "nombre"),
+                                                                "class" => "form-control",
+                                                                )
+                                                            );
+                                                        ?>
+                                                    </div>
+                                                    <label class="fg-label">Periodo</label>
+                                                </div>
 
-<div align="center">
-    <h1>Crear aulas</h1>
-</div>
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        <?php 
+                                                            echo $this->tag->select(
+                                                            array(
+                                                                "id_materia",
+                                                                Materia::find(),
+                                                                "using" => array("id", "nombre"),
+                                                                "class" => "form-control",
+                                                                )
+                                                            );
+                                                        ?>
+                                                    </div>
+                                                    <label class="fg-label">Materia</label>
+                                                </div>
 
-<table>
-    <tr>
-        <td align="right">
-            <label for="id_periodo">Id de Periodo</label>
-        </td>
-        <td align="left">
-            {{ text_field("id_periodo", "type" : "numeric") }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="id_materia">Id de Materia</label>
-        </td>
-        <td align="left">
-            {{ text_field("id_materia", "type" : "numeric") }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="id_usuario">Id de Usuario</label>
-        </td>
-        <td align="left">
-            {{ text_field("id_usuario", "type" : "numeric") }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="id_estado">Id de Estado</label>
-        </td>
-        <td align="left">
-            {{ text_field("id_estado", "type" : "numeric") }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="catn_alumnos">Catn de Alumnos</label>
-        </td>
-        <td align="left">
-            {{ text_field("catn_alumnos", "type" : "numeric") }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="url_academica">Url de Academica</label>
-        </td>
-        <td align="left">
-            {{ text_field("url_academica", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="url_programatico">Url de Programatico</label>
-        </td>
-        <td align="left">
-            {{ text_field("url_programatico", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="url_actividades">Url de Actividades</label>
-        </td>
-        <td align="left">
-            {{ text_field("url_actividades", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="fecha_inicio">Fecha de Inicio</label>
-        </td>
-        <td align="left">
-            {{ text_field("fecha_inicio", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="fecha_fin">Fecha de Fin</label>
-        </td>
-        <td align="left">
-            {{ text_field("fecha_fin", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="fecha_creacion">Fecha de Creacion</label>
-        </td>
-        <td align="left">
-            {{ text_field("fecha_creacion", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="fecha_modificacion">Fecha de Modificacion</label>
-        </td>
-        <td align="left">
-            {{ text_field("fecha_modificacion", "size" : 30) }}
-        </td>
-    </tr>
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        <?php 
+                                                            echo $this->tag->select(
+                                                            array(
+                                                                "id_usuario",
+                                                                Usuarios::find(),
+                                                                "using" => array("id", "nombres"),
+                                                                "class" => "form-control",
+                                                                )
+                                                            );
+                                                        ?>
+                                                    </div>
+                                                    <label class="fg-label">Usuario</label>
+                                                </div>
 
-    <tr>
-        <td></td>
-        <td>{{ submit_button("Save") }}</td>
-    </tr>
-</table>
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        {{ text_field("catn_alumnos", 'class':'form-control',"type" : "numeric") }}
+                                                    </div>
+                                                    <label class="fg-label">Cantidad de Alumnos</label>
+                                                </div>
 
-</form>
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        {{ text_field("url_academica", 'class':'form-control',"type" : "numeric") }}
+                                                    </div>
+                                                    <label class="fg-label">URL Academica</label>
+                                                </div>
+
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        {{ text_field("url_programatico", 'class':'form-control',"type" : "numeric") }}
+                                                    </div>
+                                                    <label class="fg-label">URL Programatico</label>
+                                                </div>
+
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        {{ text_field("url_actividades", 'class':'form-control',"type" : "numeric") }}
+                                                    </div>
+                                                    <label class="fg-label">URL Actividades</label>
+                                                </div>
+                                                <!--
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        {{ text_field("fecha_inicio", 'class':'form-control',"type" : "numeric") }}
+                                                    </div>
+                                                    <label class="fg-label">Fecha Inicio</label>
+                                                </div>
+
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        {{ text_field("fecha_fin", 'class':'form-control',"type" : "numeric") }}
+                                                    </div>
+                                                    <label class="fg-label">Fecha fin</label>
+                                                </div>
+                                                -->
+
+                                            </div>
+                                            {{ submit_button("Enviar Solicitud", 'class':'btn btn-info') }}
+                                            
+                                        </form>
+                                    </div>
+                                </div>

@@ -65,7 +65,7 @@ class SessionController extends ControllerBase
                 if($this->session->get('admin')==true){
                     return $this->dispatcher->forward(array(
                         "controller" => "aulas",
-                        "action" => "solicitud"
+                        "action" => "searchSolicitud"
                     ));
                 }elseif(($this->session->get('registered')==true)||($this->session->get('secretaria')==true)){
                     return $this->dispatcher->forward(array(
