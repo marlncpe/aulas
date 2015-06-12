@@ -33,7 +33,7 @@
                                             
                                         {% for atendida in atendidas %}
                                             <div class="col-sm-6 col-md-3">
-                                                <div class="mini-charts-item bgm-yellow">
+                                                <div class="mini-charts-item bgm-green">
                                                     <div class="clearfix">
                                                         <a href="../aulas/profile/{{ aulaSA.id }}">
                                                             <div class="count">
@@ -58,7 +58,7 @@
                                         {% for pendiente in pendientes %}
                                             
                                             <div class="col-sm-6 col-md-3">
-                                                <div class="mini-charts-item bgm-green">
+                                                <div class="mini-charts-item bgm-yellow">
                                                     <div class="clearfix">
 
                                                         <a href="../aulas/profile/{{ aula.id }}">
