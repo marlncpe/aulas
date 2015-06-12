@@ -13,7 +13,7 @@ class AulasController extends ControllerBase
     {
         $this->persistent->parameters = null;       
         $aulasActivas = Aulas::find("id_estado=1");
-        $aulasSinAsignar = Aulas::find("id_estado=5");
+        $aulasSinAsignar = Aulas::find("id_estado=5 OR id_estado=6");
         $this->view->aulasActivas = $aulasActivas; 
         $this->view->aulasSinAsignar = $aulasSinAsignar; 
     }
@@ -42,8 +42,13 @@ class AulasController extends ControllerBase
     /**
     *Search of Solicitud Action
     */
-    public function searchSolicitud(){
+    public function searchSolicitudAction(){
 
+        $aulasActivas = Aulas::find("id_estado=1");
+        $aulasSinAsignar = Aulas::find("id_estado=6");
+        $this->view->atendidas = $aulasActivas; 
+        $this->view->pendientes = $aulasSinAsignar; 
+    
     }
     /**
     * Avanced search for aulas
