@@ -61,7 +61,7 @@
                                                 <div class="mini-charts-item bgm-yellow">
                                                     <div class="clearfix">
 
-                                                        <a href="{{ url('/aulas/edit/') }}{{pendiente.id}}">
+                                                        <a href="{{ url('/aulas/acceptsolicitud/') }}{{pendiente.id}}">
                                                             <div class="count">
                                                                 <small>{{ pendiente.usuarios.nombres }}</small>
                                                                 <h2>{{ pendiente.materia.nombre }}</h2>

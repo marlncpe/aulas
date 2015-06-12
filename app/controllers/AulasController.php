@@ -113,7 +113,7 @@ class AulasController extends ControllerBase
      *
      * @param string $id
      */
-    public function editAction($id)
+    public function acceptsolicitudAction($id)
     {
 
         if (!$this->request->isPost()) {
