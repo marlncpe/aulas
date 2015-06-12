@@ -40,6 +40,12 @@ class AulasController extends ControllerBase
         
     }
     /**
+    *Search of Solicitud Action
+    */
+    public function searchSolicitud(){
+
+    }
+    /**
     * Avanced search for aulas
     */
     public function avancedsearchAction()
