@@ -45,6 +45,7 @@ class AulasController extends ControllerBase
         $this->view->pendientes = $aulasSinAsignar; 
     
     }
+
     /**
     * Avanced search for aulas
     */
@@ -108,7 +109,7 @@ class AulasController extends ControllerBase
     }
 
     /**
-     * Edits a aula
+     * Accept solicitud aula
      *
      * @param string $id
      */
@@ -119,7 +120,7 @@ class AulasController extends ControllerBase
 
             $aula = Aulas::findFirstByid($id);
             if (!$aula) {
-                $this->flash->error("aula was not found");
+                $this->flash->error("Solicitud no se encuentra");
 
                 return $this->dispatcher->forward(array(
                     "controller" => "aulas",
@@ -127,22 +128,7 @@ class AulasController extends ControllerBase
                 ));
             }
 
-            $this->view->id = $aula->id;
-
-            $this->tag->setDefault("id", $aula->getId());
-            $this->tag->setDefault("id_periodo", $aula->getIdPeriodo());
-            $this->tag->setDefault("id_materia", $aula->getIdMateria());
-            $this->tag->setDefault("id_usuario", $aula->getIdUsuario());
-            $this->tag->setDefault("id_estado", $aula->getIdEstado());
-            $this->tag->setDefault("catn_alumnos", $aula->getCatnAlumnos());
-            $this->tag->setDefault("url_academica", $aula->getUrlAcademica());
-            $this->tag->setDefault("url_programatico", $aula->getUrlProgramatico());
-            $this->tag->setDefault("url_actividades", $aula->getUrlActividades());
-            $this->tag->setDefault("fecha_inicio", $aula->getFechaInicio());
-            $this->tag->setDefault("fecha_fin", $aula->getFechaFin());
-            $this->tag->setDefault("fecha_creacion", $aula->getFechaCreacion());
-            $this->tag->setDefault("fecha_modificacion", $aula->getFechaModificacion());
-            
+            $this->view->solicitud = $aula;
         }
     }
 
