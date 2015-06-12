@@ -79,7 +79,7 @@
                                 <ul class="main-menu">
                                     <li class="active"><a href="{{ url('aulas/index') }}"><i class="md md-home"></i> Inicio</a></li>
                                     <li>
-                                        <a href="{{ url('aulas/solicitud/') }}"><i class="md md-add-circle-outline"></i>Solicitud</a>
+                                        <a href="{{ url('aulas/new/') }}"><i class="md md-add-circle-outline"></i>Solicitud</a>
                                     </li>
                                    <li>
                                         <a href="{{ url('messages/send/') }}"><i class="md md-quick-contacts-mail"></i>Contactenos</a>
@@ -96,17 +96,13 @@
                                         </ul>
                                     </li>
                                         <li class="sub-menu">
-                                        <a href=""><i class="md md-subject"></i>Solicitudes</a>
-                                        <ul>
-                                            <li><a href="{{ url('solicitudes/pendientes/') }}">Pendientes</a></li>
-                                            <li><a href="{{ url('solicitudes/atendidas/') }}">Atendidas</a></li>
-                                        </ul>
+                                        <a href="{{ url('aulas/searchSolicitud/') }}"><i class="md md-subject"></i>Solicitudes</a>
                                     </li>
                                     <?php } ?>
                                     </li>
                                     <li>   
                                         <a href="{{ url('session/end/') }}">
-                                            <i class="md md-subject"></i>
+                                            <i class="md md-settings-power"></i>
                                             Salir
                                         </a>
                                     </li>

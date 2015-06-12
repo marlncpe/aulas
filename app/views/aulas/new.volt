@@ -1,4 +1,4 @@
- <div class="container">
+                <div class="container">
                    <br />                   
                     <div class="col-sm-12">
                         <!-- Tabs -->
@@ -6,30 +6,11 @@
                         <div class="card">
                             <div class="card-header">
                                 <h1>Solicitud de Aula</h1>
-                                <!--<small>Existentes</small>-->
-                            </div>
+                                </div>
                                             
-                                        {{ form("aulas/create", "method":"post") }}
-
-                                   
+                                        {{ form("aulas/create", "method":"post") }}                               
 
                                             <div class="card-body card-padding">
-                                           
-                                                <div class="form-group fg-float">
-                                                    <div class="fg-line">
-                                                        <?php 
-                                                            echo $this->tag->select(
-                                                            array(
-                                                                "id_periodo",
-                                                                Periodo::find(),
-                                                                "using" => array("id", "nombre"),
-                                                                "class" => "form-control",
-                                                                )
-                                                            );
-                                                        ?>
-                                                    </div>
-                                                    <label class="fg-label">Periodo</label>
-                                                </div>
 
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
@@ -45,23 +26,7 @@
                                                         ?>
                                                     </div>
                                                     <label class="fg-label">Materia</label>
-                                                </div>
-
-                                                <div class="form-group fg-float">
-                                                    <div class="fg-line">
-                                                        <?php 
-                                                            echo $this->tag->select(
-                                                            array(
-                                                                "id_usuario",
-                                                                Usuarios::find(),
-                                                                "using" => array("id", "nombres"),
-                                                                "class" => "form-control",
-                                                                )
-                                                            );
-                                                        ?>
-                                                    </div>
-                                                    <label class="fg-label">Usuario</label>
-                                                </div>
+                                                </div>  
 
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
