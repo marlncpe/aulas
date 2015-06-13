@@ -78,16 +78,48 @@
                                 
                                 <ul class="main-menu">
                                     <li class="active"><a href="{{ url('aulas/index') }}"><i class="md md-home"></i> Inicio</a></li>
+                                    <?php if ($this->session->has("registered")){ ?> 
                                     <li>
                                         <a href="{{ url('aulas/new/') }}"><i class="md md-add-circle-outline"></i>Solicitud</a>
                                     </li>
-                                   <li>
+                                    <li>
                                         <a href="{{ url('messages/send/') }}"><i class="md md-quick-contacts-mail"></i>Contactenos</a>
                                     </li>
+                                    <?php } ?>
                                     <?php if ($this->session->has("admin")){ ?> 
                                     <li>
-                                        <a href="{{ url('usuarios/cradmin/') }}"><i class="md md-add-circle-outline"></i>Nuevo Administrador</a>
+                                        <a href="{{ url('usuarios/cradmin/') }}"><i class="md md-account-circle"></i>Nuevo Administrador</a>
                                     </li>
+
+                                    <li class="sub-menu">
+                                        <a href=""><i class="md md-query-builder"></i>Periodo</a>
+                                        <ul>
+                                            <li><a href="{{ url('periodo/search/') }}">Ver Todos</a></li>
+                                            <li><a href="{{ url('periodo/new/') }}">Crear</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="sub-menu">
+                                        <a href=""><i class="md md-account-balance"></i>Vice-Rectorados</a>
+                                        <ul>
+                                            <li><a href="{{ url('vpds/search/') }}">Ver Todos</a></li>
+                                            <li><a href="{{ url('vpds/new/') }}">Crear</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="sub-menu">
+                                        <a href=""><i class="md md-school"></i>Carreras</a>
+                                        <ul>
+                                            <li><a href="{{ url('carrera/search/') }}">Ver Todos</a></li>
+                                            <li><a href="{{ url('carrera/new/') }}">Crear</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="sub-menu">
+                                        <a href=""><i class="md md-style"></i>Materia</a>
+                                        <ul>
+                                            <li><a href="{{ url('materia/search/') }}">Ver Todos</a></li>
+                                            <li><a href="{{ url('materia/new/') }}">Crear</a></li>
+                                        </ul>
+                                    </li>
+                                    
                                     <li class="sub-menu">
                                         <a href=""><i class="md md-trending-up"></i>Estadisticas</a>
                                         <ul>
@@ -95,11 +127,12 @@
                                             <li><a href="{{ url('estadisticas/semestre/') }}">Semestrales</a></li>
                                         </ul>
                                     </li>
-                                        <li>
-                                        <a href="{{ url('aulas/searchSolicitud/') }}"><i class="md md-subject"></i>Solicitudes</a>
+                                    
+                                    <li>
+                                        <a href="{{ url('aulas/searchSolicitud/') }}"><i class="md md-assignment-late"></i>Solicitudes</a>
                                     </li>
                                     <?php } ?>
-                                    </li>
+                                    
                                     <li>   
                                         <a href="{{ url('session/end/') }}">
                                             <i class="md md-settings-power"></i>
