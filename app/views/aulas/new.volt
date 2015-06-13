@@ -66,7 +66,7 @@
                                                         
                                                 
                                                     </div>
-                                                    <label class="fg-label">URL Academica</label>
+                                                    <label class="fg-label">Carga Academica</label>
                                                 </div>
 
                                                 <div class="form-group fg-float">
@@ -84,7 +84,7 @@
                                                         </div>
 
                                                     </div>
-                                                    <label class="fg-label">URL Programatico</label>
+                                                    <label class="fg-label">Contenido Programatico</label>
                                                 </div>
 
                                                 <div class="form-group fg-float">
@@ -102,7 +102,7 @@
                                                         </div>
 
                                                     </div>
-                                                    <label class="fg-label">URL Actividades</label>
+                                                    <label class="fg-label">Plan de Actividades</label>
                                                 </div>
 
                                             </div>
