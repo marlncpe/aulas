@@ -151,7 +151,7 @@ class AulasController extends ControllerBase
             $isUploaded = false;
             foreach($uploads as $upload){
 
-                $path = 'files/'.md5(uniqid(rand(), true)).'-'.$this->session->get('userid').'.pdf';//strtolower($upload->getname());
+                $path = 'files/'.md5(uniqid(rand(), true)).'-'.$this->session->get('userid').'';//strtolower($upload->getname());
                 ($upload->moveTo($path)) ? $isUploaded = true : $isUploaded = false;
                 
                 if($upload->getkey()=="url_academica"){
@@ -193,41 +193,19 @@ class AulasController extends ControllerBase
      * Saves a aula edited
      *
      */
-    public function saveAction()
+    public function updatesolicitudAction($id)
     {
-
-        if (!$this->request->isPost()) {
-            return $this->dispatcher->forward(array(
-                "controller" => "aulas",
-                "action" => "index"
-            ));
-        }
-
-        $id = $this->request->getPost("id");
 
         $aula = Aulas::findFirstByid($id);
         if (!$aula) {
-            $this->flash->error("aula does not exist " . $id);
+            $this->flash->error("Solicitud no existe " . $id);
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
                 "action" => "index"
             ));
         }
-
-        $aula->setIdPeriodo($this->request->getPost("id_periodo"));
-        $aula->setIdMateria($this->request->getPost("id_materia"));
-        $aula->setIdUsuario($this->request->getPost("id_usuario"));
-        $aula->setIdEstado($this->request->getPost("id_estado"));
-        $aula->setCatnAlumnos($this->request->getPost("catn_alumnos"));
-        $aula->setUrlAcademica($this->request->getPost("url_academica"));
-        $aula->setUrlProgramatico($this->request->getPost("url_programatico"));
-        $aula->setUrlActividades($this->request->getPost("url_actividades"));
-        $aula->setFechaInicio($this->request->getPost("fecha_inicio"));
-        $aula->setFechaFin($this->request->getPost("fecha_fin"));
-        $aula->setFechaCreacion($this->request->getPost("fecha_creacion"));
-        $aula->setFechaModificacion($this->request->getPost("fecha_modificacion"));
-        
+        $aula->setIdEstado("1");
 
         if (!$aula->save()) {
 
@@ -242,7 +220,7 @@ class AulasController extends ControllerBase
             ));
         }
 
-        $this->flash->success("aula was updated successfully");
+        $this->flash->success("Aula activada con exito");
 
         return $this->dispatcher->forward(array(
             "controller" => "aulas",
