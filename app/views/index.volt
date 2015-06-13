@@ -95,7 +95,7 @@
                                             <li><a href="{{ url('estadisticas/semestre/') }}">Semestrales</a></li>
                                         </ul>
                                     </li>
-                                        <li class="sub-menu">
+                                        <li>
                                         <a href="{{ url('aulas/searchSolicitud/') }}"><i class="md md-subject"></i>Solicitudes</a>
                                     </li>
                                     <?php } ?>
