@@ -115,6 +115,7 @@
             {{ content() }}
     		{{ javascript_include('js/jquery-2.1.1.min.js') }}
             {{ javascript_include('js/bootstrap.min.js') }}
+            {{ javascript_include('vendors/fileinput/fileinput.min.js') }}
             {{ javascript_include('vendors/flot/jquery.flot.min.js') }}
             {{ javascript_include('vendors/flot/jquery.flot.resize.min.js') }}
             {{ javascript_include('vendors/flot/plugins/curvedLines.js') }}

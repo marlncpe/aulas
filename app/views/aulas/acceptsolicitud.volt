@@ -41,7 +41,7 @@
                                     <h3><i class="md md-phone"></i> Nombre de la Materia : {{ solicitud.materia.nombre }}</h3>
                                     <h3><i class="md md-phone"></i> Cantidad de Alumnos : {{ solicitud.catnalumnos }}</h3>
                                     <br />
-                                    <h3><i class="md md-event"></i> Fecha &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ solicitud.fechacreacion }}</h3>
+                                    <h3><i class="md md-event"></i> Fecha : {{ solicitud.fechacreacion }}</h3>
                                     <h3><i class="md md-event"></i> Fecha Inicio : {{ solicitud.fechainicio }}</h3>
                                     <h3><i class="md md-event"></i> Fecha Cierre : {{ solicitud.fechafin }}</h3>
                                     <br />

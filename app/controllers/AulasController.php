@@ -137,40 +137,50 @@ class AulasController extends ControllerBase
      */
     public function createAction()
     {
-        /*
-        if (!$this->request->isPost()) {
-            return $this->dispatcher->forward(array(
-                "controller" => "aulas",
-                "action" => "index"
-            ));
-        }*/
-
+     
         $aula = new Aulas();
 
-        $aula->setIdPeriodo($this->request->getPost("id_periodo"));
+        $aula->setIdPeriodo("1");
+        $aula->setIdCarrera($this->request->getPost("id_carrera"));
         $aula->setIdMateria($this->request->getPost("id_materia"));
-        $aula->setIdUsuario($this->request->getPost("id_usuario"));
+        $aula->setIdUsuario($this->session->get('userid'));
         $aula->setIdEstado("6");
         $aula->setCatnAlumnos($this->request->getPost("catn_alumnos"));
-        $aula->setUrlAcademica($this->request->getPost("url_academica"));
-        $aula->setUrlProgramatico($this->request->getPost("url_programatico"));
-        $aula->setUrlActividades($this->request->getPost("url_actividades"));
+        if($this->request->hasFiles() == true){
+            $uploads = $this->request->getUploadedFiles();
+            $isUploaded = false;
+            foreach($uploads as $upload){
+
+                $path = 'files/'.md5(uniqid(rand(), true)).'-'.strtolower($upload->getname());
+                ($upload->moveTo($path)) ? $isUploaded = true : $isUploaded = false;
+                
+                if($upload->getkey()=="url_academica"){
+                    $aula->setUrlAcademica($upload->getname());
+                }elseif($upload->getkey()=="url_programatico"){
+                    $aula->setUrlProgramatico($upload->getname());
+                }elseif($upload->getkey()=="url_actividades"){
+                    $aula->setUrlActividades($upload->getname()); 
+                }
+        
+            }
+        }else{
+            die('You must choose at least one file to send. Please try again.');
+        }
         $aula->setFechaInicio(" ");
         $aula->setFechaFin(" ");
         $aula->setFechaCreacion(date("d-m-Y"));
         $aula->setFechaModificacion(" ");
         
-
+        
 
         if (!$aula->save()) {
             foreach ($aula->getMessages() as $message) {
                 $this->flash->error($message);
             }
-
-            $this->flash->success("El Aula no ha sido creado satifactoriamente");
+            $this->flash->success("La Solicitud no ha sido creada satifactoriamente");
         }else{
 
-            $this->flash->success("El Aula ha sido creado satifactoriamente");
+            $this->flash->success("La Solicitud ha sido creada satifactoriamente");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
