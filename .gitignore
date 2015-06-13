@@ -34,3 +34,4 @@ public/js/jquery/index.html
 public/js/jquery/jquery.min.js
 public/webtools.config.php
 public/webtools.php
+public/files/*.pdf

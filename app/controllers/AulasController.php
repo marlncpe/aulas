@@ -2,7 +2,6 @@
  
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
-use Aulas\Models\Materias;
 
 class AulasController extends ControllerBase
 {
@@ -19,7 +18,7 @@ class AulasController extends ControllerBase
     }
     /**
     *Profile of Aulas
-    */
+    */  
     public function profileAction($id){
         if($id == "" ){
             $this->flash->error("Error de busqueda por ID"); 
@@ -32,13 +31,19 @@ class AulasController extends ControllerBase
             $this->view->aulaprofile = $aulaprofile;
         }
 
-    }
+    }   
     /**
-    * Solicitud Action
+    *Search of Solicitud Action
     */
-    public function solicitudAction(){
-        
+    public function searchSolicitudAction(){
+
+        $aulasActivas = Aulas::find("id_estado=1");
+        $aulasSinAsignar = Aulas::find("id_estado=6");
+        $this->view->atendidas = $aulasActivas; 
+        $this->view->pendientes = $aulasSinAsignar; 
+    
     }
+
     /**
     * Avanced search for aulas
     */
@@ -102,18 +107,18 @@ class AulasController extends ControllerBase
     }
 
     /**
-     * Edits a aula
+     * Accept solicitud aula
      *
      * @param string $id
      */
-    public function editAction($id)
+    public function acceptsolicitudAction($id)
     {
 
         if (!$this->request->isPost()) {
 
             $aula = Aulas::findFirstByid($id);
             if (!$aula) {
-                $this->flash->error("aula was not found");
+                $this->flash->error("Solicitud no se encuentra");
 
                 return $this->dispatcher->forward(array(
                     "controller" => "aulas",
@@ -121,22 +126,7 @@ class AulasController extends ControllerBase
                 ));
             }
 
-            $this->view->id = $aula->id;
-
-            $this->tag->setDefault("id", $aula->getId());
-            $this->tag->setDefault("id_periodo", $aula->getIdPeriodo());
-            $this->tag->setDefault("id_materia", $aula->getIdMateria());
-            $this->tag->setDefault("id_usuario", $aula->getIdUsuario());
-            $this->tag->setDefault("id_estado", $aula->getIdEstado());
-            $this->tag->setDefault("catn_alumnos", $aula->getCatnAlumnos());
-            $this->tag->setDefault("url_academica", $aula->getUrlAcademica());
-            $this->tag->setDefault("url_programatico", $aula->getUrlProgramatico());
-            $this->tag->setDefault("url_actividades", $aula->getUrlActividades());
-            $this->tag->setDefault("fecha_inicio", $aula->getFechaInicio());
-            $this->tag->setDefault("fecha_fin", $aula->getFechaFin());
-            $this->tag->setDefault("fecha_creacion", $aula->getFechaCreacion());
-            $this->tag->setDefault("fecha_modificacion", $aula->getFechaModificacion());
-            
+            $this->view->solicitud = $aula;
         }
     }
 
@@ -145,40 +135,50 @@ class AulasController extends ControllerBase
      */
     public function createAction()
     {
-
-        if (!$this->request->isPost()) {
-            return $this->dispatcher->forward(array(
-                "controller" => "aulas",
-                "action" => "index"
-            ));
-        }
-
+     
         $aula = new Aulas();
 
-        $aula->setIdPeriodo($this->request->getPost("id_periodo"));
+        $aula->setIdPeriodo("1");
+        $aula->setIdCarrera($this->request->getPost("id_carrera"));
         $aula->setIdMateria($this->request->getPost("id_materia"));
-        $aula->setIdUsuario($this->request->getPost("id_usuario"));
+        $aula->setIdUsuario($this->session->get('userid'));
         $aula->setIdEstado("6");
         $aula->setCatnAlumnos($this->request->getPost("catn_alumnos"));
-        $aula->setUrlAcademica($this->request->getPost("url_academica"));
-        $aula->setUrlProgramatico($this->request->getPost("url_programatico"));
-        $aula->setUrlActividades($this->request->getPost("url_actividades"));
+        if($this->request->hasFiles() == true){
+            $uploads = $this->request->getUploadedFiles();
+            $isUploaded = false;
+            foreach($uploads as $upload){
+
+                $path = 'files/'.md5(uniqid(rand(), true)).'-'.$this->session->get('userid').'';//strtolower($upload->getname());
+                ($upload->moveTo($path)) ? $isUploaded = true : $isUploaded = false;
+                
+                if($upload->getkey()=="url_academica"){
+                    $aula->setUrlAcademica($path);
+                }elseif($upload->getkey()=="url_programatico"){
+                    $aula->setUrlProgramatico($path);
+                }elseif($upload->getkey()=="url_actividades"){
+                    $aula->setUrlActividades($path); 
+                }
+        
+            }
+        }else{
+            die('You must choose at least one file to send. Please try again.');
+        }
         $aula->setFechaInicio(" ");
         $aula->setFechaFin(" ");
         $aula->setFechaCreacion(date("d-m-Y"));
         $aula->setFechaModificacion(" ");
         
-
+        
 
         if (!$aula->save()) {
             foreach ($aula->getMessages() as $message) {
                 $this->flash->error($message);
             }
-
-            $this->flash->success("El Aula no ha sido creado satifactoriamente");
+            $this->flash->success("La Solicitud no ha sido creada satifactoriamente");
         }else{
 
-            $this->flash->success("El Aula ha sido creado satifactoriamente");
+            $this->flash->success("La Solicitud ha sido creada satifactoriamente");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -191,42 +191,20 @@ class AulasController extends ControllerBase
      * Saves a aula edited
      *
      */
-    public function saveAction()
+    public function updatesolicitudAction($id)
     {
-
-        if (!$this->request->isPost()) {
-            return $this->dispatcher->forward(array(
-                "controller" => "aulas",
-                "action" => "index"
-            ));
-        }
-
-        $id = $this->request->getPost("id");
 
         $aula = Aulas::findFirstByid($id);
         if (!$aula) {
-            $this->flash->error("aula does not exist " . $id);
+            $this->flash->error("Solicitud no existe " . $id);
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
                 "action" => "index"
             ));
         }
-
-        $aula->setIdPeriodo($this->request->getPost("id_periodo"));
-        $aula->setIdMateria($this->request->getPost("id_materia"));
-        $aula->setIdUsuario($this->request->getPost("id_usuario"));
-        $aula->setIdEstado($this->request->getPost("id_estado"));
-        $aula->setCatnAlumnos($this->request->getPost("catn_alumnos"));
-        $aula->setUrlAcademica($this->request->getPost("url_academica"));
-        $aula->setUrlProgramatico($this->request->getPost("url_programatico"));
-        $aula->setUrlActividades($this->request->getPost("url_actividades"));
-        $aula->setFechaInicio($this->request->getPost("fecha_inicio"));
-        $aula->setFechaFin($this->request->getPost("fecha_fin"));
-        $aula->setFechaCreacion($this->request->getPost("fecha_creacion"));
-        $aula->setFechaModificacion($this->request->getPost("fecha_modificacion"));
-        
-
+        $aula->setIdEstado("1");
+     
         if (!$aula->save()) {
 
             foreach ($aula->getMessages() as $message) {
@@ -234,19 +212,17 @@ class AulasController extends ControllerBase
             }
 
             return $this->dispatcher->forward(array(
-                "controller" => "aulas",
+                "controller" => "aula",
                 "action" => "edit",
                 "params" => array($aula->id)
             ));
         }
-
-        $this->flash->success("aula was updated successfully");
-
+        $this->flash->success("Aula activada con exito");
         return $this->dispatcher->forward(array(
             "controller" => "aulas",
-            "action" => "index"
+            "action" => "searchSolicitud"
         ));
-
+   
     }
 
     /**
