@@ -13,7 +13,7 @@ class AulasController extends ControllerBase
     {
         $this->persistent->parameters = null;       
         $aulasActivas = Aulas::find("id_estado=1");
-        $aulasSinAsignar = Aulas::find("id_estado=5 OR id_estado=6");
+        $aulasSinAsignar = Aulas::find("id_estado=5");
         $this->view->aulasActivas = $aulasActivas; 
         $this->view->aulasSinAsignar = $aulasSinAsignar; 
     }
