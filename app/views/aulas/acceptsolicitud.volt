@@ -102,7 +102,7 @@
                     <div class="col-sm-6 col-md-3">
                         <div class="mini-charts-item bgm-blue">
                             <div class="clearfix">
-                                <a href="{{ url('aulas/updatesolicitud/') }}{{solicitud.id}}" target="_blank">
+                                <a href="{{ url('aulas/updatesolicitud/') }}{{solicitud.id}}/{{solicitud.usuarios.id}}/">
                                     <div class="count">
                                         <small>Solicitud</small>
                                         <h2>Confirmar</h2>

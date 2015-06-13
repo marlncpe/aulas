@@ -3,6 +3,7 @@
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 use Aulas\Models\Materias;
+use Aulas\Models\Notificaciones;
 
 class AulasController extends ControllerBase
 {
@@ -193,7 +194,7 @@ class AulasController extends ControllerBase
      * Saves a aula edited
      *
      */
-    public function updatesolicitudAction($id)
+    public function updatesolicitudAction($id,$usuario)
     {
 
         $aula = Aulas::findFirstByid($id);
@@ -206,19 +207,6 @@ class AulasController extends ControllerBase
             ));
         }
         $aula->setIdEstado("1");
-
-        if (!$aula->save()) {
-
-            foreach ($aula->getMessages() as $message) {
-                $this->flash->error($message);
-            }
-
-            return $this->dispatcher->forward(array(
-                "controller" => "aulas",
-                "action" => "edit",
-                "params" => array($aula->id)
-            ));
-        }
 
         $this->flash->success("Aula activada con exito");
 
