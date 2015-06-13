@@ -151,15 +151,15 @@ class AulasController extends ControllerBase
             $isUploaded = false;
             foreach($uploads as $upload){
 
-                $path = 'files/'.md5(uniqid(rand(), true)).'-'.strtolower($upload->getname());
+                $path = 'files/'.md5(uniqid(rand(), true)).'-'.$this->session->get('userid').'.pdf';//strtolower($upload->getname());
                 ($upload->moveTo($path)) ? $isUploaded = true : $isUploaded = false;
                 
                 if($upload->getkey()=="url_academica"){
-                    $aula->setUrlAcademica($upload->getname());
+                    $aula->setUrlAcademica($path);
                 }elseif($upload->getkey()=="url_programatico"){
-                    $aula->setUrlProgramatico($upload->getname());
+                    $aula->setUrlProgramatico($path);
                 }elseif($upload->getkey()=="url_actividades"){
-                    $aula->setUrlActividades($upload->getname()); 
+                    $aula->setUrlActividades($path); 
                 }
         
             }

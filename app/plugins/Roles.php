@@ -61,7 +61,7 @@ class Roles extends Plugin
 				'vpds'	=> array('create' ,'search' ),
 				'materia' => array('create','search'),
 				'estado' => array('create','search'),
-				'aulas' => array('create','search','index','profile','new','searchSolicitud'),
+				'aulas' => array('create','search','index','profile','new'),
 				'periodo' => array('create','search')
 			);
 			
@@ -75,7 +75,7 @@ class Roles extends Plugin
 			$registeredAreas = array(
 				'materia' => array('search'),
 				'estado' => array('search'),
-				'aulas' => array('create','search','index','edit','update','profile'),
+				'aulas' => array('create','search','index','edit','profile','new'),
 				'periodo' => array('search')
 			);
 			

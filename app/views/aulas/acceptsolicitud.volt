@@ -57,7 +57,7 @@
                     <div class="col-sm-6 col-md-3">
                         <div class="mini-charts-item bgm-yellow">
                             <div class="clearfix">
-                                <a href="">
+                                <a href="{{ url(solicitud.urlactividades) }}" target="_blank">
                                     <div class="count">
                                         <small>Plan de</small>
                                         <h2>Actividades</h2>
@@ -71,7 +71,7 @@
                     <div class="col-sm-6 col-md-3">
                         <div class="mini-charts-item bgm-yellow">
                             <div class="clearfix">
-                                <a href="">
+                                <a class="help" href="{{ url(solicitud.urlacademica) }}" target="_blank">
                                     <div class="count">
                                         <small>Carga</small>
                                         <h2>Academica</h2>
@@ -85,7 +85,7 @@
                     <div class="col-sm-6 col-md-3">
                         <div class="mini-charts-item bgm-yellow">
                             <div class="clearfix">
-                                <a href="">
+                                <a href="{{ url(solicitud.urlprogramatico) }}" target="_blank">
                                     <div class="count">
                                         <small>Contenido </small>
                                         <h2>Programatico</h2>
