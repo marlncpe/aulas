@@ -5,7 +5,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h1>Crear Vice-Rectorado</h1>
+                                <h1>Crear Materia</h1>
                                 </div>                
                                     {{ form("materia/create", "method":"post") }}                       
 
