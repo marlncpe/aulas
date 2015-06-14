@@ -24,9 +24,8 @@
                         </li>
                     
                         <li class="logo hidden-xs">
-                            {{ image('img/unellez_logo.png') }}
-                            <!--<a href="index.html">SISTEMA DE SOLICITUD DE AULAS VIRTUALES UNELLEZ</a>-->
-                        </li>
+                            <img src="/aulas/img/unellez_logo.png" width="40" height="40">
+                        </li>   
                         
                         <li class="pull-right">
                         <ul class="top-menu">
