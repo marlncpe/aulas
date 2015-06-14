@@ -109,10 +109,10 @@ class VpdsController extends ControllerBase
         $vpd = new Vpds();
 
         $vpd->nombre = $this->request->getPost("nombre");
-        $vpd->estado = $this->request->getPost("estado");
+        $vpd->estado = "1";
         $vpd->descripcion = $this->request->getPost("descripcion");
-        $vpd->fecha_creacion = $this->request->getPost("fecha_creacion");
-        $vpd->fecha_modificacion = $this->request->getPost("fecha_modificacion");
+        $vpd->fecha_creacion = date("d-m-Y");
+        $vpd->fecha_modificacion = " ";
         
 
         if (!$vpd->save()) {
