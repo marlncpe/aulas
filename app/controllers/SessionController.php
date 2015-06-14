@@ -26,6 +26,11 @@ class SessionController extends ControllerBase
             'estado' => $user->estado->nombre
         ));
 
+        $this->session->set('userid',$user->id);
+        $this->session->set('usernames',$user->nombres);
+        $this->session->set('userlast',$user->apellidos);
+        $this->session->set('userpicture',$user->foto);
+        
         if($user->permisos->nombre == "superadmin"){
             $this->session->set('superadmin',true);
         }elseif($user->permisos->nombre == "admin"){
@@ -33,7 +38,7 @@ class SessionController extends ControllerBase
         }elseif($user->permisos->nombre == "secretaria"){
             $this->session->set('secretaria',true);
         }elseif($user->permisos->nombre == "profesor") {
-            $this->session->set('profesor',true);
+            $this->session->set('registered',true);
         }
     }
 
@@ -48,22 +53,33 @@ class SessionController extends ControllerBase
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
 
-            print $this->session->get('secretaria');
             $user = Usuarios::findFirst(array(
            	"(correo = :email: OR nomb_usuario = :email:) AND clave = :password: AND id_estado = '1'",
            	'bind' => array('email' => $email, 'password' => $password)// => sha1($password))
             ));
-
             if ($user != false) {
                 $this->_registerSession($user);
                 $this->flash->success('Bienvenido: ' . $user->apellidos. ", ".$user->nombres);
-                return $this->dispatcher->forward(array(
-                	"controller" => "aulas",
-                	"action" => "index"
-                ));
+                
+
+                if($this->session->get('admin')==true){
+                    return $this->dispatcher->forward(array(
+                        "controller" => "aulas",
+                        "action" => "searchSolicitud"
+                    ));
+                }elseif(($this->session->get('registered')==true)||($this->session->get('secretaria')==true)){
+                    return $this->dispatcher->forward(array(
+                        "controller" => "aulas",
+                        "action" => "index"
+                    ));
+                } 
             }
 
-            $this->flash->error('Wrong email/password');
+            $this->flash->error('Usuario/Correo o clave incorrecta intente de nuevo');
+            return $this->dispatcher->forward(array(
+                "controller" => "index",
+                "action" => "index"
+            ));
         }
 
         return $this->forward('index/index');

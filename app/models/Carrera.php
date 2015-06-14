@@ -1,6 +1,6 @@
 <?php
 
-class Periodo extends \Phalcon\Mvc\Model
+class Carrera extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -26,24 +26,6 @@ class Periodo extends \Phalcon\Mvc\Model
      * @var string
      */
     protected $fecha_creacion;
-
-    /**
-     *
-     * @var string
-     */
-    protected $fecha_inicio;
-
-    /**
-     *
-     * @var string
-     */
-    protected $fecha_modificacion;
-
-    /**
-     *
-     * @var string
-     */
-    protected $fecha_fin;
 
     /**
      * Method to set the value of field id
@@ -98,45 +80,6 @@ class Periodo extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field fecha_inicio
-     *
-     * @param string $fecha_inicio
-     * @return $this
-     */
-    public function setFechaInicio($fecha_inicio)
-    {
-        $this->fecha_inicio = $fecha_inicio;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field fecha_modificacion
-     *
-     * @param string $fecha_modificacion
-     * @return $this
-     */
-    public function setFechaModificacion($fecha_modificacion)
-    {
-        $this->fecha_modificacion = $fecha_modificacion;
-
-        return $this;
-    }
-
-    /**
-     * Method to set the value of field fecha_fin
-     *
-     * @param string $fecha_fin
-     * @return $this
-     */
-    public function setFechaFin($fecha_fin)
-    {
-        $this->fecha_fin = $fecha_fin;
-
-        return $this;
-    }
-
-    /**
      * Returns the value of field id
      *
      * @return integer
@@ -177,42 +120,11 @@ class Periodo extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field fecha_inicio
-     *
-     * @return string
-     */
-    public function getFechaInicio()
-    {
-        return $this->fecha_inicio;
-    }
-
-    /**
-     * Returns the value of field fecha_modificacion
-     *
-     * @return string
-     */
-    public function getFechaModificacion()
-    {
-        return $this->fecha_modificacion;
-    }
-
-    /**
-     * Returns the value of field fecha_fin
-     *
-     * @return string
-     */
-    public function getFechaFin()
-    {
-        return $this->fecha_fin;
-    }
-
-    /**
      * Initialize method for model.
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Aulas', 'id_periodo', array('alias' => 'Aulas'));
-        $this->hasMany('id', 'Aulas', 'id_periodo', NULL);
+        $this->hasMany('id', 'Aulas', 'id_carrera', array('alias' => 'Aulas'));
     }
 
 }

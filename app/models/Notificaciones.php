@@ -1,6 +1,6 @@
 <?php
 
-class Bitacora extends \Phalcon\Mvc\Model
+class Notificaciones extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -19,13 +19,13 @@ class Bitacora extends \Phalcon\Mvc\Model
      *
      * @var string
      */
-    protected $accion;
+    protected $mensaje;
 
     /**
      *
      * @var string
      */
-    protected $fecha;
+    protected $fecha_creacion;
 
     /**
      * Method to set the value of field id
@@ -54,27 +54,27 @@ class Bitacora extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field accion
+     * Method to set the value of field mensaje
      *
-     * @param string $accion
+     * @param string $mensaje
      * @return $this
      */
-    public function setAccion($accion)
+    public function setMensaje($mensaje)
     {
-        $this->accion = $accion;
+        $this->mensaje = $mensaje;
 
         return $this;
     }
 
     /**
-     * Method to set the value of field fecha
+     * Method to set the value of field fecha_creacion
      *
-     * @param string $fecha
+     * @param string $fecha_creacion
      * @return $this
      */
-    public function setFecha($fecha)
+    public function setFechaCreacion($fecha_creacion)
     {
-        $this->fecha = $fecha;
+        $this->fecha_creacion = $fecha_creacion;
 
         return $this;
     }
@@ -100,23 +100,23 @@ class Bitacora extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field accion
+     * Returns the value of field mensaje
      *
      * @return string
      */
-    public function getAccion()
+    public function getMensaje()
     {
-        return $this->accion;
+        return $this->mensaje;
     }
 
     /**
-     * Returns the value of field fecha
+     * Returns the value of field fecha_creacion
      *
      * @return string
      */
-    public function getFecha()
+    public function getFechaCreacion()
     {
-        return $this->fecha;
+        return $this->fecha_creacion;
     }
 
     /**
@@ -125,7 +125,6 @@ class Bitacora extends \Phalcon\Mvc\Model
     public function initialize()
     {
         $this->belongsTo('id_usuario', 'Usuarios', 'id', array('alias' => 'Usuarios'));
-        $this->belongsTo('id_usuario', 'Usuarios', 'id', array('foreignKey' => true));
     }
 
 }

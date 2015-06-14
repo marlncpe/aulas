@@ -3,7 +3,7 @@
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
-class VpdsController extends ControllerBase
+class CarreraController extends ControllerBase
 {
 
     /**
@@ -15,14 +15,14 @@ class VpdsController extends ControllerBase
     }
 
     /**
-     * Searches for vpds
+     * Searches for carrera
      */
     public function searchAction()
     {
 
         $numberPage = 1;
         if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, "Vpds", $_POST);
+            $query = Criteria::fromInput($this->di, "Carrera", $_POST);
             $this->persistent->parameters = $query->getParams();
         } else {
             $numberPage = $this->request->getQuery("page", "int");
@@ -34,18 +34,18 @@ class VpdsController extends ControllerBase
         }
         $parameters["order"] = "id";
 
-        $vpds = Vpds::find($parameters);
-        if (count($vpds) == 0) {
-            $this->flash->notice("The search did not find any vpds");
+        $carrera = Carrera::find($parameters);
+        if (count($carrera) == 0) {
+            $this->flash->notice("The search did not find any carrera");
 
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
+                "controller" => "carrera",
                 "action" => "index"
             ));
         }
 
         $paginator = new Paginator(array(
-            "data" => $vpds,
+            "data" => $carrera,
             "limit"=> 10,
             "page" => $numberPage
         ));
@@ -62,7 +62,7 @@ class VpdsController extends ControllerBase
     }
 
     /**
-     * Edits a vpd
+     * Edits a carrera
      *
      * @param string $id
      */
@@ -71,72 +71,68 @@ class VpdsController extends ControllerBase
 
         if (!$this->request->isPost()) {
 
-            $vpd = Vpds::findFirstByid($id);
-            if (!$vpd) {
-                $this->flash->error("vpd was not found");
+            $carrera = Carrera::findFirstByid($id);
+            if (!$carrera) {
+                $this->flash->error("carrera was not found");
 
                 return $this->dispatcher->forward(array(
-                    "controller" => "vpds",
+                    "controller" => "carrera",
                     "action" => "index"
                 ));
             }
 
-            $this->view->id = $vpd->id;
+            $this->view->id = $carrera->id;
 
-            $this->tag->setDefault("id", $vpd->id);
-            $this->tag->setDefault("nombre", $vpd->nombre);
-            $this->tag->setDefault("estado", $vpd->estado);
-            $this->tag->setDefault("descripcion", $vpd->descripcion);
-            $this->tag->setDefault("fecha_creacion", $vpd->fecha_creacion);
-            $this->tag->setDefault("fecha_modificacion", $vpd->fecha_modificacion);
+            $this->tag->setDefault("id", $carrera->getId());
+            $this->tag->setDefault("nombre", $carrera->getNombre());
+            $this->tag->setDefault("descripcion", $carrera->getDescripcion());
+            $this->tag->setDefault("fecha_creacion", $carrera->getFechaCreacion());
             
         }
     }
 
     /**
-     * Creates a new vpd
+     * Creates a new carrera
      */
     public function createAction()
     {
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
+                "controller" => "carrera",
                 "action" => "index"
             ));
         }
 
-        $vpd = new Vpds();
+        $carrera = new Carrera();
 
-        $vpd->nombre = $this->request->getPost("nombre");
-        $vpd->estado = "1";
-        $vpd->descripcion = $this->request->getPost("descripcion");
-        $vpd->fecha_creacion = date("d-m-Y");
-        $vpd->fecha_modificacion = " ";
+        $carrera->setNombre($this->request->getPost("nombre"));
+        $carrera->setDescripcion($this->request->getPost("descripcion"));
+        $carrera->setFechaCreacion(date("d-m-Y"));
         
 
-        if (!$vpd->save()) {
-            foreach ($vpd->getMessages() as $message) {
+        if (!$carrera->save()) {
+            foreach ($carrera->getMessages() as $message) {
                 $this->flash->error($message);
             }
 
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
+                "controller" => "carrera",
                 "action" => "new"
             ));
         }
 
-        $this->flash->success("vpd was created successfully");
+        $this->flash->success("carrera was created successfully");
 
         return $this->dispatcher->forward(array(
-            "controller" => "vpds",
+            "controller" => "carrera",
             "action" => "index"
         ));
 
     }
 
     /**
-     * Saves a vpd edited
+     * Saves a carrera edited
      *
      */
     public function saveAction()
@@ -144,86 +140,84 @@ class VpdsController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
+                "controller" => "carrera",
                 "action" => "index"
             ));
         }
 
         $id = $this->request->getPost("id");
 
-        $vpd = Vpds::findFirstByid($id);
-        if (!$vpd) {
-            $this->flash->error("vpd does not exist " . $id);
+        $carrera = Carrera::findFirstByid($id);
+        if (!$carrera) {
+            $this->flash->error("carrera does not exist " . $id);
 
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
+                "controller" => "carrera",
                 "action" => "index"
             ));
         }
 
-        $vpd->nombre = $this->request->getPost("nombre");
-        $vpd->estado = $this->request->getPost("estado");
-        $vpd->descripcion = $this->request->getPost("descripcion");
-        $vpd->fecha_creacion = $this->request->getPost("fecha_creacion");
-        $vpd->fecha_modificacion = $this->request->getPost("fecha_modificacion");
+        $carrera->setNombre($this->request->getPost("nombre"));
+        $carrera->setDescripcion($this->request->getPost("descripcion"));
+        $carrera->setFechaCreacion($this->request->getPost("fecha_creacion"));
         
 
-        if (!$vpd->save()) {
+        if (!$carrera->save()) {
 
-            foreach ($vpd->getMessages() as $message) {
+            foreach ($carrera->getMessages() as $message) {
                 $this->flash->error($message);
             }
 
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
+                "controller" => "carrera",
                 "action" => "edit",
-                "params" => array($vpd->id)
+                "params" => array($carrera->id)
             ));
         }
 
-        $this->flash->success("vpd was updated successfully");
+        $this->flash->success("carrera was updated successfully");
 
         return $this->dispatcher->forward(array(
-            "controller" => "vpds",
+            "controller" => "carrera",
             "action" => "index"
         ));
 
     }
 
     /**
-     * Deletes a vpd
+     * Deletes a carrera
      *
      * @param string $id
      */
     public function deleteAction($id)
     {
 
-        $vpd = Vpds::findFirstByid($id);
-        if (!$vpd) {
-            $this->flash->error("vpd was not found");
+        $carrera = Carrera::findFirstByid($id);
+        if (!$carrera) {
+            $this->flash->error("carrera was not found");
 
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
+                "controller" => "carrera",
                 "action" => "index"
             ));
         }
 
-        if (!$vpd->delete()) {
+        if (!$carrera->delete()) {
 
-            foreach ($vpd->getMessages() as $message) {
+            foreach ($carrera->getMessages() as $message) {
                 $this->flash->error($message);
             }
 
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
+                "controller" => "carrera",
                 "action" => "search"
             ));
         }
 
-        $this->flash->success("vpd was deleted successfully");
+        $this->flash->success("carrera was deleted successfully");
 
         return $this->dispatcher->forward(array(
-            "controller" => "vpds",
+            "controller" => "carrera",
             "action" => "index"
         ));
     }

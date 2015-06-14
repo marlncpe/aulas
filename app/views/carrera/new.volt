@@ -5,9 +5,9 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h1>Crear Vice-Rectorado</h1>
+                                <h1>Crear Carrera</h1>
                                 </div>                
-                                        {{ form("vpds/create", "method":"post") }}                        
+                                        {{ form("carrera/create", "method":"post") }}                       
 
                                             <div class="card-body card-padding">
 
@@ -24,7 +24,7 @@
                                                     <label class="fg-label">Descripcion</label>
                                                 </div> 
                                             </div>
-                                            {{ submit_button("Crear Vice-Rectorado", 'class':'btn btn-info') }}
+                                            {{ submit_button("Crear Carrera", 'class':'btn btn-info') }}
                                             
                                         </form>
                                         <br />

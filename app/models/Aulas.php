@@ -19,6 +19,12 @@ class Aulas extends \Phalcon\Mvc\Model
      *
      * @var integer
      */
+    protected $id_carrera;
+
+    /**
+     *
+     * @var integer
+     */
     protected $id_materia;
 
     /**
@@ -103,6 +109,19 @@ class Aulas extends \Phalcon\Mvc\Model
     public function setIdPeriodo($id_periodo)
     {
         $this->id_periodo = $id_periodo;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field id_carrera
+     *
+     * @param integer $id_carrera
+     * @return $this
+     */
+    public function setIdCarrera($id_carrera)
+    {
+        $this->id_carrera = $id_carrera;
 
         return $this;
     }
@@ -271,6 +290,16 @@ class Aulas extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Returns the value of field id_carrera
+     *
+     * @return integer
+     */
+    public function getIdCarrera()
+    {
+        return $this->id_carrera;
+    }
+
+    /**
      * Returns the value of field id_materia
      *
      * @return integer
@@ -385,6 +414,7 @@ class Aulas extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
+        $this->belongsTo('id_carrera', 'Carrera', 'id', array('alias' => 'Carrera'));
         $this->belongsTo('id_materia', 'Materia', 'id', array('alias' => 'Materia'));
         $this->belongsTo('id_estado', 'Estado', 'id', array('alias' => 'Estado'));
         $this->belongsTo('id_periodo', 'Periodo', 'id', array('alias' => 'Periodo'));

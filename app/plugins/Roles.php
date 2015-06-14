@@ -26,6 +26,7 @@ class Roles extends Plugin
 			//registramos los roles que deseamos tener en nuestra aplicación
 			$roles = array(
 				'admin' 		=> new Phalcon\Acl\Role('Admin'),
+				'profesor' 		=> new Phalcon\Acl\Role('Profesor'),
 				'registered' 	=> new Phalcon\Acl\Role('Registered'),
 				'guest' 		=> new Phalcon\Acl\Role('Guest')
 			);
@@ -38,13 +39,12 @@ class Roles extends Plugin
 
 			//zonas accesibles sólo para role admin
 			$adminAreas = array(
-				'dashboard' => array('index'),
-				'profile' => array('index', 'edit'),
-				'vpds'	=> array('create' ,'search' ),
-				'materia' => array('create','search'),
-				'estado' => array('create','search'),
-				'aulas' => array('create','search','index','edit','update'),
-				'periodo' => array('create','search')
+				'periodo' => array('create','search','new'),
+				'vpds'	=> array('create' ,'search','new'),
+				'carrera'	=> array('create' ,'search','new'),
+				'materia' => array('create','search','new'),
+				'estado' => array('create','search','new'),
+				'aulas' => array('create','search','index','acceptsolicitud','updatesolicitud','profile','new','searchSolicitud')
 			);
 
 			//añadimos las zonas de administrador a los recursos de la aplicación
@@ -53,15 +53,29 @@ class Roles extends Plugin
 				$acl->addResource(new Phalcon\Acl\Resource($resource), $actions);
 			}
 
-			//zonas protegidas sólo para usuarios registrados de la aplicación
-			$registeredAreas = array(
+			//zonas protegidas sólo para usuarios profesor de la aplicación
+			$profesorAreas = array(
 				'dashboard' => array('index'),
 				'profile' => array('index', 'edit'),
 				'vpds'	=> array('create' ,'search' ),
 				'materia' => array('create','search'),
 				'estado' => array('create','search'),
-				'aulas' => array('create','search'),
+				'aulas' => array('create','search','index','profile','new'),
 				'periodo' => array('create','search')
+			);
+			
+			//añadimos las zonas para usuarios registrados a los recursos de la aplicación
+			foreach ($profesorAreas as $resource => $actions) 
+			{
+				$acl->addResource(new Phalcon\Acl\Resource($resource), $actions);
+			}
+
+			//zonas protegidas sólo para usuarios registrados de la aplicación
+			$registeredAreas = array(
+				'materia' => array('search'),
+				'estado' => array('search'),
+				'aulas' => array('create','search','index','edit','profile','new'),
+				'periodo' => array('search')
 			);
 			
 			//añadimos las zonas para usuarios registrados a los recursos de la aplicación
@@ -101,6 +115,23 @@ class Roles extends Plugin
 				}
 			}
 
+
+			//damos acceso a las zonas de profesor tanto a los usuarios
+			//registrados(profesor) como al admin
+			foreach ($profesorAreas as $resource => $actions) 
+			{
+				//damos acceso a los registrados
+				foreach ($actions as $action)
+				{
+					$acl->allow('Profesor', $resource, $action);
+				}
+				//damos acceso al admin
+				foreach ($actions as $action)
+				{
+					$acl->allow('Admin', $resource, $action);
+				}
+			}
+
 			//damos acceso a las zonas de registro tanto a los usuarios
 			//registrados como al admin
 			foreach ($registeredAreas as $resource => $actions) 
@@ -132,22 +163,20 @@ class Roles extends Plugin
 		
 		//esta sesión sólo la tendrá el admin
 		$admin = $this->session->get('admin');
+
+		$profesor = $this->session->get('profesor');
+
 		//esta sesión sólo la tendrá el usuario registrado
 		$registered = $this->session->get('registered');
 
 		//si no es admin ni un usuario registrado es guest
-		if (!$admin && !$registered)
-		{
+		if (!$admin && !$registered ){
 			$role = 'Guest';
-		} 
-		//si es admin
-		else if($admin)
-		{
+		}elseif($admin){
 			$role = 'Admin';
-		}
-		//en otro caso es un usuario registrado
-		else
-		{
+		}elseif($profesor){
+			$role = 'Profesor';
+		}else{
 			$role = 'Registered';
 		}
 
