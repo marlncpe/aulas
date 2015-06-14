@@ -108,7 +108,7 @@ class CarreraController extends ControllerBase
 
         $carrera->setNombre($this->request->getPost("nombre"));
         $carrera->setDescripcion($this->request->getPost("descripcion"));
-        $carrera->setFechaCreacion($this->request->getPost("fecha_creacion"));
+        $carrera->setFechaCreacion(date("d-m-Y"));
         
 
         if (!$carrera->save()) {
