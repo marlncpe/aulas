@@ -111,8 +111,8 @@ class MateriaController extends ControllerBase
         $materia->nombre = $this->request->getPost("nombre");
         $materia->semestre = $this->request->getPost("semestre");
         $materia->descripcion = $this->request->getPost("descripcion");
-        $materia->fecha_creacion = $this->request->getPost("fecha_creacion");
-        $materia->fecha_modificacion = $this->request->getPost("fecha_modificacion");
+        $materia->fecha_creacion = date("d-m-Y");
+        $materia->fecha_modificacion = " ";
         
 
         if (!$materia->save()) {
@@ -126,7 +126,7 @@ class MateriaController extends ControllerBase
             ));
         }
 
-        $this->flash->success("materia was created successfully");
+        $this->flash->success("La materia ha sido creada satifactoriamente");
 
         return $this->dispatcher->forward(array(
             "controller" => "materia",
