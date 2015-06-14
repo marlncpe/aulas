@@ -24,7 +24,7 @@
                                                     <label class="fg-label">Descripcion</label>
                                                 </div> 
                                             </div>
-                                            {{ submit_button("Crear Vice-Rectorado", 'class':'btn btn-info') }}
+                                            {{ submit_button("Crear Carrera", 'class':'btn btn-info') }}
                                             
                                         </form>
                                         <br />
