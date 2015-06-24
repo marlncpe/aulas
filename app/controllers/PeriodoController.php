@@ -111,9 +111,9 @@ class PeriodoController extends ControllerBase
 
         $periodo->nombre = $this->request->getPost("nombre");
         $periodo->descripcion = $this->request->getPost("descripcion");
-        $periodo->fecha_creacion = $this->request->getPost("fecha_creacion");
+        $periodo->fecha_creacion = date("d-m-Y");
         $periodo->fecha_inicio = $this->request->getPost("fecha_inicio");
-        $periodo->fecha_modificacion = $this->request->getPost("fecha_modificacion");
+        $periodo->fecha_modificacion = " ";
         $periodo->fecha_fin = $this->request->getPost("fecha_fin");
         
 
@@ -132,7 +132,7 @@ class PeriodoController extends ControllerBase
 
         return $this->dispatcher->forward(array(
             "controller" => "periodo",
-            "action" => "index"
+            "action" => "search"
         ));
 
     }
@@ -159,7 +159,7 @@ class PeriodoController extends ControllerBase
 
             return $this->dispatcher->forward(array(
                 "controller" => "periodo",
-                "action" => "index"
+                "action" => "search"
             ));
         }
 
@@ -188,7 +188,7 @@ class PeriodoController extends ControllerBase
 
         return $this->dispatcher->forward(array(
             "controller" => "periodo",
-            "action" => "index"
+            "action" => "search"
         ));
 
     }
