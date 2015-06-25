@@ -73,11 +73,11 @@ class PeriodoController extends ControllerBase
 
             $periodo = Periodo::findFirstByid($id);
             if (!$periodo) {
-                $this->flash->error("periodo was not found");
+                $this->flash->error("El periodo a buscar no fue encontrado");
 
                 return $this->dispatcher->forward(array(
-                    "controller" => "periodo",
-                    "action" => "index"
+                    "controller" => "aulas",
+                    "action" => "searchSolicitud"
                 ));
             }
 
@@ -102,8 +102,8 @@ class PeriodoController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "periodo",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -128,11 +128,11 @@ class PeriodoController extends ControllerBase
             ));
         }
 
-        $this->flash->success("periodo was created successfully");
+        $this->flash->success("periodo creado exitosamente");
 
         return $this->dispatcher->forward(array(
-            "controller" => "periodo",
-            "action" => "search"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
 
     }
@@ -146,8 +146,8 @@ class PeriodoController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "periodo",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -155,11 +155,11 @@ class PeriodoController extends ControllerBase
 
         $periodo = Periodo::findFirstByid($id);
         if (!$periodo) {
-            $this->flash->error("periodo does not exist " . $id);
+            $this->flash->error("periodo no existe con este id: " . $id);
 
             return $this->dispatcher->forward(array(
-                "controller" => "periodo",
-                "action" => "search"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -184,11 +184,11 @@ class PeriodoController extends ControllerBase
             ));
         }
 
-        $this->flash->success("periodo was updated successfully");
+        $this->flash->success("periodo actualizado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "periodo",
-            "action" => "search"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
 
     }
@@ -203,11 +203,11 @@ class PeriodoController extends ControllerBase
 
         $periodo = Periodo::findFirstByid($id);
         if (!$periodo) {
-            $this->flash->error("periodo was not found");
+            $this->flash->error("El periodo a buscar no fue encontrado");
 
             return $this->dispatcher->forward(array(
-                "controller" => "periodo",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -218,16 +218,16 @@ class PeriodoController extends ControllerBase
             }
 
             return $this->dispatcher->forward(array(
-                "controller" => "periodo",
-                "action" => "search"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
-        $this->flash->success("periodo was deleted successfully");
+        $this->flash->success("periodo fue borrado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "periodo",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
     }
 
