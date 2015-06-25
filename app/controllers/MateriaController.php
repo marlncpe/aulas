@@ -156,8 +156,8 @@ class MateriaController extends ControllerBase
             $this->flash->error("materia no existe " . $id);
 
             return $this->dispatcher->forward(array(
-                "controller" => "materia",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -165,7 +165,7 @@ class MateriaController extends ControllerBase
         $materia->semestre = $this->request->getPost("semestre");
         $materia->descripcion = $this->request->getPost("descripcion");
         $materia->fecha_creacion = $this->request->getPost("fecha_creacion");
-        $materia->fecha_modificacion = $this->request->getPost("fecha_modificacion");
+        $materia->fecha_modificacion = date("d-m-Y");
         
 
         if (!$materia->save()) {
