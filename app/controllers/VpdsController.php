@@ -36,11 +36,11 @@ class VpdsController extends ControllerBase
 
         $vpds = Vpds::find($parameters);
         if (count($vpds) == 0) {
-            $this->flash->notice("The search did not find any vpds");
+            $this->flash->notice("No se encontro Vice Rectorados en la busqueda");
 
             return $this->dispatcher->forward(array(
                 "controller" => "vpds",
-                "action" => "index"
+                "action" => "search"
             ));
         }
 
@@ -73,11 +73,11 @@ class VpdsController extends ControllerBase
 
             $vpd = Vpds::findFirstByid($id);
             if (!$vpd) {
-                $this->flash->error("vpd was not found");
+                $this->flash->error("vpds no se encuentra");
 
                 return $this->dispatcher->forward(array(
-                    "controller" => "vpds",
-                    "action" => "index"
+                    "controller" => "aulas",
+                    "action" => "searchSolicitud"
                 ));
             }
 
@@ -101,8 +101,8 @@ class VpdsController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -126,11 +126,12 @@ class VpdsController extends ControllerBase
             ));
         }
 
-        $this->flash->success("vpd was created successfully");
+        $this->flash->success("vpds creado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "vpds",
-            "action" => "index"
+            "controller" => "aulas",
+            "controller" => "searchSolicitud",
+            "action" => "search"
         ));
 
     }
@@ -144,8 +145,8 @@ class VpdsController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -153,11 +154,11 @@ class VpdsController extends ControllerBase
 
         $vpd = Vpds::findFirstByid($id);
         if (!$vpd) {
-            $this->flash->error("vpd does not exist " . $id);
+            $this->flash->error("vpds no existe con el id: " . $id);
 
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -181,11 +182,11 @@ class VpdsController extends ControllerBase
             ));
         }
 
-        $this->flash->success("vpd was updated successfully");
+        $this->flash->success("vpds actualizado con exito!");
 
         return $this->dispatcher->forward(array(
-            "controller" => "vpds",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
 
     }
@@ -200,11 +201,11 @@ class VpdsController extends ControllerBase
 
         $vpd = Vpds::findFirstByid($id);
         if (!$vpd) {
-            $this->flash->error("vpd was not found");
+            $this->flash->error("vpds no se encuentra");
 
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -215,16 +216,16 @@ class VpdsController extends ControllerBase
             }
 
             return $this->dispatcher->forward(array(
-                "controller" => "vpds",
-                "action" => "search"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
-        $this->flash->success("vpd was deleted successfully");
+        $this->flash->success("vpds borrado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "vpds",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
     }
 
