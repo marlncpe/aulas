@@ -261,5 +261,44 @@ class UsuariosController extends ControllerBase
             "action" => "index"
         ));
     }
+    public function cradminAction(){
+         if (!$this->request->isPost()) {
+            
+        }else{
+            $usuario = new Usuarios();
+
+            $usuario->cedula = $this->request->getPost("cedula");
+            $usuario->nombres = $this->request->getPost("nombres");
+            $usuario->apellidos = $this->request->getPost("apellidos");
+            $usuario->id_vpds = $this->request->getPost("id_vpds");
+            $usuario->id_permiso = "2";
+            $usuario->nomb_usuario = $this->request->getPost("nomb_usuario");
+            $usuario->clave = $this->request->getPost("clave");
+            $usuario->correo = $this->request->getPost("correo");
+            $usuario->telefono = $this->request->getPost("telefono");
+            $usuario->fecha_creacion = date("d-m-Y");
+            $usuario->fecha_modificacion = " ";
+            $usuario->id_estado = "1";
+            
+
+            if (!$usuario->save()) {
+                foreach ($usuario->getMessages() as $message) {
+                    $this->flash->error($message);
+                }
+
+            /*    return $this->dispatcher->forward(array(
+                    "controller" => "index",
+                    "action" => "index"
+                ));*/
+            }
+            
+            echo "<script>alert('Usuario creado con exito!')</script>";
+            
+            return $this->dispatcher->forward(array(
+                "controller" => "index",
+                "action" => "index"
+            )); 
+        }
+    }
 
 }
