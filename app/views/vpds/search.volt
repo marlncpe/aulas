@@ -30,8 +30,8 @@
                                             <td>{{ vpd.estado }}</td>
                                             <td>{{ vpd.descripcion }}</td>
                                             <td>{{ vpd.fecha_creacion }}</td>
-                                            <td>{{ link_to("vpds/edit/"~vpd.id, "Edit") }}</td>
-                                            <td>{{ link_to("vpds/delete/"~vpd.id, "Delete") }}</td>
+                                            <td>{{ link_to("vpds/edit/"~vpd.id, "Editar") }}</td>
+                                            <td>{{ link_to("vpds/delete/"~vpd.id, "Borrar") }}</td>
                                         </tr>
                                     {% endfor %}
                                     {% endif %}
