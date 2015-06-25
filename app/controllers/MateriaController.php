@@ -39,8 +39,8 @@ class MateriaController extends ControllerBase
             $this->flash->notice("The search did not find any materia");
 
             return $this->dispatcher->forward(array(
-                "controller" => "materia",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -73,11 +73,11 @@ class MateriaController extends ControllerBase
 
             $materia = Materia::findFirstByid($id);
             if (!$materia) {
-                $this->flash->error("materia was not found");
+                $this->flash->error("la materia no fue encontrada");
 
                 return $this->dispatcher->forward(array(
-                    "controller" => "materia",
-                    "action" => "index"
+                    "controller" => "aulas",
+                    "action" => "searchSolicitud"
                 ));
             }
 
@@ -101,8 +101,8 @@ class MateriaController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "materia",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -129,8 +129,8 @@ class MateriaController extends ControllerBase
         $this->flash->success("La materia ha sido creada satifactoriamente");
 
         return $this->dispatcher->forward(array(
-            "controller" => "materia",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
 
     }
@@ -144,8 +144,8 @@ class MateriaController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "materia",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -153,7 +153,7 @@ class MateriaController extends ControllerBase
 
         $materia = Materia::findFirstByid($id);
         if (!$materia) {
-            $this->flash->error("materia does not exist " . $id);
+            $this->flash->error("materia no existe " . $id);
 
             return $this->dispatcher->forward(array(
                 "controller" => "materia",
@@ -181,11 +181,11 @@ class MateriaController extends ControllerBase
             ));
         }
 
-        $this->flash->success("materia was updated successfully");
+        $this->flash->success("materia ha sido actualizada con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "materia",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
 
     }
@@ -200,11 +200,11 @@ class MateriaController extends ControllerBase
 
         $materia = Materia::findFirstByid($id);
         if (!$materia) {
-            $this->flash->error("materia was not found");
+            $this->flash->error("materia no fue encontrada");
 
             return $this->dispatcher->forward(array(
-                "controller" => "materia",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -215,16 +215,16 @@ class MateriaController extends ControllerBase
             }
 
             return $this->dispatcher->forward(array(
-                "controller" => "materia",
-                "action" => "search"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
-        $this->flash->success("materia was deleted successfully");
+        $this->flash->success("materia fue borrada con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "materia",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
     }
 

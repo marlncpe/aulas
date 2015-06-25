@@ -12,6 +12,7 @@ class CarreraController extends ControllerBase
     public function indexAction()
     {
         $this->persistent->parameters = null;
+
     }
 
     /**
@@ -39,8 +40,8 @@ class CarreraController extends ControllerBase
             $this->flash->notice("The search did not find any carrera");
 
             return $this->dispatcher->forward(array(
-                "controller" => "carrera",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -73,11 +74,11 @@ class CarreraController extends ControllerBase
 
             $carrera = Carrera::findFirstByid($id);
             if (!$carrera) {
-                $this->flash->error("carrera was not found");
+                $this->flash->error("carrera no se encuentra");
 
                 return $this->dispatcher->forward(array(
-                    "controller" => "carrera",
-                    "action" => "index"
+                    "controller" => "aulas",
+                    "action" => "searchSolicitud"
                 ));
             }
 
@@ -99,8 +100,8 @@ class CarreraController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "carrera",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -122,11 +123,11 @@ class CarreraController extends ControllerBase
             ));
         }
 
-        $this->flash->success("carrera was created successfully");
+        $this->flash->success("carrera creada con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "carrera",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
 
     }
@@ -140,8 +141,8 @@ class CarreraController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "carrera",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -149,11 +150,11 @@ class CarreraController extends ControllerBase
 
         $carrera = Carrera::findFirstByid($id);
         if (!$carrera) {
-            $this->flash->error("carrera does not exist " . $id);
+            $this->flash->error("No existen carreras con este id: " . $id);
 
             return $this->dispatcher->forward(array(
-                "controller" => "carrera",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -178,8 +179,8 @@ class CarreraController extends ControllerBase
         $this->flash->success("carrera was updated successfully");
 
         return $this->dispatcher->forward(array(
-            "controller" => "carrera",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
 
     }
@@ -194,11 +195,11 @@ class CarreraController extends ControllerBase
 
         $carrera = Carrera::findFirstByid($id);
         if (!$carrera) {
-            $this->flash->error("carrera was not found");
+            $this->flash->error("carrera no fue encontrada");
 
             return $this->dispatcher->forward(array(
-                "controller" => "carrera",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -209,16 +210,16 @@ class CarreraController extends ControllerBase
             }
 
             return $this->dispatcher->forward(array(
-                "controller" => "carrera",
-                "action" => "search"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
-        $this->flash->success("carrera was deleted successfully");
+        $this->flash->success("carrera se ha borrado exitosamente");
 
         return $this->dispatcher->forward(array(
-            "controller" => "carrera",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
     }
 
