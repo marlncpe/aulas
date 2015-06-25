@@ -167,7 +167,7 @@ class PeriodoController extends ControllerBase
         $periodo->descripcion = $this->request->getPost("descripcion");
         $periodo->fecha_creacion = $this->request->getPost("fecha_creacion");
         $periodo->fecha_inicio = $this->request->getPost("fecha_inicio");
-        $periodo->fecha_modificacion = $this->request->getPost("fecha_modificacion");
+        $periodo->fecha_modificacion = date("d-m-Y");
         $periodo->fecha_fin = $this->request->getPost("fecha_fin");
         
 
