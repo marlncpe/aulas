@@ -45,7 +45,7 @@
                                             </div>
                                             {{ hidden_field("id") }}
                                             {{ hidden_field("fecha_creacion", "size" : 30) }}
-                                            {{ submit_button("Enviar Solicitud", 'class':'btn btn-info') }}
+                                            {{ submit_button("Editar Periodo", 'class':'btn btn-info') }}
                                             
                                         </form>
                                         <br />

@@ -98,7 +98,7 @@
                                         </ul>
                                     </li>
                                     <li class="sub-menu">
-                                        <a href=""><i class="md md-account-balance"></i>Vice-Rectorados</a>
+                                        <a href=""><i class="md md-account-balance"></i>ViceRectorados</a>
                                         <ul>
                                             <li><a href="{{ url('vpds/search/') }}">Ver Todos</a></li>
                                             <li><a href="{{ url('vpds/new/') }}">Crear</a></li>

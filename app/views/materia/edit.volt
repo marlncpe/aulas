@@ -36,7 +36,7 @@
                                             </div>
                                             {{ hidden_field("id") }}
                                             {{ hidden_field("fecha_creacion", "size" : 30) }}
-                                            {{ submit_button("Actualizar Carrera", 'class':'btn btn-info') }}
+                                            {{ submit_button("Editar Materia", 'class':'btn btn-info') }}
                                             
                                         </form>
                                         <br />

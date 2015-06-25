@@ -6,7 +6,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h1>Editar Vice-Rectorado</h1>
+                                <h1>Editar ViceRectorado</h1>
                             </div>
                                             
                                         {{ form("vpds/save", "method":"post") }}
@@ -35,7 +35,7 @@
                                             </div>
                                             {{ hidden_field("id") }}
                                             {{ hidden_field("fecha_creacion", "size" : 30) }}
-                                            {{ submit_button("Enviar Solicitud", 'class':'btn btn-info') }}
+                                            {{ submit_button("Editar ViceRectorado", 'class':'btn btn-info') }}
                                             
                                         </form>
                                         <br />
