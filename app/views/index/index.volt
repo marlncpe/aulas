@@ -1,5 +1,15 @@
-  
+  <style>
+  #arriba{
+    position:absolute;
+    z-index:999px;
+    top:0px;
+    width:100%;
+    left:0px;
+    height:342px;
+  }
+  </style>
    <body class="login-content">
+        {{ image('img/banner.png','id':'arriba')}}
         <!-- Login -->
         <div class="lc-block toggled" id="">
             {{ form('session/start', 'role': 'form', 'method':'post' ) }}
