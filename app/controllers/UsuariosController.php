@@ -53,8 +53,8 @@ class UsuariosController extends ControllerBase
             $this->flash->notice("The search did not find any usuarios");
 
             return $this->dispatcher->forward(array(
-                "controller" => "usuarios",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -80,18 +80,18 @@ class UsuariosController extends ControllerBase
      *
      * @param string $id
      */
-    public function editAction($id)
+    public function editAction()
     {
-
+        $id =  $this->session->get('userid');
         if (!$this->request->isPost()) {
 
             $usuario = Usuarios::findFirstByid($id);
             if (!$usuario) {
-                $this->flash->error("usuario was not found");
+                $this->flash->error("usuario no encontrado");
 
                 return $this->dispatcher->forward(array(
-                    "controller" => "usuarios",
-                    "action" => "index"
+                    "controller" => "aulas",
+                    "action" => "searchSolicitud"
                 ));
             }
 
@@ -122,8 +122,8 @@ class UsuariosController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "index",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -154,11 +154,11 @@ class UsuariosController extends ControllerBase
             ));*/
         }
         
-        echo "<script>alert('Usuario creado con exito!')</script>";
+        $this->flash->success("usuario creado con exito");
         
         return $this->dispatcher->forward(array(
-            "controller" => "index",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
     }
 
@@ -171,8 +171,8 @@ class UsuariosController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "usuarios",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -180,26 +180,26 @@ class UsuariosController extends ControllerBase
 
         $usuario = Usuarios::findFirstByid($id);
         if (!$usuario) {
-            $this->flash->error("usuario does not exist " . $id);
+            $this->flash->error("no encontrado usuario con el siguiente id: " . $id);
 
             return $this->dispatcher->forward(array(
-                "controller" => "usuarios",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
         $usuario->cedula = $this->request->getPost("cedula");
         $usuario->nombres = $this->request->getPost("nombres");
         $usuario->apellidos = $this->request->getPost("apellidos");
-        $usuario->id_vpds = $this->request->getPost("id_vpds");
-        $usuario->id_permiso = $this->request->getPost("id_permiso");
-        $usuario->nomb_usuario = $this->request->getPost("nomb_usuario");
-        $usuario->clave = $this->request->getPost("clave");
+        $usuario->id_vpds = $usuario->getIdVpds();
+        $usuario->id_permiso = $usuario->getIdPermiso();
+        $usuario->nomb_usuario = $usuario->getNombUsuario();
+        $usuario->clave = $usuario->getClave();
         $usuario->correo = $this->request->getPost("correo");
         $usuario->telefono = $this->request->getPost("telefono");
-        $usuario->fecha_creacion = $this->request->getPost("fecha_creacion");
-        $usuario->fecha_modificacion = $this->request->getPost("fecha_modificacion");
-        $usuario->id_estado = $this->request->getPost("id_estado");
+        $usuario->fecha_creacion = $usuario->getFechaCreacion();
+        $usuario->fecha_modificacion = date("d-m-Y");
+        $usuario->id_estado = $usuario->getIdEstado();
         
 
         if (!$usuario->save()) {
@@ -215,11 +215,11 @@ class UsuariosController extends ControllerBase
             ));
         }
 
-        $this->flash->success("usuario was updated successfully");
+        $this->flash->success("El fue usuario actualizado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "usuarios",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
 
     }
@@ -234,11 +234,11 @@ class UsuariosController extends ControllerBase
 
         $usuario = Usuarios::findFirstByid($id);
         if (!$usuario) {
-            $this->flash->error("usuario was not found");
+            $this->flash->error("usuario no encontrado");
 
             return $this->dispatcher->forward(array(
-                "controller" => "usuarios",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -249,16 +249,16 @@ class UsuariosController extends ControllerBase
             }
 
             return $this->dispatcher->forward(array(
-                "controller" => "usuarios",
-                "action" => "search"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
-        $this->flash->success("usuario was deleted successfully");
+        $this->flash->success("usuario borrado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "usuarios",
-            "action" => "index"
+            "controller" => "aulas",
+            "action" => "searchSolicitud"
         ));
     }
     public function cradminAction(){
@@ -285,18 +285,13 @@ class UsuariosController extends ControllerBase
                 foreach ($usuario->getMessages() as $message) {
                     $this->flash->error($message);
                 }
-
-            /*    return $this->dispatcher->forward(array(
-                    "controller" => "index",
-                    "action" => "index"
-                ));*/
             }
             
-            echo "<script>alert('Usuario creado con exito!')</script>";
+            $this->flash->success("usuario creado con exito");
             
             return $this->dispatcher->forward(array(
-                "controller" => "index",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             )); 
         }
     }

@@ -22,7 +22,7 @@
                                     |
                                     <li>{{userprofile.estado.nombre}}</li>
                                 </ul>
-                                <a href="{{ url('usuarios/edit/') }}{{ userprofile.id }}" class="pv-follow-btn">Editar Perfil</a>
+                                <a href="{{ url('usuarios/edit') }}" class="pv-follow-btn">Editar Perfil</a>
                             </div>
                         </div>
 
