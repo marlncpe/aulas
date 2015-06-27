@@ -45,7 +45,7 @@ class Roles extends Plugin
 				'materia' => array('create','search','new','edit','save'),
 				'estado' => array('create','search','new'),
 				'aulas' => array('create','search','index','acceptsolicitud','updatesolicitud','profile','new','searchSolicitud'),
-				'usuarios'=> array('cradmin','save','edit','delete')
+				'usuarios'=> array('cradmin','save','edit','delete','profile')
 			);
 
 			//añadimos las zonas de administrador a los recursos de la aplicación
@@ -76,7 +76,8 @@ class Roles extends Plugin
 				'materia' => array('search'),
 				'estado' => array('search'),
 				'aulas' => array('create','search','index','edit','profile','new'),
-				'periodo' => array('search')
+				'periodo' => array('search'),
+				'usuarios'=> array('profile','edit','save')
 			);
 			
 			//añadimos las zonas para usuarios registrados a los recursos de la aplicación
