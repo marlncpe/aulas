@@ -5,7 +5,7 @@
                         <!-- Profile teacher view -->
                         <div class="card profile-view">
                             <div class="pv-header">
-                                {{ image("img/profile-pics/profile-pic.jpg") }}
+                                <img src="{{ userprofile.picture }}">
                             </div>
                             <br />
                             <br />
@@ -22,7 +22,7 @@
                                     |
                                     <li>{{userprofile.estado.nombre}}</li>
                                 </ul>
-                                
+                                <a href="{{ url('usuarios/edit/') }}{{ userprofile.id }}" class="pv-follow-btn">Editar Perfil</a>
                             </div>
                         </div>
 
