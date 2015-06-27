@@ -1,6 +1,7 @@
 <?php
  
 use Phalcon\Mvc\Model\Criteria;
+use Phalcon\Mvc\View;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
 class AulasController extends ControllerBase
@@ -262,5 +263,15 @@ class AulasController extends ControllerBase
             "action" => "index"
         ));
     }
-
+    public function reporteAction(){
+        $this->view->disable();      
+        $this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+        
+        $html = $this->view->getRender("aulas", "reporte", array("user" =>"root"));//'<html><body>'.'<p>test</p>'.'</body></html>';
+        $dompdf = new domPdf();
+        $dompdf->load_html($html);
+        $dompdf->render();
+        $dompdf->stream("prueba.pdf");
+        
+    }
 }
