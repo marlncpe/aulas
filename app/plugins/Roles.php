@@ -45,7 +45,7 @@ class Roles extends Plugin
 				'materia' => array('create','search','new','edit','save'),
 				'estado' => array('create','search','new'),
 				'aulas' => array('create','search','index','acceptsolicitud','updatesolicitud','profile','new','searchSolicitud','reporte'),
-				'usuarios'=> array('cradmin','save','edit','delete','profile')
+				'usuarios'=> array('cradmin','save','edit','delete','profile','reporte')
 			);
 
 			//añadimos las zonas de administrador a los recursos de la aplicación

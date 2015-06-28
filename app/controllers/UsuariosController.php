@@ -295,5 +295,20 @@ class UsuariosController extends ControllerBase
             )); 
         }
     }
+    public function reporteAction(){
+        $this->view->usuarios = Usuarios::find("id_estado=4");
+        
+        $this->view->disable();      
+        $this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+        
+        $html = $this->view->getRender("usuarios", "reporte", array(
+        "userid" => "dato"
+        ));
+        $dompdf = new domPdf();
+        $dompdf->load_html($html);
+        $dompdf->render();
+        $dompdf->stream("usuariosSistema.pdf");
+        
+    }
 
 }
