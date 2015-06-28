@@ -122,8 +122,8 @@ class UsuariosController extends ControllerBase
 
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
-                "controller" => "aulas",
-                "action" => "searchSolicitud"
+                "controller" => "index",
+                "action" => "index"
             ));
         }
 
@@ -157,8 +157,8 @@ class UsuariosController extends ControllerBase
         $this->flash->success("usuario creado con exito");
         
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "index",
+            "action" => "index"
         ));
     }
 
@@ -172,7 +172,7 @@ class UsuariosController extends ControllerBase
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
-                "action" => "searchSolicitud"
+                "action" => "index"
             ));
         }
 
@@ -184,7 +184,7 @@ class UsuariosController extends ControllerBase
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
-                "action" => "searchSolicitud"
+                "action" => "index"
             ));
         }
 
@@ -219,7 +219,7 @@ class UsuariosController extends ControllerBase
 
         return $this->dispatcher->forward(array(
             "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "action" => "index"
         ));
 
     }
