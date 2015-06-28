@@ -263,11 +263,15 @@ class AulasController extends ControllerBase
             "action" => "index"
         ));
     }
-    public function reporteAction(){
+    public function reporteAction($id){
+        $solicitud = Aulas::findFirstByid($id);
+        
         $this->view->disable();      
         $this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
         
-        $html = $this->view->getRender("aulas", "reporte", array("user" =>"root"));//'<html><body>'.'<p>test</p>'.'</body></html>';
+        $html = $this->view->getRender("aulas", "reporte", array(
+        "user" => $solicitud->id
+        ));//'<html><body>'.'<p>test</p>'.'</body></html>';
         $dompdf = new domPdf();
         $dompdf->load_html($html);
         $dompdf->render();
