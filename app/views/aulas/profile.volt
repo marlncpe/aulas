@@ -1,9 +1,8 @@
             <section id="content">
                 <div class="container">
-                    <div class="col-sm-3">
+                    <!--<div class="col-sm-1">
 
-                          <!-- Rating -->
-                        <div class="card rating-list">
+                          <div class="card rating-list">
                             <div class="listview">
                                 <div class="lv-header">
                                     <div class="m-t-5">
@@ -111,9 +110,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-8">
 
                         <!-- Profile aula view -->
                         <div class="card profile-view">
@@ -147,7 +146,7 @@
                     </div>
                     {% if aulaprofile.usuarios.id == "" %}
                     {% else %}
-                    <div class="col-sm-3">
+                    <div class="col-sm-4">
                         <!-- Profile teacher view -->
                         <div class="card profile-view">
                             <div class="pv-header">
