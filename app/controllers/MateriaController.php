@@ -36,7 +36,7 @@ class MateriaController extends ControllerBase
 
         $materia = Materia::find($parameters);
         if (count($materia) == 0) {
-            $this->flash->notice("The search did not find any materia");
+            $this->flash->notice("La busqueda no encontro ninguna materia, por favor registre una");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -73,7 +73,7 @@ class MateriaController extends ControllerBase
 
             $materia = Materia::findFirstByid($id);
             if (!$materia) {
-                $this->flash->error("la materia no fue encontrada");
+                $this->flash->error("La materia no fue encontrada");
 
                 return $this->dispatcher->forward(array(
                     "controller" => "aulas",
@@ -153,7 +153,7 @@ class MateriaController extends ControllerBase
 
         $materia = Materia::findFirstByid($id);
         if (!$materia) {
-            $this->flash->error("materia no existe " . $id);
+            $this->flash->error("Materia no existe " . $id);
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -181,7 +181,7 @@ class MateriaController extends ControllerBase
             ));
         }
 
-        $this->flash->success("materia ha sido actualizada con exito");
+        $this->flash->success("La materia ha sido actualizada con exito");
 
         return $this->dispatcher->forward(array(
             "controller" => "aulas",
@@ -200,7 +200,7 @@ class MateriaController extends ControllerBase
 
         $materia = Materia::findFirstByid($id);
         if (!$materia) {
-            $this->flash->error("materia no fue encontrada");
+            $this->flash->error("Materia no encontrada");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -220,7 +220,7 @@ class MateriaController extends ControllerBase
             ));
         }
 
-        $this->flash->success("materia fue borrada con exito");
+        $this->flash->success("Materia eliminada con exito");
 
         return $this->dispatcher->forward(array(
             "controller" => "aulas",

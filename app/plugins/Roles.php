@@ -39,7 +39,7 @@ class Roles extends Plugin
 
 			//zonas accesibles sólo para role admin
 			$adminAreas = array(
-				'periodo' => array('create','search','new','edit','save'),
+				'periodo' => array('create','search','new','edit','save','delete'),
 				'vpds'	=> array('create' ,'search','new','edit','save'),
 				'carrera'	=> array('create' ,'search','new','edit','save'),
 				'materia' => array('create','search','new','edit','save'),

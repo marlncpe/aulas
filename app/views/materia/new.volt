@@ -15,13 +15,13 @@
                                                     <div class="fg-line">
                                                         {{ text_field("nombre", 'class':'form-control', "size" : 30) }}
                                                     </div>
-                                                    <label class="fg-label">nombre</label>
+                                                    <label class="fg-label">Nombre</label>
                                                 </div>
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
                                                         {{ text_field("semestre", 'class':'form-control', "size" : 30) }}
                                                     </div>
-                                                    <label class="fg-label">semestre</label>
+                                                    <label class="fg-label">Semestre</label>
                                                 </div>
                                                  <div class="form-group fg-float">
                                                     <div class="fg-line">

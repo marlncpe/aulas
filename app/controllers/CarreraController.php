@@ -37,7 +37,7 @@ class CarreraController extends ControllerBase
 
         $carrera = Carrera::find($parameters);
         if (count($carrera) == 0) {
-            $this->flash->notice("The search did not find any carrera");
+            $this->flash->notice("La busqueda no encontro carrera, por favor registre una");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -74,7 +74,7 @@ class CarreraController extends ControllerBase
 
             $carrera = Carrera::findFirstByid($id);
             if (!$carrera) {
-                $this->flash->error("carrera no se encuentra");
+                $this->flash->error("Carrera no encontrada");
 
                 return $this->dispatcher->forward(array(
                     "controller" => "aulas",
@@ -123,7 +123,7 @@ class CarreraController extends ControllerBase
             ));
         }
 
-        $this->flash->success("carrera creada con exito");
+        $this->flash->success("Carrera creada con exito");
 
         return $this->dispatcher->forward(array(
             "controller" => "aulas",
@@ -195,7 +195,7 @@ class CarreraController extends ControllerBase
 
         $carrera = Carrera::findFirstByid($id);
         if (!$carrera) {
-            $this->flash->error("carrera no fue encontrada");
+            $this->flash->error("Carrera no encontrada");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -215,7 +215,7 @@ class CarreraController extends ControllerBase
             ));
         }
 
-        $this->flash->success("carrera se ha borrado exitosamente");
+        $this->flash->success("La carrera se ha borrado exitosamente");
 
         return $this->dispatcher->forward(array(
             "controller" => "aulas",

@@ -50,7 +50,7 @@ class UsuariosController extends ControllerBase
 
         $usuarios = Usuarios::find($parameters);
         if (count($usuarios) == 0) {
-            $this->flash->notice("The search did not find any usuarios");
+            $this->flash->notice("La busqueda no encontro usuarios");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -87,7 +87,7 @@ class UsuariosController extends ControllerBase
 
             $usuario = Usuarios::findFirstByid($id);
             if (!$usuario) {
-                $this->flash->error("usuario no encontrado");
+                $this->flash->error("Usuario no encontrado");
 
                 return $this->dispatcher->forward(array(
                     "controller" => "aulas",
@@ -180,7 +180,7 @@ class UsuariosController extends ControllerBase
 
         $usuario = Usuarios::findFirstByid($id);
         if (!$usuario) {
-            $this->flash->error("no encontrado usuario con el siguiente id: " . $id);
+            $this->flash->error("No encontrado usuario con el siguiente id: " . $id);
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -215,7 +215,7 @@ class UsuariosController extends ControllerBase
             ));
         }
 
-        $this->flash->success("El fue usuario actualizado con exito");
+        $this->flash->success("El usuario fue actualizado con exito");
 
         return $this->dispatcher->forward(array(
             "controller" => "aulas",
@@ -234,7 +234,7 @@ class UsuariosController extends ControllerBase
 
         $usuario = Usuarios::findFirstByid($id);
         if (!$usuario) {
-            $this->flash->error("usuario no encontrado");
+            $this->flash->error("Usuario no encontrado");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -254,7 +254,7 @@ class UsuariosController extends ControllerBase
             ));
         }
 
-        $this->flash->success("usuario borrado con exito");
+        $this->flash->success("Usuario borrado con exito");
 
         return $this->dispatcher->forward(array(
             "controller" => "aulas",
@@ -287,7 +287,7 @@ class UsuariosController extends ControllerBase
                 }
             }
             
-            $this->flash->success("usuario creado con exito");
+            $this->flash->success("Usuario creado con exito");
             
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
