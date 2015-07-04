@@ -154,7 +154,7 @@ class UsuariosController extends ControllerBase
             ));*/
         }
         
-        $this->flash->success("usuario creado con exito");
+        $this->flash->success("Usuario creado con exito, ahora puede Inciar Sesión");
         
         return $this->dispatcher->forward(array(
             "controller" => "index",

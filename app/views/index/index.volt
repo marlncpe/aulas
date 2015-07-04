@@ -87,7 +87,7 @@
                 <div class="input-group m-b-20">
                     <span class="input-group-addon"><i class="md md-lock"></i></span>
                     <div class="fg-line">
-                        <input type="password" class="form-control" placeholder="Contraseña" name="contraseña">
+                        <input type="password" class="form-control" placeholder="Contraseña" name="clave">
                     </div>
                 </div>
                 <div class="input-group m-b-20">
