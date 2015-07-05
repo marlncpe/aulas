@@ -39,7 +39,7 @@
                                     <div class="mini-charts-item bgm-yellow">
                                 {% endif %}
                                     <div class="clearfix">
-                                        <a href="../../aulas/profile/{{ aulas.id }}">
+                                        <a href={{ url('aulas/profile/')}}{{ aulas.id }}">
                                             <div class="count">
                                                 <small>{{ aulas.usuarios.nombres }}</small>
                                                 <h2>{{ aulas.materia.nombre }}</h2>

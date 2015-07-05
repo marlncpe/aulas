@@ -182,8 +182,9 @@ class AulasController extends ControllerBase
             $this->flash->success("La Solicitud ha sido creada satifactoriamente");
 
             return $this->dispatcher->forward(array(
-                "controller" => "aulas",
-                "action" => "index"
+                "controller" => "usuarios",
+                "action" => "profile",
+                "params" =>  array($this->session->get('userid'))
             ));
         }
     }
