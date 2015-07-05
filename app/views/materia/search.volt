@@ -12,7 +12,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
+                                        
                                         <th>Nombre</th>
                                         <th>Semestre</th>
                                         <th>Descripcion</th>
@@ -23,7 +23,7 @@
                                 {% if page.items is defined %}
                                 {% for materia in page.items %}
                                     <tr>
-                                        <td>{{ materia.id }}</td>
+                                        
                                         <td>{{ materia.nombre }}</td>
                                         <td>{{ materia.semestre }}</td>
                                         <td>{{ materia.descripcion }}</td>

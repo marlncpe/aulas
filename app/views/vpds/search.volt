@@ -13,7 +13,6 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
                                         <th>Nombre</th>
                                         <th>Estado</th>
                                         <th>Descripcion</th>
@@ -25,7 +24,6 @@
                                     {% if page.items is defined %}
                                     {% for vpd in page.items %}
                                         <tr>
-                                            <td>{{ vpd.id }}</td>
                                             <td>{{ vpd.nombre }}</td>
                                             <td>{{ vpd.estado }}</td>
                                             <td>{{ vpd.descripcion }}</td>

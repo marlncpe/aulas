@@ -12,7 +12,7 @@
                             <table class="table">
                                 <thead>        
                                     <tr>
-                                        <th>Id</th>
+                                        
                                         <th>Nombre</th>
                                         <th>Descripcion</th>
                                         <th>Fecha de Creacion</th>
@@ -22,7 +22,7 @@
                                 {% if page.items is defined %}
                                 {% for carrera in page.items %}
                                     <tr>
-                                        <td>{{ carrera.getId() }}</td>
+                                        
                                         <td>{{ carrera.getNombre() }}</td>
                                         <td>{{ carrera.getDescripcion() }}</td>
                                         <td>{{ carrera.getFechaCreacion() }}</td>

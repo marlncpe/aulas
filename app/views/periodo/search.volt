@@ -13,7 +13,7 @@
                             <table class="table">
                                 <thead> 
                                     <tr>
-                                        <th>Id</th>
+                                       
                                         <th>Nombre</th>
                                         <th>Descripcion</th>
                                         <th>Fecha de Creacion</th>
@@ -26,7 +26,7 @@
                                     {% if page.items is defined %}
                                     {% for periodo in page.items %}
                                             <tr class="active">
-                                            <td>{{ periodo.id }}</td>
+                                            
                                             <td>{{ periodo.nombre }}</td>
                                             <td>{{ periodo.descripcion }}</td>
                                             <td>{{ periodo.fechacreacion }}</td>

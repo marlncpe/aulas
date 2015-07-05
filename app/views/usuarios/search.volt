@@ -15,7 +15,7 @@
 <table class="browse" align="center">
     <thead>
         <tr>
-            <th>Id</th>
+            
             <th>Cedula</th>
             <th>Nombres</th>
             <th>Apellidos</th>
@@ -34,7 +34,7 @@
     {% if page.items is defined %}
     {% for usuario in page.items %}
         <tr>
-            <td>{{ usuario.id }}</td>
+           
             <td>{{ usuario.cedula }}</td>
             <td>{{ usuario.nombres }}</td>
             <td>{{ usuario.apellidos }}</td>

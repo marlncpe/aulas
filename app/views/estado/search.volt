@@ -15,7 +15,7 @@
 <table class="browse" align="center">
     <thead>
         <tr>
-            <th>Id</th>
+           
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Fecha Of Creacion</th>
@@ -26,7 +26,7 @@
     {% if page.items is defined %}
     {% for estado in page.items %}
         <tr>
-            <td>{{ estado.id }}</td>
+            
             <td>{{ estado.nombre }}</td>
             <td>{{ estado.descripcion }}</td>
             <td>{{ estado.fecha_creacion }}</td>
