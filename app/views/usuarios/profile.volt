@@ -5,10 +5,10 @@
                         <!-- Profile teacher view -->
                         <div class="card profile-view">
                             <div class="pv-header">
-                                <img src="{{ userprofile.picture }}">
+                                <br />
+                                <br />
+                                {{ image(userprofile.foto,'height':'170','width':'170') }}
                             </div>
-                            <br />
-                            <br />
                             <div class="pv-body">
                                 <h2>{{ userprofile.nombres }}, {{ userprofile.apellidos }} </h2>
                                 <small>{{userprofile.cedula}}</small>
@@ -35,7 +35,7 @@
                                     <div class="mini-charts-item bgm-green">
                                 {% elseif aulas.estado.nombre == "inactivo" %}
                                     <div class="mini-charts-item bgm-red">
-                                {% elseif aulas.estado.nombre == "espera" %}
+                                {% elseif aulas.estado.nombre == "Espera" %}
                                     <div class="mini-charts-item bgm-yellow">
                                 {% endif %}
                                     <div class="clearfix">

@@ -87,8 +87,7 @@
                 <div class="input-group m-b-20">
                     <span class="input-group-addon"><i class="md md-lock"></i></span>
                     <div class="fg-line">
-                        <input type="password" class="form-control" placeholder="Contraseña" name="clave" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="La clave debe tener al menos 8 digitos y debe contener mayusculas, minusculas, numeros y caracteres especiales"pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$
-" >
+                        <input type="password" class="form-control" placeholder="Contraseña" name="clave" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="La clave debe tener al menos 8 digitos y debe contener mayusculas, minusculas, numeros y caracteres especiales"pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" >
                     </div>
                 </div>
                 <div class="input-group m-b-20">

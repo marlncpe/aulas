@@ -41,7 +41,7 @@
                         <!-- Profile teacher view -->
                         <div class="card profile-view">
                             <div class="pv-header">
-                                <img src="img/profile-pics/profile-pic.jpg" class="pv-main" alt="">
+                                {{ image(aulaprofile.usuarios.foto,"class":"pv-main") }}
                             </div>
                             
                             <div class="pv-body">

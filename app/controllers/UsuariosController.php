@@ -107,6 +107,7 @@ class UsuariosController extends ControllerBase
             $this->tag->setDefault("clave", $usuario->clave);
             $this->tag->setDefault("correo", $usuario->correo);
             $this->tag->setDefault("telefono", $usuario->telefono);
+            $this->tag->setDefault("foto", $usuario->foto);
             $this->tag->setDefault("fecha_creacion", $usuario->fecha_creacion);
             $this->tag->setDefault("fecha_modificacion", $usuario->fecha_modificacion);
             $this->tag->setDefault("id_estado", $usuario->id_estado);
@@ -138,6 +139,7 @@ class UsuariosController extends ControllerBase
         $usuario->clave = $this->request->getPost("clave");
         $usuario->correo = $this->request->getPost("correo");
         $usuario->telefono = $this->request->getPost("telefono");
+        $usuario->foto = ('img/usuario.png');
         $usuario->fecha_creacion = date("d-m-Y");
         $usuario->fecha_modificacion = " ";
         $usuario->id_estado = "1";
@@ -197,6 +199,20 @@ class UsuariosController extends ControllerBase
         $usuario->clave = $usuario->getClave();
         $usuario->correo = $this->request->getPost("correo");
         $usuario->telefono = $this->request->getPost("telefono");
+        if($this->request->hasFiles() == true){
+            $uploads = $this->request->getUploadedFiles();
+            $isUploaded = false;
+            foreach($uploads as $upload){
+
+                $path = 'img/'.md5(uniqid(rand(), true)).'-'.$this->session->get('userid').'';
+                ($upload->moveTo($path)) ? $isUploaded = true : $isUploaded = false;
+                
+                //$usuario->foto = $usuario->setFoto($path);
+                $usuario->setFoto($path);
+            }
+        }else{
+            $usuario->foto = $usuario->getFoto();
+        }
         $usuario->fecha_creacion = $usuario->getFechaCreacion();
         $usuario->fecha_modificacion = date("d-m-Y");
         $usuario->id_estado = $usuario->getIdEstado();

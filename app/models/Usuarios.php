@@ -67,6 +67,12 @@ class Usuarios extends \Phalcon\Mvc\Model
      *
      * @var string
      */
+    protected $foto;
+
+    /**
+     *
+     * @var string
+     */
     protected $fecha_creacion;
 
     /**
@@ -178,7 +184,7 @@ class Usuarios extends \Phalcon\Mvc\Model
      * @param string $clave
      * @return $this
      */
-    public function setclave($clave)
+    public function setClave($clave)
     {
         $this->clave = $clave;
 
@@ -207,6 +213,19 @@ class Usuarios extends \Phalcon\Mvc\Model
     public function setTelefono($telefono)
     {
         $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field foto
+     *
+     * @param string $foto
+     * @return $this
+     */
+    public function setFoto($foto)
+    {
+        $this->foto = $foto;
 
         return $this;
     }
@@ -325,7 +344,7 @@ class Usuarios extends \Phalcon\Mvc\Model
      *
      * @return string
      */
-    public function getclave()
+    public function getClave()
     {
         return $this->clave;
     }
@@ -348,6 +367,16 @@ class Usuarios extends \Phalcon\Mvc\Model
     public function getTelefono()
     {
         return $this->telefono;
+    }
+
+    /**
+     * Returns the value of field foto
+     *
+     * @return string
+     */
+    public function getFoto()
+    {
+        return $this->foto;
     }
 
     /**
@@ -387,14 +416,68 @@ class Usuarios extends \Phalcon\Mvc\Model
     {
         $this->hasMany('id', 'Aulas', 'id_usuario', array('alias' => 'Aulas'));
         $this->hasMany('id', 'Bitacora', 'id_usuario', array('alias' => 'Bitacora'));
+        $this->hasMany('id', 'Notificaciones', 'id_usuario', array('alias' => 'Notificaciones'));
         $this->belongsTo('id_permiso', 'Permisos', 'id', array('alias' => 'Permisos'));
         $this->belongsTo('id_estado', 'Estado', 'id', array('alias' => 'Estado'));
         $this->belongsTo('id_vpds', 'Vpds', 'id', array('alias' => 'Vpds'));
-        $this->hasMany('id', 'Aulas', 'id_usuario', NULL);
-        $this->hasMany('id', 'Bitacora', 'id_usuario', NULL);
-        $this->belongsTo('id_permiso', 'Permisos', 'id', array('foreignKey' => true));
-        $this->belongsTo('id_estado', 'Estado', 'id', array('foreignKey' => true));
-        $this->belongsTo('id_vpds', 'Vpds', 'id', array('foreignKey' => true));
+    }
+
+    /**
+     * Returns table name mapped in the model.
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return 'usuarios';
+    }
+
+    /**
+     * Allows to query a set of records that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return Usuarios[]
+     */
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+    /**
+     * Allows to query the first record that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return Usuarios
+     */
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
+    }
+
+    /**
+     * Independent Column Mapping.
+     * Keys are the real names in the table and the values their names in the application
+     *
+     * @return array
+     */
+    public function columnMap()
+    {
+        return array(
+            'id' => 'id',
+            'cedula' => 'cedula',
+            'nombres' => 'nombres',
+            'apellidos' => 'apellidos',
+            'id_vpds' => 'id_vpds',
+            'id_permiso' => 'id_permiso',
+            'nomb_usuario' => 'nomb_usuario',
+            'clave' => 'clave',
+            'correo' => 'correo',
+            'telefono' => 'telefono',
+            'foto' => 'foto',
+            'fecha_creacion' => 'fecha_creacion',
+            'fecha_modificacion' => 'fecha_modificacion',
+            'id_estado' => 'id_estado'
+        );
     }
 
 }
