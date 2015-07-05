@@ -21,11 +21,6 @@
 	<tr>	
 		<td>Cantidad de Solicitudes en Espera: {{ solicitudEspera }}</td>
 	</tr>
-	<tr>	
-		<td>-----------------------------------</td>
-	</tr>
-	<tr>	
-		<td>Cantidad de Alumnos que usaron las aulas: </td>
-	</tr>
+	
 	
 </table>
