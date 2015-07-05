@@ -4,7 +4,7 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <h2>Periodos</h2>
+                            <h2>Usuarios Administradores Registrados</h2>
                         </div>
                         
                     
@@ -34,7 +34,6 @@
                                         <td>{{ usuario.correo }}</td>
                                         <td>{{ usuario.fecha_creacion }}</td>
                                         <td>{{ usuario.estado.nombre }}</td>
-                                        <td>{{ link_to("usuarios/edit/"~usuario.id, "Editar") }}</td>
                                         <td>{{ link_to("usuarios/delete/"~usuario.id, "Borrar") }}</td>
                                     </tr>
                                     {% endfor %}
