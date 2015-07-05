@@ -34,7 +34,7 @@ class PeriodoController extends ControllerBase
         }
         $parameters["order"] = "id";
 
-        $periodo = Periodo::find($parameters);
+        $periodo = Periodo::find();
         if (count($periodo) == 0) {
             $this->flash->notice("La busqueda no encontro periodo, por favor cree uno");
 
@@ -131,8 +131,8 @@ class PeriodoController extends ControllerBase
         $this->flash->success("Periodo creado exitosamente");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "periodo",
+            "action" => "search"
         ));
 
     }
@@ -187,8 +187,8 @@ class PeriodoController extends ControllerBase
         $this->flash->success("Periodo actualizado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "periodo",
+            "action" => "search"
         ));
 
     }

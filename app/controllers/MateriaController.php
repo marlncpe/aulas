@@ -34,7 +34,7 @@ class MateriaController extends ControllerBase
         }
         $parameters["order"] = "id";
 
-        $materia = Materia::find($parameters);
+        $materia = Materia::find();
         if (count($materia) == 0) {
             $this->flash->notice("La busqueda no encontro ninguna materia, por favor registre una");
 
@@ -129,8 +129,8 @@ class MateriaController extends ControllerBase
         $this->flash->success("La materia ha sido creada satifactoriamente");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "materia",
+            "action" => "search"
         ));
 
     }
@@ -184,8 +184,8 @@ class MateriaController extends ControllerBase
         $this->flash->success("La materia ha sido actualizada con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "materia",
+            "action" => "search"
         ));
 
     }

@@ -35,7 +35,7 @@ class CarreraController extends ControllerBase
         }
         $parameters["order"] = "id";
 
-        $carrera = Carrera::find($parameters);
+        $carrera = Carrera::find();
         if (count($carrera) == 0) {
             $this->flash->notice("La busqueda no encontro carrera, por favor registre una");
 
@@ -126,8 +126,8 @@ class CarreraController extends ControllerBase
         $this->flash->success("Carrera creada con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "carrera",
+            "action" => "search"
         ));
 
     }
@@ -179,8 +179,8 @@ class CarreraController extends ControllerBase
         $this->flash->success("carrera was updated successfully");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "carrera",
+            "action" => "search"
         ));
 
     }
