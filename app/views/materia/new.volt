@@ -19,16 +19,25 @@
                                                 </div>
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
-                                                        {{ text_field("semestre", 'class':'form-control', "size" : 30) }}
-                                                    </div>
-                                                    <label class="fg-label">Semestre</label>
-                                                </div>
-                                                 <div class="form-group fg-float">
-                                                    <div class="fg-line">
                                                         {{ text_field("descripcion", 'class':'form-control', "size" : 30) }}
                                                     </div>
                                                     <label class="fg-label">Descripcion</label>
                                                 </div> 
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        <?php 
+                                                            echo $this->tag->select(
+                                                            array(
+                                                                "id_carrera",
+                                                                Carrera::find(),
+                                                                "using" => array("id", "nombre"),
+                                                                "class" => "form-control",
+                                                                )
+                                                            );
+                                                            ?>
+                                                    </div>
+                                                    <label class="fg-label">Carrera</label>
+                                                </div>
                                             </div>
                                             {{ submit_button("Crear Materia", 'class':'btn btn-info') }}
                                             

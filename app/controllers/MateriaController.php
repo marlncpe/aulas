@@ -85,7 +85,7 @@ class MateriaController extends ControllerBase
 
             $this->tag->setDefault("id", $materia->id);
             $this->tag->setDefault("nombre", $materia->nombre);
-            $this->tag->setDefault("semestre", $materia->semestre);
+            $this->tag->setDefault("id_carrera", $materia->id_carrera);
             $this->tag->setDefault("descripcion", $materia->descripcion);
             $this->tag->setDefault("fecha_creacion", $materia->fecha_creacion);
             $this->tag->setDefault("fecha_modificacion", $materia->fecha_modificacion);
@@ -109,7 +109,7 @@ class MateriaController extends ControllerBase
         $materia = new Materia();
 
         $materia->nombre = $this->request->getPost("nombre");
-        $materia->semestre = $this->request->getPost("semestre");
+        $materia->id_carrera = $this->request->getPost("id_carrera");
         $materia->descripcion = $this->request->getPost("descripcion");
         $materia->fecha_creacion = date("d-m-Y");
         $materia->fecha_modificacion = " ";
@@ -162,7 +162,7 @@ class MateriaController extends ControllerBase
         }
 
         $materia->nombre = $this->request->getPost("nombre");
-        $materia->semestre = $this->request->getPost("semestre");
+        $materia->id_carrera = $this->request->getPost("id_carrera");
         $materia->descripcion = $this->request->getPost("descripcion");
         $materia->fecha_creacion = $this->request->getPost("fecha_creacion");
         $materia->fecha_modificacion = date("d-m-Y");
