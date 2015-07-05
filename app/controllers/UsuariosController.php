@@ -48,7 +48,7 @@ class UsuariosController extends ControllerBase
         }
         $parameters["order"] = "id";
 
-        $usuarios = Usuarios::find($parameters);
+        $usuarios = Usuarios::find('id_permiso=2');
         if (count($usuarios) == 0) {
             $this->flash->notice("La busqueda no encontro usuarios");
 

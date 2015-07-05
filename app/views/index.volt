@@ -95,10 +95,13 @@
                                             <i class="md md-assignment-late"></i>Solicitudes
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="{{ url('usuarios/cradmin/') }}"><i class="md md-account-circle"></i>Nuevo Administrador</a>
+                                    <li class="sub-menu">
+                                        <a href=""><i class="md md-account-circle"></i>Usuarios</a>
+                                        <ul>
+                                            <li><a href="{{ url('usuarios/search/') }}">Ver Todos</a></li>
+                                            <li><a href="{{ url('usuarios/cradmin/') }}">Crear Administrador</a></li>
+                                        </ul>
                                     </li>
-
                                     <li class="sub-menu">
                                         <a href=""><i class="md md-query-builder"></i>Periodo</a>
                                         <ul>
