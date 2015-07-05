@@ -62,7 +62,7 @@ $(document).ready(function () {
     
     /* Mini Chart - Pie Chart 1 */
     if ($('.stats-pie')[0]) {
-        sparklinePie('stats-pie', [20, 35, 30, 5], 45, 45, ['#fff', 'rgba(255,255,255,0.7)', 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.2)']);
+        sparklinePie('stats-pie', [33, 35, 30, 5], 45, 45, ['#fff', 'rgba(255,255,255,0.7)', 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.2)']);
     }
     
     /* Dash Widget Line Chart */

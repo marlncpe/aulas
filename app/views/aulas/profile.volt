@@ -26,7 +26,7 @@
                                 </ul>
                                 {% if aulaprofile.usuarios.id == "" %}
                                 <a href="" class="pv-follow-btn">Solicitar</a> 
-                                {% elseif aulaprofile.estado.nombre == "espera" %}
+                                {% elseif aulaprofile.estado.nombre == "Espera" %}
                                 <a href="{{ url('aulas/reporte/') }}{{ aulaprofile.id }}" class="pv-follow-btn">Imprimir Solicitud</a>
                                 {% else %}
                                 <a href="" class="pv-follow-btn">Entrar</a>
