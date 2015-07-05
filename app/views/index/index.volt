@@ -17,7 +17,7 @@
                 <div class="input-group m-b-20">
                     <span class="input-group-addon"><i class="md md-person"></i></span>
                     <div class="fg-line">
-                        <input type="text" name="email" class="form-control" placeholder="Usuario" autofocus>
+                        <input type="text" name="email" class="form-control" placeholder="Usuario" autofocus data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ingrese Usuario o Correo Electronico">
                     </div>
                 </div>
                 
@@ -55,45 +55,46 @@
                 <div class="input-group m-b-20">
                     <span class="input-group-addon"><i class="md md-person"></i></span>
                     <div class="fg-line">
-                        <input type="text" class="form-control" placeholder="Nombres" name="nombres">
+                        <input type="text" class="form-control" placeholder="Nombres" name="nombres"  data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Introduzca sus nombres ejemplo: Pedro Jose" pattern="[a-zA-Z ]+">
                     </div>
                 </div>
                 <div class="input-group m-b-20">
                     <span class="input-group-addon"><i class="md md-person"></i></span>
                     <div class="fg-line">
-                        <input type="text" class="form-control" placeholder="Apellidos" name="apellidos">
+                        <input type="text" class="form-control" placeholder="Apellidos" name="apellidos" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Introduzca sus Apellidos ejemplo: Perez Perez" pattern="[a-zA-Z ]+">
                     </div>
                 </div>
                 <div class="input-group m-b-20">
                     <span class="input-group-addon"><i class="md md-person"></i></span>
                     <div class="fg-line">
-                        <input type="text" class="form-control" placeholder="Cedula" name="cedula">
+                        <input type="text" class="form-control" placeholder="Cedula" name="cedula" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Introduzca su cedula ejemplo: (E-,V-)00.000.000">
                     </div>
                 </div>
                 <div class="input-group m-b-20">
                     <span class="input-group-addon"><i class="md md-person"></i></span>
                     <div class="fg-line">
-                        <input type="text" class="form-control" placeholder="Nombre de Usuario" name="nomb_usuario">
+                        <input type="text" class="form-control" placeholder="Nombre de Usuario" name="nomb_usuario" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Introduzca su nombre de usuario debe tener minimo 2 digitos maximo 20" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$">
                     </div>
                 </div>
                 
                 <div class="input-group m-b-20">
                     <span class="input-group-addon"><i class="md md-mail"></i></span>
                     <div class="fg-line">
-                        <input type="text" class="form-control" placeholder="Correo Electronico" name="correo">
+                        <input type="email" class="form-control" placeholder="Correo Electronico" name="correo" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Introduzca su correo Electronico ejemplo: correo@correo.com">
                     </div>
                 </div>
                 
                 <div class="input-group m-b-20">
                     <span class="input-group-addon"><i class="md md-lock"></i></span>
                     <div class="fg-line">
-                        <input type="password" class="form-control" placeholder="Contraseña" name="clave">
+                        <input type="password" class="form-control" placeholder="Contraseña" name="clave" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="La clave debe tener al menos 8 digitos y debe contener mayusculas, minusculas, numeros y caracteres especiales"pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$
+" >
                     </div>
                 </div>
                 <div class="input-group m-b-20">
                     <span class="input-group-addon"><i class="md md-phone"></i></span>
                     <div class="fg-line">
-                        <input type="text" class="form-control" placeholder="Telefono" name="telefono">
+                        <input type="text" class="form-control" placeholder="Telefono" name="telefono" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Introduzca su numero de telefono ejemplo: (CODIGO)-000-00-00" pattern="([0-9])+(?:-?\d){9,}">
                     </div>
                 </div>
                 <div class="input-group m-b-20">
