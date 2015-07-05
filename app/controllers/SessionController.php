@@ -93,9 +93,6 @@ class SessionController extends ControllerBase
     public function endAction()
     {
         $this->session->destroy();
-        return $this->dispatcher->forward(array(
-            "controller" => "index",
-            "action" => "index"
-        ));
+        return $this->response->redirect('');
     }
 }
