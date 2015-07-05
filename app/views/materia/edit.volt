@@ -26,17 +26,12 @@
                                                     </div>
                                                     <label class="fg-label">Descripcion</label>
                                                 </div>
-                                                <div class="form-group fg-float">
-                                                    <div class="fg-line">
-                                                        {{ text_field("semestre", "size" : 30,"class":"form-control") }}
-                                                    </div>
-                                                    <label class="fg-label">Semestre</label>
-                                                </div>
                                     
                                             </div>
                                             {{ hidden_field("id") }}
+                                            {{ hidden_field("id_carrera") }}
                                             {{ hidden_field("fecha_creacion", "size" : 30) }}
-                                            {{ submit_button("Editar Materia", 'class':'btn btn-info') }}
+                                            {{ submit_button("Actualizar", 'class':'btn btn-info') }}
                                             
                                         </form>
                                         <br />

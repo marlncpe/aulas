@@ -39,13 +39,13 @@ class Roles extends Plugin
 
 			//zonas accesibles sólo para role admin
 			$adminAreas = array(
-				'periodo' => array('create','search','new','edit','save'),
+				'periodo' => array('create','search','new','edit','save','delete'),
 				'vpds'	=> array('create' ,'search','new','edit','save'),
 				'carrera'	=> array('create' ,'search','new','edit','save'),
 				'materia' => array('create','search','new','edit','save'),
 				'estado' => array('create','search','new'),
-				'aulas' => array('create','search','index','acceptsolicitud','updatesolicitud','profile','new','searchSolicitud'),
-				'usuarios'=> array('cradmin','save','edit','delete')
+				'aulas' => array('create','search','index','acceptsolicitud','updatesolicitud','profile','new','searchSolicitud','reporte'),
+				'usuarios'=> array('cradmin','save','edit','delete','profile','reporte','search')
 			);
 
 			//añadimos las zonas de administrador a los recursos de la aplicación
@@ -61,7 +61,7 @@ class Roles extends Plugin
 				'vpds'	=> array('create' ,'search' ),
 				'materia' => array('create','search'),
 				'estado' => array('create','search'),
-				'aulas' => array('create','search','index','profile','new'),
+				'aulas' => array('create','search','index','profile','new','reporte'),
 				'periodo' => array('create','search')
 			);
 			
@@ -75,8 +75,9 @@ class Roles extends Plugin
 			$registeredAreas = array(
 				'materia' => array('search'),
 				'estado' => array('search'),
-				'aulas' => array('create','search','index','edit','profile','new'),
-				'periodo' => array('search')
+				'aulas' => array('create','search','index','edit','profile','new','reporte'),
+				'periodo' => array('search'),
+				'usuarios'=> array('profile','edit','save')
 			);
 			
 			//añadimos las zonas para usuarios registrados a los recursos de la aplicación

@@ -5,10 +5,10 @@
                         <!-- Profile teacher view -->
                         <div class="card profile-view">
                             <div class="pv-header">
-                                {{ image("img/profile-pics/profile-pic.jpg") }}
+                                <br />
+                                <br />
+                                {{ image(userprofile.foto,'height':'170','width':'170') }}
                             </div>
-                            <br />
-                            <br />
                             <div class="pv-body">
                                 <h2>{{ userprofile.nombres }}, {{ userprofile.apellidos }} </h2>
                                 <small>{{userprofile.cedula}}</small>
@@ -22,7 +22,7 @@
                                     |
                                     <li>{{userprofile.estado.nombre}}</li>
                                 </ul>
-                                
+                                <a href="{{ url('usuarios/edit') }}" class="pv-follow-btn">Editar Perfil</a>
                             </div>
                         </div>
 
@@ -35,11 +35,11 @@
                                     <div class="mini-charts-item bgm-green">
                                 {% elseif aulas.estado.nombre == "inactivo" %}
                                     <div class="mini-charts-item bgm-red">
-                                {% elseif aulas.estado.nombre == "espera" %}
+                                {% elseif aulas.estado.nombre == "Espera" %}
                                     <div class="mini-charts-item bgm-yellow">
                                 {% endif %}
                                     <div class="clearfix">
-                                        <a href="../../aulas/profile/{{ aulas.id }}">
+                                        <a href={{ url('aulas/profile/')}}{{ aulas.id }}">
                                             <div class="count">
                                                 <small>{{ aulas.usuarios.nombres }}</small>
                                                 <h2>{{ aulas.materia.nombre }}</h2>

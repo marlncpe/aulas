@@ -1,119 +1,72 @@
 {{ content() }}
-{{ form("usuarios/save", "method":"post") }}
+                <div class="container">
+                    <br />                   
+                    <div class="col-sm-12">
+                        <!-- Tabs -->
 
-<table width="100%">
-    <tr>
-        <td align="left">{{ link_to("usuarios", "Go Back") }}</td>
-        <td align="right">{{ submit_button("Save") }}</td>
-    </tr>
-</table>
+                        <div class="card">
+                            <div class="card-header">
+                                <h1>Editar Perfil</h1>
+                            </div>
+                                            
+                                        {{ form("usuarios/save", "method":"post","enctype":"multipart/form-data") }}
+                               
 
-<div align="center">
-    <h1>Edit usuarios</h1>
-</div>
+                                            <div class="card-body card-padding">
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        {{ text_field("cedula", "size" : 30,"class":"form-control") }}
+                                                    </div>
+                                                    <label class="fg-label">Cedula</label>
+                                                </div> 
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        {{ text_field("nombres", "size" : 30,"class":"form-control") }}
+                                                    </div>
+                                                    <label class="fg-label">Nombres</label>
+                                                </div> 
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        {{ text_field("apellidos", "size" : 30,"class":"form-control") }}
+                                                    </div>
+                                                    <label class="fg-label">Apellidos</label>
+                                                </div>
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        {{ text_field("correo", "size" : 30,"class":"form-control") }}
+                                                    </div>
+                                                    <label class="fg-label">Correo</label>
+                                                </div> 
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line">
+                                                        {{ text_field("telefono", "size" : 30,"class":"form-control") }}
+                                                    </div>
+                                                    <label class="fg-label">Telefono</label>
+                                                </div>
+                                                <div class="form-group fg-float">
+                                                    <div class="fg-line" align="left">
+                                                        <br />
+                                                        <br />
+                                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                            <span class="btn btn-primary btn-file m-r-10 waves-effect waves-button">
+                                                                <span class="fileinput-new">Subir Foto</span>
+                                                                <span class="fileinput-exists">Cambiar</span>
+                                                                <input type="file" name="foto">
+                                                            </span>
+                                                            <span class="fileinput-filename"></span>
+                                                            <a href="#" class="close fileinput-exists" data-dismiss="fileinput">×</a>
+                                                        </div>
 
-<table>
-    <tr>
-        <td align="right">
-            <label for="cedula">Cedula</label>
-        </td>
-        <td align="left">
-            {{ text_field("cedula", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="nombres">Nombres</label>
-        </td>
-        <td align="left">
-            {{ text_field("nombres", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="apellidos">Apellidos</label>
-        </td>
-        <td align="left">
-            {{ text_field("apellidos", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="id_vpds">Id Of Vpds</label>
-        </td>
-        <td align="left">
-            {{ text_field("id_vpds", "type" : "numeric") }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="id_permiso">Id Of Permiso</label>
-        </td>
-        <td align="left">
-            {{ text_field("id_permiso", "type" : "numeric") }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="nomb_usuario">Nomb Of Usuario</label>
-        </td>
-        <td align="left">
-            {{ text_field("nomb_usuario", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="contraseña">Contraseña</label>
-        </td>
-        <td align="left">
-            {{ text_field("contraseña", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="correo">Correo</label>
-        </td>
-        <td align="left">
-            {{ text_field("correo", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="telefono">Telefono</label>
-        </td>
-        <td align="left">
-            {{ text_field("telefono", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="fecha_creacion">Fecha Of Creacion</label>
-        </td>
-        <td align="left">
-            {{ text_field("fecha_creacion", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="fecha_modificacion">Fecha Of Modificacion</label>
-        </td>
-        <td align="left">
-            {{ text_field("fecha_modificacion", "size" : 30) }}
-        </td>
-    </tr>
-    <tr>
-        <td align="right">
-            <label for="id_estado">Id Of Estado</label>
-        </td>
-        <td align="left">
-            {{ text_field("id_estado", "type" : "numeric") }}
-        </td>
-    </tr>
+                                                    </div>
+                                                    <label class="fg-label">Foto de Perfil</label>
+                                                </div>
+                                            </div>
 
-    <tr>
-        <td>{{ hidden_field("id") }}</td>
-        <td>{{ submit_button("Save") }}</td>
-    </tr>
-</table>
-
-</form>
+                                            {{ hidden_field("id") }}
+                                            {{ hidden_field("fecha_creacion", "size" : 30) }}
+                                            {{ submit_button("Actualizar", 'class':'btn btn-info') }}
+                                            
+                                        </form>
+                                        <br />
+                                    </div>
+                                </div>

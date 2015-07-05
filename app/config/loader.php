@@ -12,4 +12,10 @@ $loader->registerDirs(
         $config->application->formsDir,
         $config->application->pluginsDir
     )
-)->register();
+)
+->registerClasses(
+	array(
+		"domPdf"=>"../vendor/dompdf/dompdf/dompdf_config.inc.php",
+		)
+)
+->register();

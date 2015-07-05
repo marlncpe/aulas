@@ -4,18 +4,17 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <h2>Ver todos los vpds</h2>
+                            <h2>Ver todas las materias</h2>
                         </div>
                         
                     
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                        <th>Id</th>
+                                    <tr>                                        
                                         <th>Nombre</th>
-                                        <th>Semestre</th>
                                         <th>Descripcion</th>
+                                        <th>Carrera</th>
                                         <th>Fecha de Creacion</th>
                                      </tr>
                                 </thead>
@@ -23,10 +22,10 @@
                                 {% if page.items is defined %}
                                 {% for materia in page.items %}
                                     <tr>
-                                        <td>{{ materia.id }}</td>
+                                        
                                         <td>{{ materia.nombre }}</td>
-                                        <td>{{ materia.semestre }}</td>
                                         <td>{{ materia.descripcion }}</td>
+                                        <td>{{ materia.carrera.nombre }}</td>
                                         <td>{{ materia.fecha_creacion }}</td>
                                         <td>{{ link_to("materia/edit/"~materia.id, "Editar") }}</td>
                                         <td>{{ link_to("materia/delete/"~materia.id, "Borrar") }}</td>

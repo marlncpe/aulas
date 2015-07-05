@@ -1,6 +1,7 @@
 <?php
  
 use Phalcon\Mvc\Model\Criteria;
+use Phalcon\Mvc\View;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
 class AulasController extends ControllerBase
@@ -181,8 +182,9 @@ class AulasController extends ControllerBase
             $this->flash->success("La Solicitud ha sido creada satifactoriamente");
 
             return $this->dispatcher->forward(array(
-                "controller" => "aulas",
-                "action" => "index"
+                "controller" => "usuarios",
+                "action" => "profile",
+                "params" =>  array($this->session->get('userid'))
             ));
         }
     }
@@ -262,5 +264,19 @@ class AulasController extends ControllerBase
             "action" => "index"
         ));
     }
-
+    public function reporteAction($id){
+        $this->view->solicitud = Aulas::findFirstByid($id);
+        
+        $this->view->disable();      
+        $this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+        
+        $html = $this->view->getRender("aulas", "reporte", array(
+        "userid" => $solicitud->id
+        ));
+        $dompdf = new domPdf();
+        $dompdf->load_html($html);
+        $dompdf->render();
+        $dompdf->stream("prueba.pdf");
+        
+    }
 }

@@ -34,9 +34,9 @@ class VpdsController extends ControllerBase
         }
         $parameters["order"] = "id";
 
-        $vpds = Vpds::find($parameters);
+        $vpds = Vpds::find();
         if (count($vpds) == 0) {
-            $this->flash->notice("No se encontro Vice Rectorados en la busqueda");
+            $this->flash->notice("No se encontro ViceRectorados en la busqueda");
 
             return $this->dispatcher->forward(array(
                 "controller" => "vpds",
@@ -129,8 +129,7 @@ class VpdsController extends ControllerBase
         $this->flash->success("vpds creado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "controller" => "searchSolicitud",
+            "controller" => "vpds",
             "action" => "search"
         ));
 
@@ -185,8 +184,8 @@ class VpdsController extends ControllerBase
         $this->flash->success("vpds actualizado con exito!");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "vpds",
+            "action" => "search"
         ));
 
     }

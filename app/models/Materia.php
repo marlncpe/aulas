@@ -17,9 +17,9 @@ class Materia extends \Phalcon\Mvc\Model
 
     /**
      *
-     * @var string
+     * @var integer
      */
-    protected $semestre;
+    protected $id_carrera;
 
     /**
      *
@@ -66,14 +66,14 @@ class Materia extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Method to set the value of field semestre
+     * Method to set the value of field id_carrera
      *
-     * @param string $semestre
+     * @param integer $id_carrera
      * @return $this
      */
-    public function setSemestre($semestre)
+    public function setIdCarrera($id_carrera)
     {
-        $this->semestre = $semestre;
+        $this->id_carrera = $id_carrera;
 
         return $this;
     }
@@ -138,13 +138,13 @@ class Materia extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Returns the value of field semestre
+     * Returns the value of field id_carrera
      *
-     * @return string
+     * @return integer
      */
-    public function getSemestre()
+    public function getIdCarrera()
     {
-        return $this->semestre;
+        return $this->id_carrera;
     }
 
     /**
@@ -183,7 +183,57 @@ class Materia extends \Phalcon\Mvc\Model
     public function initialize()
     {
         $this->hasMany('id', 'Aulas', 'id_materia', array('alias' => 'Aulas'));
-        $this->hasMany('id', 'Aulas', 'id_materia', NULL);
+        $this->belongsTo('id_carrera', 'Carrera', 'id', array('alias' => 'Carrera'));
+    }
+
+    /**
+     * Returns table name mapped in the model.
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return 'materia';
+    }
+
+    /**
+     * Allows to query a set of records that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return Materia[]
+     */
+    public static function find($parameters = null)
+    {
+        return parent::find($parameters);
+    }
+
+    /**
+     * Allows to query the first record that match the specified conditions
+     *
+     * @param mixed $parameters
+     * @return Materia
+     */
+    public static function findFirst($parameters = null)
+    {
+        return parent::findFirst($parameters);
+    }
+
+    /**
+     * Independent Column Mapping.
+     * Keys are the real names in the table and the values their names in the application
+     *
+     * @return array
+     */
+    public function columnMap()
+    {
+        return array(
+            'id' => 'id',
+            'nombre' => 'nombre',
+            'id_carrera' => 'id_carrera',
+            'descripcion' => 'descripcion',
+            'fecha_creacion' => 'fecha_creacion',
+            'fecha_modificacion' => 'fecha_modificacion'
+        );
     }
 
 }

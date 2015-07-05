@@ -76,8 +76,12 @@
                                 </div>
                                 
                                 <ul class="main-menu">
-                                    <li class="active"><a href="{{ url('aulas/index') }}"><i class="md md-home"></i> Inicio</a></li>
                                     <?php if ($this->session->has("registered")){ ?> 
+                                    <li class="active">
+                                        <a href="{{ url('aulas/index') }}">
+                                            <i class="md md-home"></i> Inicio
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="{{ url('aulas/new/') }}"><i class="md md-add-circle-outline"></i>Solicitud</a>
                                     </li>
@@ -86,10 +90,18 @@
                                     </li>
                                     <?php } ?>
                                     <?php if ($this->session->has("admin")){ ?> 
-                                    <li>
-                                        <a href="{{ url('usuarios/cradmin/') }}"><i class="md md-account-circle"></i>Nuevo Administrador</a>
+                                    <li class="active">
+                                        <a href="{{ url('aulas/searchSolicitud') }}">
+                                            <i class="md md-assignment-late"></i>Solicitudes
+                                        </a>
                                     </li>
-
+                                    <li class="sub-menu">
+                                        <a href=""><i class="md md-account-circle"></i>Usuarios</a>
+                                        <ul>
+                                            <li><a href="{{ url('usuarios/search/') }}">Ver Todos</a></li>
+                                            <li><a href="{{ url('usuarios/cradmin/') }}">Crear Administrador</a></li>
+                                        </ul>
+                                    </li>
                                     <li class="sub-menu">
                                         <a href=""><i class="md md-query-builder"></i>Periodo</a>
                                         <ul>
@@ -125,10 +137,6 @@
                                             <li><a href="{{ url('estadisticas/mes/') }}">Mensuales</a></li>
                                             <li><a href="{{ url('estadisticas/semestre/') }}">Semestrales</a></li>
                                         </ul>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="{{ url('aulas/searchSolicitud/') }}"><i class="md md-assignment-late"></i>Solicitudes</a>
                                     </li>
                                     <?php } ?>
                                     

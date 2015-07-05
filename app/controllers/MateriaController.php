@@ -34,9 +34,9 @@ class MateriaController extends ControllerBase
         }
         $parameters["order"] = "id";
 
-        $materia = Materia::find($parameters);
+        $materia = Materia::find();
         if (count($materia) == 0) {
-            $this->flash->notice("The search did not find any materia");
+            $this->flash->notice("La busqueda no encontro ninguna materia, por favor registre una");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -73,7 +73,7 @@ class MateriaController extends ControllerBase
 
             $materia = Materia::findFirstByid($id);
             if (!$materia) {
-                $this->flash->error("la materia no fue encontrada");
+                $this->flash->error("La materia no fue encontrada");
 
                 return $this->dispatcher->forward(array(
                     "controller" => "aulas",
@@ -85,7 +85,7 @@ class MateriaController extends ControllerBase
 
             $this->tag->setDefault("id", $materia->id);
             $this->tag->setDefault("nombre", $materia->nombre);
-            $this->tag->setDefault("semestre", $materia->semestre);
+            $this->tag->setDefault("id_carrera", $materia->id_carrera);
             $this->tag->setDefault("descripcion", $materia->descripcion);
             $this->tag->setDefault("fecha_creacion", $materia->fecha_creacion);
             $this->tag->setDefault("fecha_modificacion", $materia->fecha_modificacion);
@@ -109,7 +109,7 @@ class MateriaController extends ControllerBase
         $materia = new Materia();
 
         $materia->nombre = $this->request->getPost("nombre");
-        $materia->semestre = $this->request->getPost("semestre");
+        $materia->id_carrera = $this->request->getPost("id_carrera");
         $materia->descripcion = $this->request->getPost("descripcion");
         $materia->fecha_creacion = date("d-m-Y");
         $materia->fecha_modificacion = " ";
@@ -129,8 +129,8 @@ class MateriaController extends ControllerBase
         $this->flash->success("La materia ha sido creada satifactoriamente");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "materia",
+            "action" => "search"
         ));
 
     }
@@ -153,7 +153,7 @@ class MateriaController extends ControllerBase
 
         $materia = Materia::findFirstByid($id);
         if (!$materia) {
-            $this->flash->error("materia no existe " . $id);
+            $this->flash->error("Materia no existe " . $id);
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -162,7 +162,7 @@ class MateriaController extends ControllerBase
         }
 
         $materia->nombre = $this->request->getPost("nombre");
-        $materia->semestre = $this->request->getPost("semestre");
+        $materia->id_carrera = $this->request->getPost("id_carrera");
         $materia->descripcion = $this->request->getPost("descripcion");
         $materia->fecha_creacion = $this->request->getPost("fecha_creacion");
         $materia->fecha_modificacion = date("d-m-Y");
@@ -181,11 +181,11 @@ class MateriaController extends ControllerBase
             ));
         }
 
-        $this->flash->success("materia ha sido actualizada con exito");
+        $this->flash->success("La materia ha sido actualizada con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "materia",
+            "action" => "search"
         ));
 
     }
@@ -200,7 +200,7 @@ class MateriaController extends ControllerBase
 
         $materia = Materia::findFirstByid($id);
         if (!$materia) {
-            $this->flash->error("materia no fue encontrada");
+            $this->flash->error("Materia no encontrada");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -220,7 +220,7 @@ class MateriaController extends ControllerBase
             ));
         }
 
-        $this->flash->success("materia fue borrada con exito");
+        $this->flash->success("Materia eliminada con exito");
 
         return $this->dispatcher->forward(array(
             "controller" => "aulas",

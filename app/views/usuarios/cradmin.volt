@@ -47,7 +47,7 @@
                                                 );
                                             ?>
                                         </div>
-                                        <label class="fg-label">vpds</label>
+                                        <label class="fg-label">Vicerrectorado</label>
                                     </div> 
 
                                     <div class="form-group fg-float">

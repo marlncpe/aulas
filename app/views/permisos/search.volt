@@ -15,7 +15,7 @@
 <table class="browse" align="center">
     <thead>
         <tr>
-            <th>Id</th>
+            
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Fecha Of Creacion</th>
@@ -26,7 +26,7 @@
     {% if page.items is defined %}
     {% for permiso in page.items %}
         <tr>
-            <td>{{ permiso.id }}</td>
+           
             <td>{{ permiso.nombre }}</td>
             <td>{{ permiso.descripcion }}</td>
             <td>{{ permiso.fecha_creacion }}</td>

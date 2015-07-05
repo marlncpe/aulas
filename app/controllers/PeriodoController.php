@@ -34,13 +34,13 @@ class PeriodoController extends ControllerBase
         }
         $parameters["order"] = "id";
 
-        $periodo = Periodo::find($parameters);
+        $periodo = Periodo::find();
         if (count($periodo) == 0) {
-            $this->flash->notice("The search did not find any periodo");
+            $this->flash->notice("La busqueda no encontro periodo, por favor cree uno");
 
             return $this->dispatcher->forward(array(
-                "controller" => "periodo",
-                "action" => "index"
+                "controller" => "aulas",
+                "action" => "searchSolicitud"
             ));
         }
 
@@ -128,11 +128,11 @@ class PeriodoController extends ControllerBase
             ));
         }
 
-        $this->flash->success("periodo creado exitosamente");
+        $this->flash->success("Periodo creado exitosamente");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "periodo",
+            "action" => "search"
         ));
 
     }
@@ -155,7 +155,7 @@ class PeriodoController extends ControllerBase
 
         $periodo = Periodo::findFirstByid($id);
         if (!$periodo) {
-            $this->flash->error("periodo no existe con este id: " . $id);
+            $this->flash->error("Periodo no existe con este id: " . $id);
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -184,11 +184,11 @@ class PeriodoController extends ControllerBase
             ));
         }
 
-        $this->flash->success("periodo actualizado con exito");
+        $this->flash->success("Periodo actualizado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "periodo",
+            "action" => "search"
         ));
 
     }
@@ -223,7 +223,7 @@ class PeriodoController extends ControllerBase
             ));
         }
 
-        $this->flash->success("periodo fue borrado con exito");
+        $this->flash->success("Periodo fue borrado con exito");
 
         return $this->dispatcher->forward(array(
             "controller" => "aulas",
