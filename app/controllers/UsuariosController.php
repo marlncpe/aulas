@@ -307,8 +307,8 @@ class UsuariosController extends ControllerBase
             $this->flash->success("Usuario creado con exito");
             
             return $this->dispatcher->forward(array(
-                "controller" => "aulas",
-                "action" => "searchSolicitud"
+                "controller" => "usuarios",
+                "action" => "search"
             )); 
         }
     }
