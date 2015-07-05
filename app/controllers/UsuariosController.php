@@ -218,10 +218,11 @@ class UsuariosController extends ControllerBase
         $this->flash->success("El usuario fue actualizado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "index"
+            "controller" => "usuarios",
+            "action" => "profile",
+            "params" => array($usuario->id)
         ));
-
+        
     }
 
     /**
