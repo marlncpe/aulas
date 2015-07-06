@@ -37,4 +37,4 @@ public/webtools.php
 public/files/*.pdf
 vendor/
 composer.lock
-
+public/files/*.*

@@ -208,10 +208,14 @@ class UsuariosController extends ControllerBase
                 ($upload->moveTo($path)) ? $isUploaded = true : $isUploaded = false;
                 
                 //$usuario->foto = $usuario->setFoto($path);
-                $usuario->setFoto($path);
+                if($upload->getName()==" "){
+                    $usuario->getFoto();
+                }else{
+                    $usuario->setFoto($path);
+                }
             }
         }else{
-            $usuario->foto = $usuario->getFoto();
+            
         }
         $usuario->fecha_creacion = $usuario->getFechaCreacion();
         $usuario->fecha_modificacion = date("d-m-Y");

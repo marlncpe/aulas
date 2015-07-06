@@ -26,7 +26,7 @@
                                         <td>{{ materia.nombre }}</td>
                                         <td>{{ materia.descripcion }}</td>
                                         <td>{{ materia.carrera.nombre }}</td>
-                                        <td>{{ materia.fecha_creacion }}</td>
+                                        <td>{{ materia.fechacreacion }}</td>
                                         <td>{{ link_to("materia/edit/"~materia.id, "Editar") }}</td>
                                         <td>{{ link_to("materia/delete/"~materia.id, "Borrar") }}</td>
                                     </tr>
