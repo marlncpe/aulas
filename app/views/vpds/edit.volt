@@ -34,7 +34,7 @@
                                                 </div>  
                                             </div>
                                             {{ hidden_field("id") }}
-                                            {{ hidden_field("fecha_creacion", "size" : 30) }}
+                                            {{ hidden_field("fecha_creacion") }}
                                             {{ submit_button("Editar ViceRectorado", 'class':'btn btn-info') }}
                                             
                                         </form>
