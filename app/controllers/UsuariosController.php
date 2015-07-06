@@ -293,6 +293,7 @@ class UsuariosController extends ControllerBase
             $usuario->clave = $this->request->getPost("clave");
             $usuario->correo = $this->request->getPost("correo");
             $usuario->telefono = $this->request->getPost("telefono");
+            $usuario->foto = ('img/usuario.png');
             $usuario->fecha_creacion = date("d-m-Y");
             $usuario->fecha_modificacion = " ";
             $usuario->id_estado = "1";

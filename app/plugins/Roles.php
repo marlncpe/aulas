@@ -44,7 +44,7 @@ class Roles extends Plugin
 				'carrera'	=> array('create' ,'search','new','edit','save'),
 				'materia' => array('create','search','new','edit','save'),
 				'estado' => array('create','search','new'),
-				'aulas' => array('create','search','index','acceptsolicitud','updatesolicitud','profile','new','searchSolicitud','reporte'),
+				'aulas' => array('create','search','index','acceptsolicitud','updatesolicitud','profile','new','searchSolicitud','reporte','estadistica'),
 				'usuarios'=> array('cradmin','save','edit','delete','profile','reporte','search')
 			);
 

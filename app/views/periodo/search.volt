@@ -32,7 +32,6 @@
                                             <td>{{ periodo.fechacreacion }}</td>
                                             <td>{{ periodo.fechainicio }}</td>
                                             <td>{{ periodo.fechafin }}</td>
-                                            <<td>{{ link_to("periodo/edit/"~periodo.id, "Editar") }}</td>
                                             <td>{{ link_to("periodo/delete/"~periodo.id, "Borrar") }}</td>
                                         </tr>
                                     {% endfor %}

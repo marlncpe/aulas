@@ -134,8 +134,7 @@
                                     <li class="sub-menu">
                                         <a href=""><i class="md md-trending-up"></i>Estadisticas</a>
                                         <ul>
-                                            <li><a href="{{ url('estadisticas/mes/') }}">Mensuales</a></li>
-                                            <li><a href="{{ url('estadisticas/semestre/') }}">Semestrales</a></li>
+                                            <li><a href="{{ url('aulas/estadistica/') }}">solicitudes</a></li>
                                         </ul>
                                     </li>
                                     <?php } ?>

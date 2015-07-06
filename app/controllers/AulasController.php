@@ -276,7 +276,25 @@ class AulasController extends ControllerBase
         $dompdf = new domPdf();
         $dompdf->load_html($html);
         $dompdf->render();
-        $dompdf->stream("prueba.pdf");
+        $dompdf->stream("prueba_solicitud.pdf");
+        
+    }
+
+    public function estadisticaAction(){
+        $this->view->solicitudTotal = Aulas::count();
+        $this->view->solicitudAtendida = Aulas::count("id_estado=1");
+        $this->view->solicitudEspera = Aulas::count("id_estado=6");
+        
+        $this->view->disable();      
+        $this->view->disableLevel(View::LEVEL_MAIN_LAYOUT);
+        
+        $html = $this->view->getRender("aulas", "estadistica", array(
+        "userid" => $solicitud->id
+        ));
+        $dompdf = new domPdf();
+        $dompdf->load_html($html);
+        $dompdf->render();
+        $dompdf->stream("prueba_estadistica.pdf");
         
     }
 }
