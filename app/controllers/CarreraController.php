@@ -176,7 +176,7 @@ class CarreraController extends ControllerBase
             ));
         }
 
-        $this->flash->success("carrera was updated successfully");
+        $this->flash->success("Carrera actualizada exitosamente");
 
         return $this->dispatcher->forward(array(
             "controller" => "carrera",

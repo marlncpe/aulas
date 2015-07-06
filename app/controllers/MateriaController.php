@@ -162,9 +162,9 @@ class MateriaController extends ControllerBase
         }
 
         $materia->nombre = $this->request->getPost("nombre");
-        $materia->id_carrera = $this->request->getPost("id_carrera");
+        $materia->id_carrera = $materia->getIdCarrera();
         $materia->descripcion = $this->request->getPost("descripcion");
-        $materia->fecha_creacion = $this->request->getPost("fecha_creacion");
+        $materia->fecha_creacion = $materia->getFechaCreacion();
         $materia->fecha_modificacion = date("d-m-Y");
         
 

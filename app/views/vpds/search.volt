@@ -5,7 +5,7 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <h2>Ver todos los vpds</h2>
+                            <h2>Ver todos los vicerrectorados</h2>
                         </div>
                         
                     

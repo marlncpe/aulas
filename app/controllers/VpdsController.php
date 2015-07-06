@@ -73,7 +73,7 @@ class VpdsController extends ControllerBase
 
             $vpd = Vpds::findFirstByid($id);
             if (!$vpd) {
-                $this->flash->error("vpds no se encuentra");
+                $this->flash->error("Vicerrectorado no se encuentra");
 
                 return $this->dispatcher->forward(array(
                     "controller" => "aulas",
@@ -126,7 +126,7 @@ class VpdsController extends ControllerBase
             ));
         }
 
-        $this->flash->success("vpds creado con exito");
+        $this->flash->success("Vicerrectorado creado con exito");
 
         return $this->dispatcher->forward(array(
             "controller" => "vpds",
@@ -153,7 +153,7 @@ class VpdsController extends ControllerBase
 
         $vpd = Vpds::findFirstByid($id);
         if (!$vpd) {
-            $this->flash->error("vpds no existe con el id: " . $id);
+            $this->flash->error("Vicerrectorado no existe con el id: " . $id);
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -181,7 +181,7 @@ class VpdsController extends ControllerBase
             ));
         }
 
-        $this->flash->success("vpds actualizado con exito!");
+        $this->flash->success("Vicerrectorado actualizado con exito!");
 
         return $this->dispatcher->forward(array(
             "controller" => "vpds",
@@ -200,7 +200,7 @@ class VpdsController extends ControllerBase
 
         $vpd = Vpds::findFirstByid($id);
         if (!$vpd) {
-            $this->flash->error("vpds no se encuentra");
+            $this->flash->error("Vicerrectorado no se encuentra");
 
             return $this->dispatcher->forward(array(
                 "controller" => "aulas",
@@ -220,7 +220,7 @@ class VpdsController extends ControllerBase
             ));
         }
 
-        $this->flash->success("vpds borrado con exito");
+        $this->flash->success("Vicerrectorado borrado con exito");
 
         return $this->dispatcher->forward(array(
             "controller" => "aulas",
