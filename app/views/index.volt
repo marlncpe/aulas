@@ -85,9 +85,7 @@
                                     <li>
                                         <a href="{{ url('aulas/new/') }}"><i class="md md-add-circle-outline"></i>Solicitud</a>
                                     </li>
-                                    <li>
-                                        <a href="{{ url('messages/send/') }}"><i class="md md-quick-contacts-mail"></i>Contactenos</a>
-                                    </li>
+                                    
                                     <?php } ?>
                                     <?php if ($this->session->has("admin")){ ?> 
                                     <li class="active">

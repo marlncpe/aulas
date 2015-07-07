@@ -44,7 +44,7 @@
 
                 <ul class="login-navigation">
                     <li data-block="#l-register" class="bgm-red">Registrate</li>
-                    <li data-block="#l-forget-password" class="bgm-orange">Olvido su Contraseña?</li>
+                    <!--<li data-block="#l-forget-password" class="bgm-orange">Olvido su Contraseña?</li>-->
                 </ul>
             </form>
         </div>
@@ -126,13 +126,13 @@
             <!--<a href="" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>-->
             
             <ul class="login-navigation">
-                <li data-block="#l-login" class="bgm-green">Iniciar Sesión</li>
-                <li data-block="#l-forget-password" class="bgm-orange">Olvido su Contraseña?</li>
+                <!--<li data-block="#l-login" class="bgm-green">Iniciar Sesión</li>
+               <li data-block="#l-forget-password" class="bgm-orange">Olvido su Contraseña?</li>-->
             </ul>
         </div>
         
-        <!-- Forgot Password -->
-        <div class="lc-block" id="l-forget-password">
+        <!--Forgot Password -->
+        <!--<div class="lc-block" id="l-forget-password">
             <p class="text-left">Introduzca su Correo Electronico; le enviaremos su contraseña.</p>
             
             <div class="input-group m-b-20">
@@ -142,7 +142,7 @@
                 </div>
             </div>
             
-            <a href="" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>
+            <a href="" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>-->
             
             <ul class="login-navigation">
                 <li data-block="#l-login" class="bgm-green">Iniciar Sesión</li>

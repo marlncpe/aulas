@@ -18,11 +18,7 @@
                             
                             <div class="card-body">
                                 <ul tabindex="1" style="overflow: hidden;" class="tab-nav tn-justified tn-icon" role="tablist">
-                                    <li role="presentation" class="">
-                                        <a aria-expanded="false" class="col-sx-4" href="#tab-1" aria-controls="tab-1" role="tab" data-toggle="tab">
-                                            <i class="md md-lock-open icon-tab"></i>Disponibles
-                                        </a>
-                                    </li>
+                                    
                                     <li class="active" role="presentation">
                                         <a aria-expanded="true" class="col-xs-4" href="#tab-2" aria-controls="tab-2" role="tab" data-toggle="tab">
                                             <i class="md md-lock icon-tab"></i>Activas

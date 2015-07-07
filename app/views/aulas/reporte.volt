@@ -24,7 +24,7 @@
 		<td>Apellidos: {{ solicitud.usuarios.apellidos }}</td>
 	</tr>
 	<tr>	
-		<td>ViceRectorado: {{ solicitud.usuarios.vpds.nombre }}</td>
+		<td>Vicerrectorado: {{ solicitud.usuarios.vpds.nombre }}</td>
 	</tr>
 	<tr>	
 		<td>Materia: {{ solicitud.materia.nombre }}</td>
