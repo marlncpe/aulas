@@ -226,8 +226,8 @@ class PeriodoController extends ControllerBase
         $this->flash->success("Periodo fue borrado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "periodo",
+            "action" => "search"
         ));
     }
 

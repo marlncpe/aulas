@@ -36,7 +36,7 @@ class VpdsController extends ControllerBase
 
         $vpds = Vpds::find();
         if (count($vpds) == 0) {
-            $this->flash->notice("No se encontro ViceRectorados en la busqueda");
+            $this->flash->notice("No se encontro Vicerrectorados en la busqueda");
 
             return $this->dispatcher->forward(array(
                 "controller" => "vpds",
@@ -109,7 +109,7 @@ class VpdsController extends ControllerBase
         $vpd = new Vpds();
 
         $vpd->nombre = $this->request->getPost("nombre");
-        $vpd->estado = "1";
+        $vpd->estado = $this->request->getPost("estado");
         $vpd->descripcion = $this->request->getPost("descripcion");
         $vpd->fecha_creacion = date("d-m-Y");
         $vpd->fecha_modificacion = " ";
@@ -223,8 +223,8 @@ class VpdsController extends ControllerBase
         $this->flash->success("Vicerrectorado borrado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "vpds",
+            "action" => "search"
         ));
     }
 

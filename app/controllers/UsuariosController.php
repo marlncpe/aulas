@@ -278,8 +278,8 @@ class UsuariosController extends ControllerBase
         $this->flash->success("Usuario borrado con exito");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "usuarios",
+            "action" => "search"
         ));
     }
     public function cradminAction(){

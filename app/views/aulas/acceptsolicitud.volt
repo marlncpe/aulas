@@ -8,7 +8,7 @@
                     <div class="col-sm-3">
                         <div class="card profile-view">
                             <div class="pv-header">
-                                {{ image("img/profile-pics/profile-pic.jpg") }}
+                                {{ image("solicitud.usuarios.foto") }}
                             </div>
                             
                             <div class="pv-body">
@@ -36,14 +36,13 @@
                                 <br />
                                 <h2>Datos de Solicitud</h2>
                                 <br />
-                                <p align="left">
-                                    <h3><i class="md md-phone"></i> Numero de Solicitud : {{ solicitud.id }}</h3>
-                                    <h3><i class="md md-phone"></i> Nombre de la Materia : {{ solicitud.materia.nombre }}</h3>
-                                    <h3><i class="md md-phone"></i> Cantidad de Alumnos : {{ solicitud.catnalumnos }}</h3>
+                                <p align="right">
+                                    <h3 align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="md md-my-library-books"></i>  Numero de Solicitud : {{ solicitud.id }}</h3>
+                                    <h3 align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="md md-style"></i> Nombre de la Materia : {{ solicitud.materia.nombre }}</h3>
+                                    <h3 align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="md md-account-circle"></i>  Cantidad de Alumnos : {{ solicitud.catnalumnos }}</h3>
+                                    <h3 align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="md md-school"></i>  Carrera : {{ solicitud.carrera.nombre }}</h3>
                                     <br />
-                                    <h3><i class="md md-event"></i> Fecha : {{ solicitud.fechacreacion }}</h3>
-                                    <h3><i class="md md-event"></i> Fecha Inicio : {{ solicitud.fechainicio }}</h3>
-                                    <h3><i class="md md-event"></i> Fecha Cierre : {{ solicitud.fechafin }}</h3>
+                                    <h3 align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="md md-event"></i>  Fecha de Solicitud: {{ solicitud.fechacreacion }}</h3>
                                     <br />
                                 </p>
                             </div>

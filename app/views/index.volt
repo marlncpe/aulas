@@ -134,7 +134,7 @@
                                     <li class="sub-menu">
                                         <a href=""><i class="md md-trending-up"></i>Estadisticas</a>
                                         <ul>
-                                            <li><a href="{{ url('aulas/estadistica/') }}">solicitudes</a></li>
+                                            <li><a href="{{ url('aulas/estadistica/') }}">Solicitudes</a></li>
                                         </ul>
                                     </li>
                                     <?php } ?>

@@ -218,8 +218,8 @@ class CarreraController extends ControllerBase
         $this->flash->success("La carrera se ha borrado exitosamente");
 
         return $this->dispatcher->forward(array(
-            "controller" => "aulas",
-            "action" => "searchSolicitud"
+            "controller" => "carrera",
+            "action" => "search"
         ));
     }
 

@@ -15,7 +15,7 @@
                                         <th>Cedula</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
-                                        <th>Vpds</th>
+                                        <th>Vicerrectorado</th>
                                         <th>Telefono</th>
                                         <th>Correo</th>
                                         <th>Fecha Registro</th>
@@ -44,11 +44,11 @@
                                         <td colspan="2" align="right">
                                             <table align="center">
                                                 <tr>
-                                                    <td>{{ link_to("periodo/search", "Primero") }} </td> 
-                                                    <td>| {{ link_to("periodo/search?page="~page.before, "Anterior") }} </td>
-                                                    <td>| {{ link_to("periodo/search?page="~page.next, "Siguiente") }} </td>
-                                                    <td>| {{ link_to("periodo/search?page="~page.last, "Ultima") }} </td>
-                                                    <td>| {{ page.current~"/"~page.total_pages }} </td>
+                                                    <td>{{ link_to("permisos/search", "Primero") }}</td>
+                                                    <td>{{ link_to("permisos/search?page="~page.before, "Anterior") }}</td>
+                                                    <td>{{ link_to("permisos/search?page="~page.next, "Siguiente") }}</td>
+                                                    <td>{{ link_to("permisos/search?page="~page.last, "Ultima") }}</td>
+                                                    <td>{{ page.current~"/"~page.total_pages }}</td>
                                                 </tr>
                                             </table>
                                         </td>

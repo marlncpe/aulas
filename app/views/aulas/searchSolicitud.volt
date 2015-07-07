@@ -35,7 +35,7 @@
                                             <div class="col-sm-6 col-md-3">
                                                 <div class="mini-charts-item bgm-green">
                                                     <div class="clearfix">
-                                                        <a href="../aulas/profile/{{ aulaSA.id }}">
+                                                        <a href="{{ url('/aulas/acceptsolicitud/') }}{{atendida.id}}">
                                                             <div class="count">
                                                                 <small>{{ atendida.usuarios.nombres }}</small>
                                                                 <h2>{{ atendida.materia.nombre }}</h2>

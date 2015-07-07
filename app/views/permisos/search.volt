@@ -42,10 +42,10 @@
             <td colspan="2" align="right">
                 <table align="center">
                     <tr>
-                        <td>{{ link_to("permisos/search", "First") }}</td>
-                        <td>{{ link_to("permisos/search?page="~page.before, "Previous") }}</td>
-                        <td>{{ link_to("permisos/search?page="~page.next, "Next") }}</td>
-                        <td>{{ link_to("permisos/search?page="~page.last, "Last") }}</td>
+                        <td>{{ link_to("permisos/search", "Primero") }}</td>
+                        <td>{{ link_to("permisos/search?page="~page.before, "Anterior") }}</td>
+                        <td>{{ link_to("permisos/search?page="~page.next, "Siguiente") }}</td>
+                        <td>{{ link_to("permisos/search?page="~page.last, "Ultima") }}</td>
                         <td>{{ page.current~"/"~page.total_pages }}</td>
                     </tr>
                 </table>

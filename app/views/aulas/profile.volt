@@ -6,8 +6,7 @@
                         <!-- Profile aula view -->
                         <div class="card profile-view">
                             <div class="pv-header">
-                                <img src="img/profile-pics/profile-pic.jpg" class="pv-main" alt="">
-                                {{ image('img/materia.jpg') }}
+                                {{ image('img/materia.jpg','height':'170','width':'170') }}
                             </div>
                             
                             <div class="pv-body">
