@@ -8,7 +8,7 @@
                     <div class="col-sm-3">
                         <div class="card profile-view">
                             <div class="pv-header">
-                                {{ image("solicitud.usuarios.foto") }}
+                                {{ image(solicitud.usuarios.foto) }}
                             </div>
                             
                             <div class="pv-body">
@@ -96,7 +96,7 @@
                     <!-- End URL Programatico-->
                                 
                     <!-- end Documentos data -->
-
+                    {% if solicitud.idestado == 6 %}
                     <!-- Button Accept solicitud -->
                     <div class="col-sm-6 col-md-3">
                         <div class="mini-charts-item bgm-blue">
@@ -110,6 +110,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                     <!-- End Button Accept Solicitud -->
 
                 </div>
