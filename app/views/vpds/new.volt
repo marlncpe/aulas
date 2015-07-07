@@ -13,19 +13,19 @@
 
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
-                                                        {{ text_field("nombre", 'class':'form-control', "size" : 30, 'data-toggle':'tooltip', 'data-placement':'bottom', 'title':'', 'data-original-title':'Introduzca el nombre del vicerrectorado, este campo no acepta numeros','pattern':'[a-zA-Z ]+') }}
+                                                        {{ text_field("nombre", 'class':'form-control', "size" : 30, 'data-toggle':'tooltip', 'data-placement':'bottom', 'title':'', 'data-original-title':'Introduzca el nombre del vicerrectorado, este campo no acepta numeros','pattern':'[a-zA-Z  ]+','required':'true')}}
                                                     </div>
                                                     <label class="fg-label">Nombre</label>
                                                 </div>
                                                  <div class="form-group fg-float">
                                                     <div class="fg-line">
-                                                        {{ text_field("descripcion", 'class':'form-control', "size" : 30, 'data-toggle':'tooltip', 'data-placement':'bottom', 'title':'', 'data-original-title':'Introduzca una breve descripción, este campo no acepta numeros','pattern':'[a-zA-Z ]+') }}
+                                                        {{ text_field("descripcion", 'class':'form-control', "size" : 30, 'data-toggle':'tooltip', 'data-placement':'bottom', 'title':'', 'data-original-title':'Introduzca una breve descripción, este campo no acepta numeros','pattern':'[a-zA-Z  ]+','required':'true') }}
                                                     </div>
                                                     <label class="fg-label">Descripción</label>
                                                 </div> 
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
-                                                        {{ text_field("estado", 'class':'form-control', "size" : 30, 'data-toggle':'tooltip', 'data-placement':'bottom', 'title':'', 'data-original-title':'Introduzca el estado donde se ubica el vicerrectorado, este campo no acepta numeros','pattern':'[a-zA-Z ]+') }}
+                                                        {{ text_field("estado", 'class':'form-control', "size" : 30, 'data-toggle':'tooltip', 'data-placement':'bottom', 'title':'', 'data-original-title':'Introduzca el estado donde se ubica el vicerrectorado, este campo no acepta numeros','pattern':'[a-zA-Z  ]+','required':'true') }}
                                                     </div>
                                                     <label class="fg-label">Estado</label>
                                                 </div>

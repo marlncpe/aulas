@@ -67,7 +67,7 @@
                 <div class="input-group m-b-20">
                     <span class="input-group-addon"><i class="md md-person"></i></span>
                     <div class="fg-line">
-                        <input type="text" class="form-control" placeholder="Cedula" name="cedula" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Introduzca su cedula ejemplo: (E-,V-)00.000.000" pattern="[0-9-.]+" required>
+                        <input type="text" class="form-control" placeholder="Cedula" name="cedula" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Introduzca su cedula ejemplo: 10.100.100" pattern="[0-9-.]+" required>
                     </div>
                 </div>
                 <div class="input-group m-b-20">

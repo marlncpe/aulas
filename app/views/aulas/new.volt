@@ -45,7 +45,7 @@
 
                                                 <div class="form-group fg-float">
                                                     <div class="fg-line">
-                                                        {{ text_field("catn_alumnos", 'class':'form-control',"type" : "numeric") }}
+                                                        {{ text_field("catn_alumnos", 'class':'form-control',"type" : "numeric",'data-toggle':'tooltip', 'data-placement':'bottom', 'title':'', 'data-original-title':'Introdusca la cantidad de alumnos que cursaran el Sub-proyecto') }}
                                                     </div>
                                                     <label class="fg-label">Cantidad de Alumnos</label>
                                                 </div>
